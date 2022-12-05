@@ -146,6 +146,10 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             //Note Includes the "badge-area"
             empty_dropdowns();
 
+            repopulate_inequality_dropdowns("Less-Than", result["Descending List"]);
+            repopulate_inequality_dropdowns("Greater-Than", result["Ascending List"]);
+            // repopulate_address_dropdown(result["Address List"], selected_address); 
+
             
             // $(".selectpicker").selectpicker("refresh"); 
 
@@ -208,9 +212,9 @@ export {trigger_date_dropdown, initilize_dictionary, update_graph_and_dropdowns}
         //     //! This is causing problem when using "reset" becuase the dictionary is empty
         //     let selected_address = dropdown_dictionary["Chosen_Addresses"].split(","); 
 
-        //     repopulate_inequality_dropdowns("Less-Than", result["Descending List"]);
-        //     repopulate_inequality_dropdowns("Greater-Than", result["Ascending List"]);
-        //     repopulate_address_dropdown(result["Address List"], selected_address); 
+            // repopulate_inequality_dropdowns("Less-Than", result["Descending List"]);
+            // repopulate_inequality_dropdowns("Greater-Than", result["Ascending List"]);
+            // repopulate_address_dropdown(result["Address List"], selected_address); 
             
             
         //     if (result["Link Address"] !== null)

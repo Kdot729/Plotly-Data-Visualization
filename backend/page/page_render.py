@@ -52,16 +52,22 @@ def page_rerender(frontend_dictionary):
     #Note Scatter Works
     if frontend_dictionary["Graph"] == "scatter":
         if frontend_dictionary["Specificity"] == "basic":
-            DataFrame = generic_listener.sort_new_DataFrame(frontend_dictionary, DataFrame)
-            plotly_graph = graph_functions.create_scatter_graph(DataFrame, "Buyer")
+            graph_DataFrame = generic_listener.sort_new_DataFrame(frontend_dictionary, DataFrame)
+            plotly_graph = graph_functions.create_scatter_graph(graph_DataFrame, "Buyer")
+
+            address_column_name = "Buyer"
+            inequality_column_name = "ETH"
             
             
     elif frontend_dictionary["Graph"] == "bar":
         if frontend_dictionary["Specificity"] == "count_transactions":
-            DataFrame = generic_listener.sort_new_DataFrame(frontend_dictionary, DataFrame)
-            plotly_graph = count_transactions_graph.create_count_transactions_graph(DataFrame)
+            graph_DataFrame = generic_listener.sort_new_DataFrame(frontend_dictionary, DataFrame)
+            plotly_graph = count_transactions_graph.create_count_transactions_graph(graph_DataFrame)
+            
     graphJSON = graph_functions.convert_Graph_to_JSON(plotly_graph)
-    return {"JSON Graph": graphJSON}
+    address_list = generic_sort.sort_Address_List(DataFrame, address_column_name)["Address List"]
+    inequality_dictionary = generic_sort.sort_Inequality_List(DataFrame, inequality_column_name)
+    return {"JSON Graph": graphJSON, "Address List": address_list} | inequality_dictionary
 
 
 

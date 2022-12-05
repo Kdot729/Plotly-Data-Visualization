@@ -64,10 +64,7 @@ def reassign_ETH_min_and_max_in_dictionary(dictionary, DataFrame):
         dictionary["Less_Than"] = DataFrame["ETH"].max()
     return {"Max_ETH": float(dictionary["Less_Than"]), "Min_ETH": float(dictionary["Greater_Than"])}
 
-def Chosen_Address_is_True(dictionary, DataFrame):
-    #Note sort_DataFrame_for_Addresses will return a list with two values in ii
-    address_DataFrame = sort_DataFrame_for_Addresses(dictionary, DataFrame)
-    return Get_ETH_DataFrame(dictionary, address_DataFrame)
+
 
 
 def Get_ETH_DataFrame(dictionary, DataFrame):
