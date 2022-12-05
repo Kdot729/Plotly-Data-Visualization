@@ -83,12 +83,11 @@ def sort_Inequality_List(DataFrame, column_name):
 
 def sort_Address_List(DataFrame, Address_Type):
     return {"Address List": sort_descending_and_drop_duplicates_list(DataFrame, Address_Type)}
-    
-def linking_address(selected_address):
-    if selected_address == None:
-        return {"Link_Address": None}
-    elif selected_address:
-        return {"Link_Address": selected_address} 
+
+#TODO Return a list of the latest address, dropping duplicates
+def linking_address(DataFrame):
+    pass
+
 
 
 

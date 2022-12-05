@@ -52,26 +52,16 @@ def page_rerender(frontend_dictionary):
     #Note Scatter Works
     if frontend_dictionary["Graph"] == "scatter":
         if frontend_dictionary["Specificity"] == "basic":
-            frontend_dictionary["DataFrame"] = DataFrame
-            new_dictionary = generic_listener.get_dictionary(frontend_dictionary)
-
-            #Note new_dictionary["DataFrame"] has the sorted DataFrame from interacting with dropdowns
-            inequality_column_name = "ETH"
-            plotly_graph = graph_functions.create_scatter_graph(new_dictionary["DataFrame"], frontend_dictionary["Address_Type"])
+            DataFrame = generic_listener.sort_new_DataFrame(frontend_dictionary, DataFrame)
+            plotly_graph = graph_functions.create_scatter_graph(DataFrame, "Buyer")
+            
             
     elif frontend_dictionary["Graph"] == "bar":
         if frontend_dictionary["Specificity"] == "count_transactions":
-            DataFrame = count_transactions_sort.create_count_transactions_bar_DataFrame(DataFrame)
-            frontend_dictionary["DataFrame"] = DataFrame
-            new_dictionary = generic_listener.get_dictionary(frontend_dictionary)
-
-            #Note new_dictionary["DataFrame"] has the sorted DataFrame from interacting with dropdowns
-            inequality_column_name = "Transaction Count"
-            plotly_graph = count_transactions_graph.create_count_transactions_graph(new_dictionary["DataFrame"])
-
-
-    inequality_dictionary = generic_sort.sort_Inequality_List(new_dictionary["DataFrame"], inequality_column_name)
+            DataFrame = generic_listener.sort_new_DataFrame(frontend_dictionary, DataFrame)
+            plotly_graph = count_transactions_graph.create_count_transactions_graph(DataFrame)
     graphJSON = graph_functions.convert_Graph_to_JSON(plotly_graph)
+    return {"JSON Graph": graphJSON}
 
-    return {"JSON Graph": graphJSON, "Link Address":    
-        new_dictionary["Link_Address"], "Address List": new_dictionary["Address List"]} | inequality_dictionary  
+
+
