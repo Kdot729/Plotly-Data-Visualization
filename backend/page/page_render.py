@@ -33,7 +33,7 @@ def initial_page_render(Graph, Specificity, Tool):
             inequality_column_name = "Transaction Count"
             plotly_graph = count_transactions_graph.create_count_transactions_graph(DataFrame)
 
-    address_list = generic_sort.sort_Address_List(DataFrame, address_column_name)["Address List"]
+    address_list = generic_sort.sort_descending_and_drop_duplicates_list(DataFrame, address_column_name)
     inequality_dictionary = generic_sort.sort_Inequality_List(DataFrame, inequality_column_name)
     # #FIXME Need to look at convert_Graph_to_JSON()
     graphJSON = graph_functions.convert_Graph_to_JSON(plotly_graph)
@@ -46,8 +46,8 @@ def initial_page_render(Graph, Specificity, Tool):
 
 
 def page_rerender(frontend_dictionary):
-    DataFrame = generic_sort.create_DataFrame(frontend_dictionary["Tool"])
 
+    DataFrame = generic_sort.create_DataFrame(frontend_dictionary["Tool"])
 
     #Note Scatter Works
     if frontend_dictionary["Graph"] == "scatter":
@@ -55,19 +55,14 @@ def page_rerender(frontend_dictionary):
             graph_DataFrame = generic_listener.sort_new_DataFrame(frontend_dictionary, DataFrame)
             plotly_graph = graph_functions.create_scatter_graph(graph_DataFrame, "Buyer")
 
-            address_column_name = "Buyer"
-            inequality_column_name = "ETH"
-            
-            
     elif frontend_dictionary["Graph"] == "bar":
         if frontend_dictionary["Specificity"] == "count_transactions":
             graph_DataFrame = generic_listener.sort_new_DataFrame(frontend_dictionary, DataFrame)
             plotly_graph = count_transactions_graph.create_count_transactions_graph(graph_DataFrame)
-            
+
     graphJSON = graph_functions.convert_Graph_to_JSON(plotly_graph)
-    address_list = generic_sort.sort_Address_List(DataFrame, address_column_name)["Address List"]
-    inequality_dictionary = generic_sort.sort_Inequality_List(DataFrame, inequality_column_name)
-    return {"JSON Graph": graphJSON, "Address List": address_list} | inequality_dictionary
+
+    return {"JSON Graph": graphJSON}
 
 
 

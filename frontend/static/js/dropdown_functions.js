@@ -121,6 +121,10 @@ function check_ID(ID){
             "Greater_Than": $("select#Greater-Than").val(),          //* Using JQuery to get Greater-Than selected value
 
         }
+        // if (ID == "Less-Than")
+        // {
+        //     $("#Less-Than").val(specific_dictionary["Less_Than"]).change();
+        // }
         return specific_dictionary
     }
 
@@ -143,15 +147,11 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             //Note JSON.parse(result["JSON Graph"]) converts data into a object. Need to have it as an object
             Plotly.newPlot("chart", JSON.parse(result["JSON Graph"]), {staticPlot: true});
             
-            //Note Includes the "badge-area"
-            empty_dropdowns();
-
-            repopulate_inequality_dropdowns("Less-Than", result["Descending List"]);
-            repopulate_inequality_dropdowns("Greater-Than", result["Ascending List"]);
-            // repopulate_address_dropdown(result["Address List"], selected_address); 
-
             
-            // $(".selectpicker").selectpicker("refresh"); 
+            $('#badge-area').empty();
+
+
+
 
             // trigger_date_dropdown(event);
 
@@ -162,11 +162,11 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
 function empty_dropdowns()
 {   
     $('#badge-area').empty();
-    $("#Less-Than").empty();
-    $("#Greater-Than").empty();
+    // $("#Less-Than").empty();
+    // $("#Greater-Than").empty();
 
-    //! Forget what this does, but "Address" dropdown works. I think it removes all the options
-    $("#Address option").remove();
+    // //! Forget what this does, but "Address" dropdown works. I think it removes all the options
+    // $("#Address option").remove();
 };
 
 function repopulate_inequality_dropdowns(selector_ID, inequality_list)

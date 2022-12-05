@@ -19,7 +19,8 @@ def sort_new_DataFrame(dictionary, DataFrame):
         pass
 
     elif (dictionary["ID of Dropdown"] == "Address"):
-        pass
+        print(generic_sort.sort_DataFrame_for_Addresses(dictionary, DataFrame))
+        return generic_sort.sort_DataFrame_for_Addresses(dictionary, DataFrame)
 
     elif (dictionary["ID of Dropdown"] == "Less-Than") or (dictionary["ID of Dropdown"] == "Greater-Than"):
         return generic_sort.Get_ETH_DataFrame(dictionary, DataFrame)

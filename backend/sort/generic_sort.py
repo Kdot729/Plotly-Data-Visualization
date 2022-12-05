@@ -37,38 +37,22 @@ def sort_descending_and_drop_duplicates_list(DataFrame, column_name):
 def sort_ascending_and_drop_duplicates_list(DataFrame, column_name):
     return ((DataFrame[column_name].drop_duplicates()).sort_values(ascending=True)).tolist() 
 
-def condition_for_Date_DataFrame(dictionary):
-    print("Start", dictionary["Start_Date"], "end", dictionary["End_Date"])
-    if (dictionary["ID of Dropdown"] == "None") or (dictionary["ID of Dropdown"] == "Address-Type"):
-        DataFrame =  sort_Date_DataFrame(None, None, dictionary["DataFrame"])
-    elif (dictionary["ID of Dropdown"] != "None") or (dictionary["ID of Dropdown"] != "Address-Type"):
-        DataFrame = sort_Date_DataFrame(dictionary["Start_Date"], dictionary["End_Date"], dictionary["DataFrame"])
-    return DataFrame
 
 def sort_DataFrame_for_Addresses(dictionary, DataFrame):
-    #! Need to pass the converted_list to the frontend and use that instead of the "Address List"
     converted_list = (dictionary["Chosen_Addresses"].rstrip()).split(",")
-    return DataFrame[DataFrame[dictionary["Address_Type"]].isin(converted_list)]
+    #FIXME Hardcoded the "Buyer" need to change it to be dynamic
+    return DataFrame[DataFrame["Buyer"].isin(converted_list)]
 
 def sort_DataFrame_for_ETH_Inequality(ETH_values, DataFrame):
     return DataFrame[(DataFrame["ETH"] >= ETH_values["Min_ETH"]) &
                                 (DataFrame["ETH"] <= ETH_values["Max_ETH"])]
 
-def reassign_ETH_min_and_max_in_dictionary(dictionary, DataFrame):
-    if (dictionary["Less_Than"] == "") and (dictionary["Greater_Than"] == ""):
-        dictionary["Less_Than"] = DataFrame["ETH"].max()
-        dictionary["Greater_Than"] = DataFrame["ETH"].min()
-    elif dictionary["Less_Than"] and (dictionary["Greater_Than"] == ""):
-        dictionary["Greater_Than"] = DataFrame["ETH"].min()
-    elif (dictionary["Less_Than"] == "") and dictionary["Greater_Than"]:
-        dictionary["Less_Than"] = DataFrame["ETH"].max()
-    return {"Max_ETH": float(dictionary["Less_Than"]), "Min_ETH": float(dictionary["Greater_Than"])}
 
 
 
 
 def Get_ETH_DataFrame(dictionary, DataFrame):
-    ETH_values = reassign_ETH_min_and_max_in_dictionary(dictionary, DataFrame)
+    ETH_values = {"Max_ETH": float(dictionary["Less_Than"]), "Min_ETH": float(dictionary["Greater_Than"])}
     ETH_DataFrame = sort_DataFrame_for_ETH_Inequality(ETH_values, DataFrame) 
     return ETH_DataFrame
 
@@ -78,8 +62,7 @@ def sort_Inequality_List(DataFrame, column_name):
     ascending_list = sort_ascending_and_drop_duplicates_list(DataFrame, column_name)
     return {"Descending List": descending_list, "Ascending List": ascending_list}
 
-def sort_Address_List(DataFrame, Address_Type):
-    return {"Address List": sort_descending_and_drop_duplicates_list(DataFrame, Address_Type)}
+
 
 #TODO Return a list of the latest address, dropping duplicates
 def linking_address(DataFrame):
