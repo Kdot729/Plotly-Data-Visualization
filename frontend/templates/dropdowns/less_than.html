@@ -7,7 +7,7 @@
     </button>
     <div class="inequality-dropdown content" id="Less-Than-Dropdown">
         <select id="Less-Than" class="custom-dropdown"> 
-            <option value="" disabled selected></option>   
+            <!-- <option value="" disabled selected></option>    -->
             <!-- FIXME Why is it named greater_than when it's in the less_than file? -->
             {% for greater_than in inequality_dictionary["Descending List"] %}   
             <option value="{{ greater_than }}" id="{{ greater_than }}">{{ greater_than }}</option>  
