@@ -53,7 +53,7 @@ def page_rerender(frontend_dictionary):
     if frontend_dictionary["Graph"] == "scatter":
         if frontend_dictionary["Specificity"] == "basic":
             graph_DataFrame = generic_listener.sort_new_DataFrame(frontend_dictionary, DataFrame)
-            plotly_graph = graph_functions.create_scatter_graph(graph_DataFrame, "Buyer")
+            plotly_graph = graph_functions.create_scatter_graph(graph_DataFrame, frontend_dictionary["Address_Type"])
 
     elif frontend_dictionary["Graph"] == "bar":
         if frontend_dictionary["Specificity"] == "count_transactions":

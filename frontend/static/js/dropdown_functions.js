@@ -90,6 +90,7 @@ function check_ID(ID){
         {
             "Start_Date": $("#Start-Date").val(),                    //* Using JQuery to get Start-Date value
             "End_Date": $("#End-Date").val(),                        //* Using JQuery to get End-Date value
+            "Address_Type": $("#Address-Type").val()
         }
         return specific_dictionary
     }
@@ -99,6 +100,7 @@ function check_ID(ID){
         let specific_dictionary = 
         {
             "Chosen_Addresses": ($("#Address").val()).toString(),  //* Using JQuery to get Address value, then converting to string
+            "Address_Type": $("#Address-Type").val()
         }
         return specific_dictionary
     }
@@ -107,7 +109,7 @@ function check_ID(ID){
     else if (ID == "Address-Type"){
         let specific_dictionary = 
         {
-            "Address_Type": $("#Address-Type").val(),               //* Using JQuery to get Address-Type value
+            "Address_Type": $("#Address-Type").val()               //* Using JQuery to get Address-Type value
         }
         return specific_dictionary
     }
@@ -119,6 +121,7 @@ function check_ID(ID){
         {
             "Less_Than": $("select#Less-Than").val(),               //* Using JQuery to get Less-Than selected value
             "Greater_Than": $("select#Greater-Than").val(),          //* Using JQuery to get Greater-Than selected value
+            "Address_Type": $("#Address-Type").val()
 
         }
         // if (ID == "Less-Than")

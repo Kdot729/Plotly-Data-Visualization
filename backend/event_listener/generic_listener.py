@@ -16,7 +16,7 @@ def sort_new_DataFrame(dictionary, DataFrame):
         return generic_sort.sort_Date_DataFrame(dictionary["Start_Date"], dictionary["End_Date"], DataFrame)
 
     elif (dictionary["ID of Dropdown"] == "Address-Type"):
-        pass
+        return DataFrame
 
     elif (dictionary["ID of Dropdown"] == "Address"):
         print(generic_sort.sort_DataFrame_for_Addresses(dictionary, DataFrame))
