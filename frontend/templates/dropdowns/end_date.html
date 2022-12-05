@@ -1,0 +1,13 @@
+{% block end_date %}
+
+<div class="custom-tooltip">
+    <span class="custom-tooltip-text" id="End-Date-Tooltip">End Date</span>
+    <button id="End-Date-Icon-Button" class="override-button">
+        <i class="fa-regular fa-calendar-days style-icon" id="End-Date-Icon"></i>
+    </button>
+    <div class="date-dropdown content" id="End-Date-Dropdown">                                         
+        <input id="End-Date" class="custom-input text-center" type="date" value="{{ date_dictionary['Max Date'] }}" min="{{ date_dictionary['Min Date'] }}" max="{{ date_dictionary['Max Date'] }}"/>
+    </div>       
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% block navbar %}
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav mr-auto">
+
+        <!--Note Thimble-->
+        <li class="nav-item dropdown dropup">
+          <a class="nav-link dropdown-toggle" href="#" id="Thimble" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Thimble
+          </a>
+          <div class="dropdown-menu" aria-labelledby="Thimble">
+            <a class="dropdown-item" href="{{ url_for('route_page', Graph='scatter', Specificity='basic', Tool='thimble') }}">Scatter</a>
+            <a class="dropdown-item" href="{{ url_for('route_page', Graph='bar', Specificity='count_transactions', Tool='thimble') }}">Bar</a>
+          </div> 
+
+
+        </li>
+
+        <!--Note Scissor-->
+        <li class="nav-item dropdown dropup">
+          <a class="nav-link dropdown-toggle" href="#" id="Scissor" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Scissor
+          </a>
+          <div class="dropdown-menu" aria-labelledby="Scissor">
+            <a class="dropdown-item" href="{{ url_for('route_page', Graph='scatter', Specificity='basic', Tool='scissor') }}">Scatter</a>
+            <a class="dropdown-item" href="{{ url_for('route_page', Graph='bar', Specificity='count_transactions', Tool='scissor') }}">Bar</a>
+          </div> 
+        </li>
+
+        <!--Note Tape-->
+        <li class="nav-item dropdown dropup">
+          <a class="nav-link dropdown-toggle" href="#" id="Tape" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Tape
+          </a>
+          <div class="dropdown-menu" aria-labelledby="Tape">
+            <a class="dropdown-item" href="{{ url_for('route_page', Graph='scatter', Specificity='basic', Tool='tape') }}">Scatter</a>
+            <a class="dropdown-item" href="{{ url_for('route_page', Graph='bar', Specificity='count_transactions', Tool='tape') }}">Bar</a>
+            </div>  
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+{% endblock %}

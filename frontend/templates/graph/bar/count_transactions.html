@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="filler-div"></div>
+    <div class="grid-container">
+        {% include "dropdowns/address.html" %}
+        {% include "dropdowns/less_than.html" %}
+        {% include "dropdowns/greater_than.html" %}
+        {% include "dropdowns/external_website.html" %}  
+
+    </div>
+    <div id="badge-area" class="badge-pill-grid"></div>
+    <div>
+        {% include "graph/base_graph.html" %}
+    </div>
+
+
+
+
+{% endblock %}
+
