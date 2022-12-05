@@ -16,7 +16,7 @@ def create_DataFrame(Tool):
     #* Condense and dynamic way of creating DataFrame 
     #Note Need to use "lower()" function because csv file are lowercased  
     #! Need to change csv2 back to csv. Using csv2 to load graph faster         
-    print(f"csv2\\updated_{Tool.lower()}_transactions.csv")                
+    print(f"csv\\updated_{Tool.lower()}_transactions.csv")                
     return panda.read_csv(f"csv2\\updated_{Tool.lower()}_transactions.csv",
                                         names=('Date', 'Hash', 'ETH', 'Seller', 'Buyer')
                           )        
