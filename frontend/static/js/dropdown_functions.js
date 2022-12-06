@@ -16,6 +16,7 @@ function trigger_date_dropdown(event) {
 
         let button_id = value + "-Icon-Button"
         let tooltip_id = value + "-Tooltip"
+        let icon_id = value + "-Icon"
         console.log(tooltip_id)
         
         if (event.target.id != value)
@@ -25,6 +26,9 @@ function trigger_date_dropdown(event) {
 
         //Note Changes tooltiptext to disabled
         $(`#${tooltip_id}`).text("Disabled")
+        
+        //Note Changes icon color to red
+        $(`#${icon_id}`).css("color", "red")
         }
         // if (){
         //     $(`#${value}`).css("color", "red")
