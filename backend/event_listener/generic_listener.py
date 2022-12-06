@@ -12,7 +12,7 @@ panda.set_option('display.max_colwidth', None)
 #FIXME dictionary["Address_Type"] doesn't work with bar chart
 def sort_new_DataFrame(dictionary, DataFrame):
 
-    if (dictionary["ID of Dropdown"] == "None") or (dictionary["ID of Dropdown"] == "Start-Date") or (dictionary["ID of Dropdown"] == "End-Date"):
+    if (dictionary["ID of Dropdown"] == "Start-Date") or (dictionary["ID of Dropdown"] == "End-Date"):
         return generic_sort.sort_Date_DataFrame(dictionary["Start_Date"], dictionary["End_Date"], DataFrame)
 
     elif (dictionary["ID of Dropdown"] == "Address-Type"):

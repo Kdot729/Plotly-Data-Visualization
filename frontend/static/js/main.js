@@ -3,7 +3,7 @@ import {check_website} from "./website_link.js"
 
 let string_url = window.location.href
 let split_url = string_url.split("/")
-console.log(split_url)
+
 
 $(document).ready(function () {
 

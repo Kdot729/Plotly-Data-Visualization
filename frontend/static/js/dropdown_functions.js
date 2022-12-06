@@ -2,20 +2,37 @@ import {check_website} from "./website_link.js"
 
 function trigger_date_dropdown(event) {
 
-    if ((event.target.id != "Start-Date") && (event.target.id != "End-Date") && (event.target.id != "Address-Type"))
-    { 
-        disable_dropdown("True")
-    }
-    
-    if (event.target.id == "Address-Type")
-    { 
-        disable_dropdown("False")
+    let id_dictionary = {
+        "1st ID": "Start-Date",
+        "2nd ID": "End-Date",
+        "3rd ID": "Type-Address",
+        "4th ID": "Address",
+        "5th ID": "Less-Than",
+        "6th ID": "Greater-Than",
     }
 
-    if(($("#Address").val().length == 0) && ($("#Less-Than").val() == "") && ($("#Greater-Than").val() == ""))
-    {
-        disable_dropdown("False")
-    }
+    for (let [key, value] of Object.entries(id_dictionary)) {
+        console.log(event.target.id);
+
+        let button_id = value + "-Icon-Button"
+        let tooltip_id = value + "-Tooltip"
+        console.log(tooltip_id)
+        
+        if (event.target.id != value)
+        {
+        //Note Makes button unclickable
+        $(`#${button_id}`).prop("disabled", true);
+
+        //Note Changes tooltiptext to disabled
+        $(`#${tooltip_id}`).text("Disabled")
+        }
+        // if (){
+        //     $(`#${value}`).css("color", "red")
+        //     //Note Changes tooltiptext to disabled
+        //     $(`#${tooltip_id}`).text("Disabled")
+        // }
+      }
+
 }
 
 function disable_dropdown(date_boolean){
@@ -58,24 +75,24 @@ function initilize_dictionary(event)
 
     if (split_url[3] == "scatter")  
     {
-        console.log('1')
+
         if (split_url[4] == "basic")
         {
 
             let new_dictionary = check_ID(standard_dropdown_dictionary["ID of Dropdown"])
             let finished_dictionary = Object.assign({}, standard_dropdown_dictionary, new_dictionary);  
-            console.table(finished_dictionary)
+            
             return finished_dictionary
         }
     }
     else if (split_url[3] == "bar")
     {   
-        console.log('2')
+
         if (split_url[4] == "count_transactions")
         {
             let new_dictionary = check_ID(standard_dropdown_dictionary["ID of Dropdown"])
             let finished_dictionary = Object.assign({}, standard_dropdown_dictionary, new_dictionary);  
-            console.table(finished_dictionary)
+
             return finished_dictionary
 
         }
@@ -152,7 +169,7 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             
             
             $('#badge-area').empty();
-
+            trigger_date_dropdown(event);
 
 
 
@@ -227,7 +244,7 @@ export {trigger_date_dropdown, initilize_dictionary, update_graph_and_dropdowns}
             
         //     }
             
-        //     $(".selectpicker").selectpicker("refresh"); 
+        //    
 
         //     trigger_date_dropdown(event);
 
