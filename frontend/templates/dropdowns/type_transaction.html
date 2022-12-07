@@ -1,0 +1,18 @@
+{% block type_transaction %}
+
+<div class="custom-tooltip">
+    <span class="custom-tooltip-text" id="Type-Transaction-Tooltip">Transaction Type</span>
+    <button id="Type-Transaction-Icon-Button" class="override-button">
+        <i class="fa-solid fa-filter style-icon" id="Type-Transaction-Icon"></i>
+    </button>
+    <div class="inequality-dropdown content" id="Type-Transaction-Dropdown">
+        <select class="custom-dropdown" name="Type-of-Transaction" id="Transaction-Type">
+            <option value="Total">Buyer</option>
+            <option value="Buy">Buyer</option>
+            <option value="Sell">Seller</option>
+        </select>
+    </div>
+
+</div>
+
+{% endblock %}
