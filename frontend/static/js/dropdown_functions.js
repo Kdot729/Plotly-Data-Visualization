@@ -30,11 +30,7 @@ function trigger_date_dropdown(event) {
         //Note Changes icon color to red
         $(`#${icon_id}`).css("color", "red")
         }
-        // if (){
-        //     $(`#${value}`).css("color", "red")
-        //     //Note Changes tooltiptext to disabled
-        //     $(`#${tooltip_id}`).text("Disabled")
-        // }
+
       }
 
 }
