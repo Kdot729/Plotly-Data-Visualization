@@ -26,7 +26,7 @@ def initial_page_render(Graph, Specificity, Tool):
 
     elif Specificity == "count_transactions":
         DataFrame = count_transactions_sort.create_count_transactions_bar_DataFrame(DataFrame)
-        column_dictionary = {"Address": "Address", "Inequality": "Transaction Count"}
+        column_dictionary = {"Address": "Address", "Inequality": "Total"}
         plotly_graph = count_transactions_graph.create_count_transactions_graph(DataFrame)
 
     address_list = generic_sort.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address"])
@@ -53,7 +53,7 @@ def page_rerender(frontend_dictionary):
 
     elif frontend_dictionary["Specificity"] == "count_transactions":
         DataFrame = count_transactions_sort.create_count_transactions_bar_DataFrame(DataFrame)
-        column_dictionary = {"Address": "Address", "Inequality": "Transaction Count"}
+        column_dictionary = {"Address": "Address", "Inequality": "Total"}
         graph_DataFrame = generic_listener.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
         plotly_graph = count_transactions_graph.create_count_transactions_graph(graph_DataFrame)
 

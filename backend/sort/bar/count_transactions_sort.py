@@ -1,28 +1,35 @@
 import pandas as panda
  
 def create_count_transactions_bar_DataFrame(DataFrame):      
-        #Note Count their transaction in their corresponding columns
         seller_count = DataFrame["Seller"].value_counts()
         buyer_count =  DataFrame["Buyer"].value_counts()
+        # print("seller",seller_count)
+        # print("buyer", buyer_count)
+
+        #Note Convert series to DataFrame
+        seller_count = seller_count.to_frame()
+        buyer_count = buyer_count.to_frame()
 
 
-        #Note Make so the index is also a column which is the address
-        DataFrame_seller = seller_count.to_frame().reset_index(level=0)
-        DataFrame_buyer = buyer_count.to_frame().reset_index(level=0)
+        #Note Convert the index to a column called Address
+        seller_count = seller_count.reset_index(level=0)
+        buyer_count = buyer_count.reset_index(level=0)
 
-        #Note Combine both Dataframe and fill the NaN values with 0
-        DataFrame_merge = (panda.concat([DataFrame_seller, DataFrame_buyer], ignore_index=True, sort=False)).fillna(0) 
+
+        # print(seller_count)
+        # print("")
+        # print(buyer_count)
+
+        #Note combine both DataFrame and fill the NaN values with 0
+        result = (panda.concat([seller_count, buyer_count])).fillna(0)
 
         #Note Rename the columns
-        DataFrame_merge.columns = ["Address", "Sell", "Buy"] 
+        result.columns = ["Address", "Sell", "Buy"] 
 
-        #Note Combine the "Sell" and "Buy" column into one column called "Type"
-        #Note And make their values into it's own column called "Transaction Count"
-        format_DataFrame = DataFrame_merge.melt(id_vars=["Address"], 
-                var_name="Type", 
-                value_name="Transaction Count")
+        #Note Combine the "Sell" and "Buy" to a new column "Total" which is their total transactions
+        result["Total"] = result["Sell"] + result["Buy"]
 
-        #Note Shorten the string so the x-axis looks better
-        format_DataFrame["Address"] = format_DataFrame["Address"].str.slice(0,8)
 
-        return format_DataFrame
+        return result
+
+ 
