@@ -5,19 +5,28 @@ function disabled_dropdown(event) {
     //Note Select all "span" tag where the parent has a class "custom-tooltip"
     let tooltip_id_list = $.map($('.custom-tooltip > span'), span_id => span_id.id);
 
+    console.log(event.target.id)
+    console.log(tooltip_id_list)
+    
 
     //Note Passing tooltip id because it's the easiest to split
     for(let i = 0; i < tooltip_id_list.length; i++)
     {
-    let split_id = tooltip_id_list[i].split("-")
-    split_id = split_id[0] + "-" + split_id[1]
+    let split_id = tooltip_id_list[i].split("Tooltip")[0]
+    
     console.log(split_id)
-    let button_id = split_id + "-Icon-Button"
-    let tooltip_id = split_id + "-Tooltip"
-    let icon_id = split_id + "-Icon"
+    let button_id = split_id + "Icon-Button"
+    let tooltip_id = split_id + "Tooltip"
+    let icon_id = split_id + "Icon"
+
     console.log(button_id, tooltip_id, icon_id)
-    console.log(event.target.id)
-        if (event.target.id != split_id)
+    
+    //Note Get get of last character which is "-" because event.target.id doesn't have a "-" 
+    let conditional_id = split_id.slice(0, -1)
+    console.log("conditional", conditional_id)
+
+        //Note Harded coding that the "Website" dropdown doesn't get disabled
+        if ((event.target.id != conditional_id) && (conditional_id != "Website"))
         {
         //Note Makes button unclickable
         $(`#${button_id}`).prop("disabled", true);
@@ -29,28 +38,6 @@ function disabled_dropdown(event) {
         $(`#${icon_id}`).css("color", "red")
         }
     }
-
-
-    // for (let [key, value] of Object.entries(id_dictionary)) {
-    //   console.log("value", value)
-    //   let button_id = value + "Icon-Button"
-    //   let tooltip_id = value + "Tooltip"
-    //   let icon_id = value + "Icon"
-    //   console.log(tooltip_id)
-      
-    //   if (event.target.id != value)
-    //   {
-    //   //Note Makes button unclickable
-    //   $(`#${button_id}`).prop("disabled", true);
-  
-    //   //Note Changes tooltiptext to disabled
-    //   $(`#${tooltip_id}`).text("Disabled")
-      
-    //   //Note Changes icon color to red
-    //   $(`#${icon_id}`).css("color", "red")
-    //   }
-  
-    //   }
   }
 
 function initilize_dictionary(event)
@@ -163,8 +150,6 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             disabled_dropdown(event);
 
 
-
-            // trigger_date_dropdown(event);
 
 
         }
