@@ -1,40 +1,41 @@
 import {check_website} from "./website_link.js"
 
-function trigger_date_dropdown(event) {
-    //FIXME Need to make this dynamic
-    let id_dictionary = {
-        "1st ID": "Start-Date",
-        "2nd ID": "End-Date",
-        "3rd ID": "Type-Address",
-        "4th ID": "Address",
-        "5th ID": "Less-Than",
-        "6th ID": "Greater-Than",
-        "7th ID": "Type-Transaction"
+function disabled_dropdown(event) {
+
+    //Note Select all "span" tag where the parent has a class "custom-tooltip"
+    let tooltip_id_list = $.map($('.custom-tooltip > span'), span_id => span_id.id);
+
+    let id_dictionary = {}
+
+    //Note Passing tooltip id because it's the easiest to split
+    for(let i = 0; i < tooltip_id_list.length; i++)
+    {
+    let split_id = tooltip_id_list[i].split("Tooltip")[0]
+    id_dictionary[i] = split_id
     }
+    console.log(id_dictionary)
 
     for (let [key, value] of Object.entries(id_dictionary)) {
-        console.log(event.target.id);
-
-        let button_id = value + "-Icon-Button"
-        let tooltip_id = value + "-Tooltip"
-        let icon_id = value + "-Icon"
-        console.log(tooltip_id)
-        
-        if (event.target.id != value)
-        {
-        //Note Makes button unclickable
-        $(`#${button_id}`).prop("disabled", true);
-
-        //Note Changes tooltiptext to disabled
-        $(`#${tooltip_id}`).text("Disabled")
-        
-        //Note Changes icon color to red
-        $(`#${icon_id}`).css("color", "red")
-        }
-
+      console.log("value", value)
+      let button_id = value + "Icon-Button"
+      let tooltip_id = value + "Tooltip"
+      let icon_id = value + "Icon"
+      console.log(tooltip_id)
+      
+      if (event.target.id != value)
+      {
+      //Note Makes button unclickable
+      $(`#${button_id}`).prop("disabled", true);
+  
+      //Note Changes tooltiptext to disabled
+      $(`#${tooltip_id}`).text("Disabled")
+      
+      //Note Changes icon color to red
+      $(`#${icon_id}`).css("color", "red")
       }
-
-}
+  
+      }
+  }
 
 function initilize_dictionary(event)
 {
@@ -117,10 +118,6 @@ function check_ID(ID){
             "Address_Type": $("#Address-Type").val()
 
         }
-        // if (ID == "Less-Than")
-        // {
-        //     $("#Less-Than").val(specific_dictionary["Less_Than"]).change();
-        // }
         return specific_dictionary
     }
 
@@ -145,7 +142,9 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             
             
             $('#badge-area').empty();
-            trigger_date_dropdown(event);
+
+
+            disabled_dropdown(event);
 
 
 
@@ -186,7 +185,7 @@ function repopulate_address_dropdown(address_list, selected_addresses)
 };
 
 
-export {trigger_date_dropdown, initilize_dictionary, update_graph_and_dropdowns}
+export {disabled_dropdown, initilize_dictionary, update_graph_and_dropdowns}
 
 
 

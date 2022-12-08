@@ -1,79 +1,19 @@
-import {trigger_date_dropdown, initilize_dictionary, update_graph_and_dropdowns} from "./dropdown_functions.js"
+import {disabled_dropdown, initilize_dictionary, update_graph_and_dropdowns} from "./dropdown_functions.js"
 import {check_website} from "./website_link.js"
 
 let string_url = window.location.href
 let split_url = string_url.split("/")
 
 
-// let id_dictionary = $(".custom-tooltip").children("button[id$='Button']")
-//Note Select all "button" tag where the parent has a class "custom-tooltip"
-let button_id_list = $.map($('.custom-tooltip > button'), button_id => button_id.id);
-console.log(button_id_list)
-
-//Note Select all "span" tag where the parent has a class "custom-tooltip"
-let tooltip_id_list = $.map($('.custom-tooltip > span'), span_id => span_id.id);
-console.log(tooltip_id_list)
-
-//Note Select all "i" tag where the parent is a "button" tag
-let icon_id_list = $.map($('button > i'), i_id => i_id.id);
-console.log(icon_id_list)
-
-let button_id_dictionary = {}
-let tooltip_id_dictionary = {}
-let icon_id_dictionary = {}
-
-for(let i = 0; i < button_id_list.length; i++)
-{
-  button_id_dictionary[i] = button_id_list[i]
-}
-for(let i = 0; i < tooltip_id_list.length; i++)
-{
-  tooltip_id_dictionary[i] = tooltip_id_list[i]
-}
-for(let i = 0; i < icon_id_list.length; i++)
-{
-  icon_id_dictionary[i] = icon_id_list[i]
-}
-console.log(button_id_dictionary)
-console.log(tooltip_id_dictionary)
-console.log(icon_id_dictionary)
 
 
-// function trigger_date_dropdown(event) {
-//   //FIXME Need to make this dynamic
-//   let id_dictionary = {
-//       "1st ID": "Start-Date",
-//       "2nd ID": "End-Date",
-//       "3rd ID": "Type-Address",
-//       "4th ID": "Address",
-//       "5th ID": "Less-Than",
-//       "6th ID": "Greater-Than",
-//       "7th ID": "Type-Transaction"
-//   }
 
-//   for (let [key, value] of Object.entries(id_dictionary)) {
-//       console.log(event.target.id);
 
-//       let button_id = value + "-Icon-Button"
-//       let tooltip_id = value + "-Tooltip"
-//       let icon_id = value + "-Icon"
-//       console.log(tooltip_id)
-      
-//       if (event.target.id != value)
-//       {
-//       //Note Makes button unclickable
-//       $(`#${button_id}`).prop("disabled", true);
 
-//       //Note Changes tooltiptext to disabled
-//       $(`#${tooltip_id}`).text("Disabled")
-      
-//       //Note Changes icon color to red
-//       $(`#${icon_id}`).css("color", "red")
-//       }
 
-//     }
 
-// }
+
+
 
 $(document).ready(function () {
 
