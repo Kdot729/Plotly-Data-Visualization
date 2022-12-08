@@ -41,7 +41,7 @@
     display: grid;
     grid-column-gap: .5%;
     /* grid-auto-columns: 3%; */
-    grid-template-columns: repeat(7, .03fr); /* 7 columns 0.03 fraction each */
+    grid-template-columns: repeat(10, .03fr); /* 7 columns 0.03 fraction each */
     font-size: 60px; /*Note Change font-size changes the .button-layout and .icon "height" */
     z-index: -1;
     background-color: #D3D9DF;

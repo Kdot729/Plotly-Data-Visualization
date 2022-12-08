@@ -26,7 +26,7 @@ function disabled_dropdown(event) {
     console.log("conditional", conditional_id)
 
         //Note Harded coding that the "Website" dropdown doesn't get disabled
-        if ((event.target.id != conditional_id) && (conditional_id != "Website"))
+        if ((event.target.id != conditional_id) && (conditional_id != "Website") && (conditional_id != "Reset"))
         {
         //Note Makes button unclickable
         $(`#${button_id}`).prop("disabled", true);
