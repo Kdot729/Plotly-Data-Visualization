@@ -5,36 +5,52 @@ function disabled_dropdown(event) {
     //Note Select all "span" tag where the parent has a class "custom-tooltip"
     let tooltip_id_list = $.map($('.custom-tooltip > span'), span_id => span_id.id);
 
-    let id_dictionary = {}
 
     //Note Passing tooltip id because it's the easiest to split
     for(let i = 0; i < tooltip_id_list.length; i++)
     {
-    let split_id = tooltip_id_list[i].split("Tooltip")[0]
-    id_dictionary[i] = split_id
-    }
-    console.log(id_dictionary)
+    let split_id = tooltip_id_list[i].split("-")
+    split_id = split_id[0] + "-" + split_id[1]
+    console.log(split_id)
+    let button_id = split_id + "-Icon-Button"
+    let tooltip_id = split_id + "-Tooltip"
+    let icon_id = split_id + "-Icon"
+    console.log(button_id, tooltip_id, icon_id)
+    console.log(event.target.id)
+        if (event.target.id != split_id)
+        {
+        //Note Makes button unclickable
+        $(`#${button_id}`).prop("disabled", true);
 
-    for (let [key, value] of Object.entries(id_dictionary)) {
-      console.log("value", value)
-      let button_id = value + "Icon-Button"
-      let tooltip_id = value + "Tooltip"
-      let icon_id = value + "Icon"
-      console.log(tooltip_id)
+        //Note Changes tooltiptext to disabled
+        $(`#${tooltip_id}`).text("Disabled")
+        
+        //Note Changes icon color to red
+        $(`#${icon_id}`).css("color", "red")
+        }
+    }
+
+
+    // for (let [key, value] of Object.entries(id_dictionary)) {
+    //   console.log("value", value)
+    //   let button_id = value + "Icon-Button"
+    //   let tooltip_id = value + "Tooltip"
+    //   let icon_id = value + "Icon"
+    //   console.log(tooltip_id)
       
-      if (event.target.id != value)
-      {
-      //Note Makes button unclickable
-      $(`#${button_id}`).prop("disabled", true);
+    //   if (event.target.id != value)
+    //   {
+    //   //Note Makes button unclickable
+    //   $(`#${button_id}`).prop("disabled", true);
   
-      //Note Changes tooltiptext to disabled
-      $(`#${tooltip_id}`).text("Disabled")
+    //   //Note Changes tooltiptext to disabled
+    //   $(`#${tooltip_id}`).text("Disabled")
       
-      //Note Changes icon color to red
-      $(`#${icon_id}`).css("color", "red")
-      }
+    //   //Note Changes icon color to red
+    //   $(`#${icon_id}`).css("color", "red")
+    //   }
   
-      }
+    //   }
   }
 
 function initilize_dictionary(event)
