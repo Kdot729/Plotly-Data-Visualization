@@ -1,2 +1,2 @@
 # 10KTF Website
-Changing the way the website work. Simplfying the way the dropdown work
+Changing the way the website work. Simplifying the way the dropdown work
