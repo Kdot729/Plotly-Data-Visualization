@@ -23,8 +23,8 @@ def create_count_transactions_graph(DataFrame):
         xaxis = {
                 'tickmode': 'array',
                 'tickvals': DataFrame["Address"].tolist(),
-                #Note Slice the "Address" string from the 0 index up to the 5th index but don't include the 5th
-                'ticktext': DataFrame["Address"].str.slice(0,5).tolist(),
+                #Note Slice the "Address" string from the 0 index up to the 7th index but don't include the 7th
+                'ticktext': DataFrame["Address"].str.slice(0,7).tolist(),
                 },
         yaxis = {
                 "tickmode":'linear',

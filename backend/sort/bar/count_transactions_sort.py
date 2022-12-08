@@ -25,9 +25,11 @@ def create_count_transactions_bar_DataFrame(DataFrame):
 
         #Note Rename the columns
         result.columns = ["Address", "Sell", "Buy"] 
+        result.eval('Total = Sell + Buy', inplace=True)
 
-        #Note Combine the "Sell" and "Buy" to a new column "Total" which is their total transactions
-        result["Total"] = result["Sell"] + result["Buy"]
+        #Note Group by address and sum the other columns
+        aggregation_functions = {'Address': 'first', 'Sell': 'sum', 'Buy': 'sum', "Total": "sum"}
+        result = result.groupby('Address', as_index=False).aggregate(aggregation_functions).reindex(columns=result.columns)
 
 
         return result
