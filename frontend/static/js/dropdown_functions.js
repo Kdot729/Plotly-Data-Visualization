@@ -1,7 +1,7 @@
 import {check_website} from "./website_link.js"
 
 function trigger_date_dropdown(event) {
-
+    //FIXME Need to make this dynamic
     let id_dictionary = {
         "1st ID": "Start-Date",
         "2nd ID": "End-Date",
@@ -9,6 +9,7 @@ function trigger_date_dropdown(event) {
         "4th ID": "Address",
         "5th ID": "Less-Than",
         "6th ID": "Greater-Than",
+        "7th ID": "Type-Transaction"
     }
 
     for (let [key, value] of Object.entries(id_dictionary)) {
@@ -35,31 +36,6 @@ function trigger_date_dropdown(event) {
 
 }
 
-function disable_dropdown(date_boolean){
-    if (date_boolean == "True"){
-
-        //Note Make it so both date dropdown aren't clickable
-        $("#Start-Date-Icon-Button").prop("disabled", true);
-        $("#End-Date-Icon-Button").prop("disabled", true);
-
-        $("#Start-Date-Icon").css("color", "red");
-        $("#End-Date-Icon").css("color", "red");
-        $("#Start-Date-Tooltip").text("Disabled")
-        $("#End-Date-Tooltip").text("Disabled")
-    }
-    else if (date_boolean == "False"){
-
-        //Note Make it so both date dropdown are clickable again
-        $("#Start-Date-Icon-Button").prop("disabled", false);
-        $("#End-Date-Icon-Button").prop("disabled", false);
-
-        $("#Start-Date-Icon").css("color", "#004489");
-        $("#End-Date-Icon").css("color", "#004489");
-        $("#Start-Date-Tooltip").text("Start Date")
-        $("#End-Date-Tooltip").text("End Date")
-    }
-
-}
 function initilize_dictionary(event)
 {
     let string_url = window.location.href

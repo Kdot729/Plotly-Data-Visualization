@@ -5,6 +5,20 @@ let string_url = window.location.href
 let split_url = string_url.split("/")
 
 
+// let id_dictionary = $(".custom-tooltip").children("button[id$='Button']")
+//Note Select all "button" tag where the parent has a class "custom-tooltip"
+let button_id_dictionary = $.map($('.custom-tooltip > button'), button => button.id);
+console.log(button_id_dictionary)
+
+//Note Select all "span" tag where the parent has a class "custom-tooltip"
+let tooltip_id_dictionary = $.map($('.custom-tooltip > span'), span => span.id);
+console.log(tooltip_id_dictionary)
+
+//Note Select all "i" tag where the parent is a "button" tag
+let icon_id_dictionary = $.map($('button > i'), i => i.id);
+console.log(icon_id_dictionary)
+
+
 $(document).ready(function () {
 
     //Note Selector is all button tags that end with "Button". It's case sensitive
