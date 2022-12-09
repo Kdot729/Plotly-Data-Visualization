@@ -1,26 +1,17 @@
-import {disabled_dropdown, initilize_dictionary, update_graph_and_dropdowns} from "./dropdown_functions.js"
+import {initilize_dictionary, update_graph_and_dropdowns} from "./dropdown_functions.js"
 import {check_website} from "./website_link.js"
 
 let string_url = window.location.href
 let split_url = string_url.split("/")
 
-
-
-
-
-
-
-
-
-
-
-
+//TODO "Reset-Icon" triggers this function. Not sure if that's going to be a problem later
 $(document).ready(function () {
 
     //Note Selector is all button tags that end with "Button". It's case sensitive
     //Example id that is called "Address-Icon-Button"
     $("button[id$='Button']").on("click", function(event) 
     {
+
       // console.log(event.target.id)
       let split_event = event.target.id.split("-")  
       // console.log("split ",split_event)
@@ -33,8 +24,7 @@ $(document).ready(function () {
       }
     //   console.log("partial_id",partial_id)
   
-      //Note Example of dropdown_substring
-      //Note End-Than-Dropdown
+      //Note Example of dropdown_substring, "End-Than-Dropdown"
       let dropdown_id = partial_id + "Dropdown"
     //   console.log("dropdown_id", dropdown_id)
       if ($(`#${dropdown_id}`).is(":visible") == false )
@@ -50,42 +40,42 @@ $(document).ready(function () {
   
     $(document).on("click", function(event) 
     {
-        //! Put "content" in all the dropdown to make it easier to hide. Need to replace "content" later
-        $(".custom-tooltip").not($(".custom-tooltip").has($(event.target))).children(".content").hide()
+      //! Put "content" in all the dropdown to make it easier to hide. Need to replace "content" later
+      $(".custom-tooltip").not($(".custom-tooltip").has($(event.target))).children(".content").hide()
   
     })
 
     $("#Start-Date").on("change", function(event)
     {
-        update_page(event);     
+      update_page(event);     
     });
 
     $("#End-Date").on("change", function(event)
     {
-        update_page(event);
+      update_page(event);
     });
 
     $("#Address").on("change", function(event)
     {
-        update_page(event);
+      update_page(event);
 
     });
 
-    $("#Address-Type").on("change", function(event)
+    $("#Type-Address").on("change", function(event)
     {   
-        update_page(event);
+      update_page(event);
         
     });
 
     $("#Less-Than").on("change", function(event)
     {
-        update_page(event);
+      update_page(event);
     });
 
 
     $("#Greater-Than").on("change", function(event)
     {
-        update_page(event);
+      update_page(event);
     });
 
 
@@ -102,7 +92,11 @@ $(document).ready(function () {
           check_website($("#Website").val(), $("#Address").val())
     });
 
-
+    $('#Reset-Icon').on("click", function(event)
+    {
+      update_page(event);
+    
+    })
 
 
     });

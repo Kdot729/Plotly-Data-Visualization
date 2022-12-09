@@ -5,27 +5,45 @@ function disabled_dropdown(event) {
     //Note Select all "span" tag where the parent has a class "custom-tooltip"
     let tooltip_id_list = $.map($('.custom-tooltip > span'), span_id => span_id.id);
 
-    console.log(event.target.id)
-    console.log(tooltip_id_list)
-    
+    console.log("before condition",event.target.id)
+    // console.log(tooltip_id_list)
+    if ((event.target.id != "Reset-Icon") && (event.target.id != "Type-Address"))
+    {
+    console.log("342")
 
     //Note Passing tooltip id because it's the easiest to split
     for(let i = 0; i < tooltip_id_list.length; i++)
     {
     let split_id = tooltip_id_list[i].split("Tooltip")[0]
     
-    console.log(split_id)
+    // console.log(split_id)
     let button_id = split_id + "Icon-Button"
     let tooltip_id = split_id + "Tooltip"
     let icon_id = split_id + "Icon"
 
-    console.log(button_id, tooltip_id, icon_id)
+    // console.log(button_id, tooltip_id, icon_id)
     
     //Note Get get of last character which is "-" because event.target.id doesn't have a "-" 
     let conditional_id = split_id.slice(0, -1)
-    console.log("conditional", conditional_id)
+    // console.log("conditional", conditional_id)
+    // console.log(event.target.id)
 
-        //Note Harded coding that the "Website" dropdown doesn't get disabled
+
+    //     if ((event.target.id == "Reset") || (event.target.id == "Type-Address"))
+    //     {
+    //     console.log("wew3")
+    //     //Note Makes button unclickable
+    //     $(`#${button_id}`).prop("disabled", false);
+
+    //     //Note Changes tooltiptext to disabled
+    //     $(`#${tooltip_id}`).text(split_id)
+        
+    //     //Note Changes icon color to red
+    //     $(`#${icon_id}`).css("color", "#004489")
+    //     }
+
+        //Organization Other condtion ------
+        //Note Harded coding that the "Website" and "Reset" icon don't get disabled
         if ((event.target.id != conditional_id) && (conditional_id != "Website") && (conditional_id != "Reset"))
         {
         //Note Makes button unclickable
@@ -37,9 +55,24 @@ function disabled_dropdown(event) {
         //Note Changes icon color to red
         $(`#${icon_id}`).css("color", "red")
         }
-    }
+        
+    }   
+}
   }
-
+function reset_dropdown(){
+            //FIXME Testing the Reset
+            if ((conditional_id == "Reset") || (conditional_id == "Type-Address"))
+            {
+            //Note Makes button unclickable
+            $(`#${button_id}`).prop("disabled", false);
+    
+            //Note Changes tooltiptext to disabled
+            $(`#${tooltip_id}`).text(split_id)
+            
+            //Note Changes icon color to red
+            $(`#${icon_id}`).css("color", "#004489")
+            }
+}
 function initilize_dictionary(event)
 {
     let string_url = window.location.href
@@ -52,7 +85,7 @@ function initilize_dictionary(event)
         "Tool": split_url[5],                                    //* Using the url to get the Tool
         "ID of Dropdown": event.target.id                    //* Might Use these to fix the dropdowns later
     }
-
+    
     if (split_url[3] == "scatter")  
     {
 
@@ -73,6 +106,7 @@ function initilize_dictionary(event)
             let new_dictionary = check_ID(standard_dropdown_dictionary["ID of Dropdown"])
             let finished_dictionary = Object.assign({}, standard_dropdown_dictionary, new_dictionary);  
 
+
             return finished_dictionary
 
         }
@@ -87,7 +121,7 @@ function check_ID(ID){
         {
             "Start_Date": $("#Start-Date").val(),                    //* Using JQuery to get Start-Date value
             "End_Date": $("#End-Date").val(),                        //* Using JQuery to get End-Date value
-            "Address_Type": $("#Address-Type").val()
+            "Address_Type": $("#Type-Address").val()
         }
         return specific_dictionary
     }
@@ -97,16 +131,16 @@ function check_ID(ID){
         let specific_dictionary = 
         {
             "Chosen_Addresses": ($("#Address").val()).toString(),  //* Using JQuery to get Address value, then converting to string
-            "Address_Type": $("#Address-Type").val()
+            "Address_Type": $("#Type-Address").val()
         }
         return specific_dictionary
     }
 
 
-    else if (ID == "Address-Type"){
+    else if (ID == "Type-Address"){
         let specific_dictionary = 
         {
-            "Address_Type": $("#Address-Type").val()               //* Using JQuery to get Address-Type value
+            "Address_Type": $("#Type-Address").val()               //* Using JQuery to get Type-Address value
         }
         return specific_dictionary
     }
@@ -118,8 +152,15 @@ function check_ID(ID){
         {
             "Less_Than": $("select#Less-Than").val(),               //* Using JQuery to get Less-Than selected value
             "Greater_Than": $("select#Greater-Than").val(),          //* Using JQuery to get Greater-Than selected value
-            "Address_Type": $("#Address-Type").val()
+            "Address_Type": $("#Type-Address").val()
 
+        }
+        return specific_dictionary
+    }
+    else if (ID == "Reset-Icon"){
+        let specific_dictionary = 
+        {
+            "Address_Type": $("#Type-Address").val()               //* Using JQuery to get Type-Address value
         }
         return specific_dictionary
     }
@@ -186,44 +227,4 @@ function repopulate_address_dropdown(address_list, selected_addresses)
 };
 
 
-export {disabled_dropdown, initilize_dictionary, update_graph_and_dropdowns}
-
-
-
-        //     //Note JSON.parse(result["JSON Graph"]) converts data into a object. Need to have it as an object
-        //     Plotly.newPlot("chart", JSON.parse(result["JSON Graph"]), {staticPlot: true});
-            
-        //     //Note Includes the "badge-area"
-        //     empty_dropdowns();
-
-        //     //Note This is necessary becuase if don't put an empty string in, it will ruin the query when selecting multiple address
-        //     //Note Make sure .val() is empty or it will ruin the query of DataFrame, too, when selecting multiple address
-        //     //Note Changing .val() will also mess with a condition in trigger_date_dropdown()
-        //     if ((event.target.id != "Less-Than") && (event.target.id != "Greater-Than"))
-        //     {        
-        //         $("#Less-Than").append($("<option>").val("").text("None"));
-        //         $("#Greater-Than").append($("<option>").val("").text("None"));
-        //     }
-
-        //     //! This is causing problem when using "reset" becuase the dictionary is empty
-        //     let selected_address = dropdown_dictionary["Chosen_Addresses"].split(","); 
-
-            // repopulate_inequality_dropdowns("Less-Than", result["Descending List"]);
-            // repopulate_inequality_dropdowns("Greater-Than", result["Ascending List"]);
-            // repopulate_address_dropdown(result["Address List"], selected_address); 
-            
-            
-        //     if (result["Link Address"] !== null)
-        //     {
-        //         check_website($("#Website").val(), result["Link Address"]);
-
-            
-        //     }
-            
-        //    
-
-        //     trigger_date_dropdown(event);
-
-
-        // }
-        // })
+export {initilize_dictionary, update_graph_and_dropdowns}
