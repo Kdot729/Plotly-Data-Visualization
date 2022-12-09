@@ -7,7 +7,30 @@ function disabled_dropdown(event) {
 
     console.log("before condition",event.target.id)
     // console.log(tooltip_id_list)
-    if ((event.target.id != "Reset-Icon") && (event.target.id != "Type-Address"))
+
+    
+    if (event.target.id == "Reset-Icon")
+    {
+        for(let i = 0; i < tooltip_id_list.length; i++)
+        {
+        let split_id = tooltip_id_list[i].split("Tooltip")[0]
+        
+        // console.log(split_id)
+        let button_id = split_id + "Icon-Button"
+        let tooltip_id = split_id + "Tooltip"
+        let icon_id = split_id + "Icon"
+
+        $(`#${button_id}`).prop("disabled", false);
+
+
+        
+        //Note Changes icon color to red
+        $(`#${icon_id}`).css("color", "blue")
+        }
+
+    }
+    //Note "Type-Address" won't disable other icons
+    else if ((event.target.id != "Reset-Icon") && (event.target.id != "Type-Address"))
     {
     console.log("342")
 
@@ -57,7 +80,7 @@ function disabled_dropdown(event) {
         }
         
     }   
-}
+    }
   }
 function reset_dropdown(){
             //FIXME Testing the Reset
