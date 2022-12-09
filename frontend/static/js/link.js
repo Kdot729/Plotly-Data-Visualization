@@ -1,7 +1,6 @@
 function check_website(choosen_website, selected_address)
 {   
     
-
     for(let i = 0; i < selected_address.length; i++)
     {
     if (choosen_website == "Zapper")
