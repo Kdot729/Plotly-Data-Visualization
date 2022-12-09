@@ -1,6 +1,6 @@
 import {check_website} from "./link.js"
 
-function disabled_dropdown(event) 
+function disabled_icon(event) 
 {
     //Note Select all "span" tag where the parent has a class "custom-tooltip"
     let tooltip_id_list = $.map($('.custom-tooltip > span'), span_id => span_id.id);

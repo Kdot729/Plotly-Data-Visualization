@@ -11,21 +11,14 @@ function initilize_dictionary(event)
         "ID of Dropdown": event.target.id                    //* Might Use these to fix the dropdowns later
     }
     
-    if (split_url[3] == "scatter")  
+    if (split_url[4] == "basic")
     {
 
-        if (split_url[4] == "basic")
-        {
-
-            let new_dictionary = check_ID(standard_dropdown_dictionary["ID of Dropdown"])
-            let finished_dictionary = Object.assign({}, standard_dropdown_dictionary, new_dictionary);  
-            
-            return finished_dictionary
-        }
-    }
-
-
-    
+        let new_dictionary = check_ID(standard_dropdown_dictionary["ID of Dropdown"])
+        let finished_dictionary = Object.assign({}, standard_dropdown_dictionary, new_dictionary);  
+        
+        return finished_dictionary
+    }   
 }
 
 function check_ID(ID){

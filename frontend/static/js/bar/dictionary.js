@@ -10,21 +10,17 @@ function initilize_dictionary(event)
         "Tool": split_url[5],                                    //* Using the url to get the Tool
         "ID of Dropdown": event.target.id                    //* Might Use these to fix the dropdowns later
     }
-    
 
-    if (split_url[3] == "bar")
-    {   
-
-        if (split_url[4] == "count_transactions")
-        {
-            let new_dictionary = check_ID(standard_dropdown_dictionary["ID of Dropdown"])
-            let finished_dictionary = Object.assign({}, standard_dropdown_dictionary, new_dictionary);  
+    if (split_url[4] == "count_transactions")
+    {
+        let new_dictionary = check_ID(standard_dropdown_dictionary["ID of Dropdown"])
+        let finished_dictionary = Object.assign({}, standard_dropdown_dictionary, new_dictionary);  
 
 
-            return finished_dictionary
+        return finished_dictionary
 
-        }
     }
+
 
     
 }
