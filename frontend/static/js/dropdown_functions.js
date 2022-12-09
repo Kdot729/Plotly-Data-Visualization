@@ -14,18 +14,19 @@ function disabled_dropdown(event) {
         for(let i = 0; i < tooltip_id_list.length; i++)
         {
         let split_id = tooltip_id_list[i].split("Tooltip")[0]
-        
+        console.log("split", split_id)
         // console.log(split_id)
         let button_id = split_id + "Icon-Button"
         let tooltip_id = split_id + "Tooltip"
         let icon_id = split_id + "Icon"
-
+        let tooltip_text = split_id.replaceAll("-", " ")
         $(`#${button_id}`).prop("disabled", false);
 
-
+        //Note Changes tooltiptext to disabled
+        $(`#${tooltip_id}`).text(tooltip_text)
         
         //Note Changes icon color to red
-        $(`#${icon_id}`).css("color", "blue")
+        $(`#${icon_id}`).css("color", "#004489")
         }
 
     }
@@ -51,19 +52,6 @@ function disabled_dropdown(event) {
     // console.log("conditional", conditional_id)
     // console.log(event.target.id)
 
-
-    //     if ((event.target.id == "Reset") || (event.target.id == "Type-Address"))
-    //     {
-    //     console.log("wew3")
-    //     //Note Makes button unclickable
-    //     $(`#${button_id}`).prop("disabled", false);
-
-    //     //Note Changes tooltiptext to disabled
-    //     $(`#${tooltip_id}`).text(split_id)
-        
-    //     //Note Changes icon color to red
-    //     $(`#${icon_id}`).css("color", "#004489")
-    //     }
 
         //Organization Other condtion ------
         //Note Harded coding that the "Website" and "Reset" icon don't get disabled
