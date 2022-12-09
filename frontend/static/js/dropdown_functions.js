@@ -185,9 +185,28 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
 
             //FIXME Need to pass in a new "Address" dropdown for when "Seller" is picked. Might have to use repopulate_address_dropdown()
             //FIXME Reset needs to clear the checkmark in the "Address" dropdpown
-            // $("#Address option").remove();
-            // $(".selectpicker").selectpicker("refresh");
+            $("#Address option").remove();
 
+            console.table(result["Address List"])
+            //Note Check if the key "Chosen_Addresses" is in dropdown_dictionary
+            if (("Chosen_Addresses" in dropdown_dictionary))
+            {
+                console.log("if")
+                dropdown_dictionary["Chosen_Addresses"].split(',');
+                repopulate_address_dropdown(result["Address List"], selected_addresses)
+                
+            }
+            else
+            {
+                console.log("else")
+                for(let i = 0; i < result["Address List"].length; i++) 
+                {
+                    $("#Address").append($("<option>").val(result["Address List"][i]).text(result["Address List"][i]));        
+                }
+                
+
+            }
+            $(".selectpicker").selectpicker("refresh");
             disabled_dropdown(event);
         }
         })

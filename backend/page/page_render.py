@@ -47,7 +47,7 @@ def page_rerender(frontend_dictionary):
 
     #Note Scatter Works
     if frontend_dictionary["Specificity"] == "basic":
-        column_dictionary = {"Address": "Buyer", "Inequality": "ETH"}
+        column_dictionary = {"Address": frontend_dictionary["Address_Type"], "Inequality": "ETH"}
         graph_DataFrame = generic_listener.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
         plotly_graph = graph_functions.create_scatter_graph(graph_DataFrame, frontend_dictionary["Address_Type"])
 
@@ -57,9 +57,10 @@ def page_rerender(frontend_dictionary):
         graph_DataFrame = generic_listener.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
         plotly_graph = count_transactions_graph.create_count_transactions_graph(graph_DataFrame)
 
+    address_list = generic_sort.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address"])
     graphJSON = graph_functions.convert_Graph_to_JSON(plotly_graph)
 
-    return {"JSON Graph": graphJSON}
+    return {"JSON Graph": graphJSON, "Address List": address_list}
 
 
 
