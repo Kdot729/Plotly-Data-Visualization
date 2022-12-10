@@ -1,12 +1,6 @@
 import plotly.express as plotlyX
-import plotly
-import pandas as panda
-import json
 
-def convert_Graph_to_JSON(plotly_graph):
-    graphJSON = json.dumps(obj=plotly_graph , cls=plotly.utils.PlotlyJSONEncoder) #! graphJSON needs to match graphJSON in render template because in the template it's graph graphJSON 
 
-    return graphJSON
 
 def create_count_transactions_graph(DataFrame):
         figure = plotlyX.bar(DataFrame, 

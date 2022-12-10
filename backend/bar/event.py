@@ -1,6 +1,6 @@
 from xml.dom.minidom import parseString
 import pandas as panda
-import backend.bar.dataframe as dataframe
+import backend.general_functions as general_functions
 
 panda.set_option('display.max_rows', None)
 panda.set_option('display.max_columns', None)
@@ -16,10 +16,10 @@ def sort_new_DataFrame(dictionary, DataFrame, column_dictionary):
         return DataFrame
 
     elif (dictionary["ID of Dropdown"] == "Address"):
-        print(dataframe.sort_DataFrame_for_Addresses(dictionary, DataFrame, column_dictionary["Address"]))
-        return dataframe.sort_DataFrame_for_Addresses(dictionary, DataFrame, column_dictionary["Address"])
+        print(general_functions.sort_DataFrame_for_Addresses(dictionary, DataFrame, column_dictionary["Address"]))
+        return general_functions.sort_DataFrame_for_Addresses(dictionary, DataFrame, column_dictionary["Address"])
 
     elif (dictionary["ID of Dropdown"] == "Less-Than") or (dictionary["ID of Dropdown"] == "Greater-Than"):
-        return dataframe.sort_inequality_DataFrame(dictionary, DataFrame, column_dictionary["Inequality"])
+        return general_functions.sort_inequality_DataFrame(dictionary, DataFrame, column_dictionary["Inequality"])
 
                

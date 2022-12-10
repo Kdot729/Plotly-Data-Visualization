@@ -1,7 +1,7 @@
 import pandas as panda
 from datetime import datetime
 from dotenv import load_dotenv
-
+import json, plotly
 load_dotenv()
 
 
@@ -66,3 +66,8 @@ def sort_Inequality_List(DataFrame, column_name):
 #TODO Return a list of the latest address, dropping duplicates
 def linking_address(DataFrame):
     pass
+
+def convert_Graph_to_JSON(plotly_graph):
+    graphJSON = json.dumps(obj=plotly_graph , cls=plotly.utils.PlotlyJSONEncoder) #! graphJSON needs to match graphJSON in render template because in the template it's graph graphJSON 
+
+    return graphJSON
