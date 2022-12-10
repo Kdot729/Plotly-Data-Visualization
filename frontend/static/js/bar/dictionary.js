@@ -20,8 +20,6 @@ function initilize_dictionary(event)
         return finished_dictionary
 
     }
-
-
     
 }
 
@@ -69,3 +67,5 @@ function check_ID(ID){
     }
 
 }
+
+export {initilize_dictionary, check_ID}

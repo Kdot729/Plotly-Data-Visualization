@@ -78,8 +78,6 @@ $(document).ready(function () {
       update_page(event);
     });
 
-
-
     $("#Website").on("change", function(event)
     {
       //Note This is neccesary because without it will include Zapper website and the new website, essentiatly doubling the actually amount of badges need

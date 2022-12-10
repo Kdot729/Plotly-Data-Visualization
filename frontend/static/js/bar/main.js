@@ -1,7 +1,8 @@
-import {initilize_dictionary} from "./dictionary.js"
-import {update_graph_and_dropdowns} from "./update.js"
+import {initilize_dictionary} from "../bar/dictionary.js"
+import {update_graph_and_dropdowns} from "../bar/update.js"
 import {check_website} from "../link"
 import {disabled_icon} from "../disable"
+
 
 let string_url = window.location.href
 let split_url = string_url.split("/")

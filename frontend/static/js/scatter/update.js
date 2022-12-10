@@ -47,11 +47,7 @@ function empty_dropdowns()
     $("#Address option").remove();
 };
 
-function repopulate_inequality_dropdowns(selector_ID, inequality_list)
-{
-    for(let i = 0; i < inequality_list.length; i++)
-        $("#" + selector_ID).append($("<option>").val(inequality_list[i]).text(inequality_list[i]));
-}
+
 
 
 function repopulate_address_dropdown(address_list, selected_addresses)
@@ -66,3 +62,5 @@ function repopulate_address_dropdown(address_list, selected_addresses)
                 $("#Address").append($("<option>").val(address_list[i]).text(address_list[i]));        
      }
 };
+
+export {update_graph_and_dropdowns}
