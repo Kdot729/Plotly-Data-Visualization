@@ -15,17 +15,17 @@ def initial_page_render(tool):
 
     DataFrame = general_functions.create_DataFrame(tool)
 
-    print("path",page_filepath)
-
     column_dictionary = {"Address": "Buyer", "Inequality": "ETH"}
+
     plotly_graph = graph.create_scatter_graph(DataFrame, "Buyer")
 
-
     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address"])
+
     inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality"])
 
     # #FIXME Need to look at convert_Graph_to_JSON()
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
+
     return render_template(template_name_or_list = page_filepath,
                             graphJSON=graphJSON, 
                             address_list=address_list,
@@ -39,11 +39,13 @@ def page_rerender(frontend_dictionary):
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
 
     column_dictionary = {"Address": frontend_dictionary["Address_Type"], "Inequality": "ETH"}
+
     graph_DataFrame = event.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
+
     plotly_graph = graph.create_scatter_graph(graph_DataFrame, frontend_dictionary["Address_Type"])
 
-
     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address"])
+    
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
 
     return {"JSON Graph": graphJSON, "Address List": address_list}
