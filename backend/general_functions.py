@@ -38,8 +38,6 @@ def sort_ascending_and_drop_duplicates_list(DataFrame, column_name):
 
 def sort_DataFrame_for_Addresses(choosen_address, DataFrame, address_column_name):
     converted_list = (choosen_address.rstrip()).split(",")
-    print(DataFrame[DataFrame[address_column_name].isin(converted_list)])
-    #FIXME Hardcoded the "Buyer" need to change it to be dynamic
     return DataFrame[DataFrame[address_column_name].isin(converted_list)]
 
 

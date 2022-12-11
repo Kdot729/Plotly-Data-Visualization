@@ -15,9 +15,9 @@ def sort_new_DataFrame(dictionary, DataFrame, column_dictionary):
         return DataFrame
 
     elif (dictionary["ID of Dropdown"] == "Address"):
-        return general_functions.sort_DataFrame_for_Addresses(dictionary["Chosen_Addresses"], DataFrame, column_dictionary["Address"])
+        return general_functions.sort_DataFrame_for_Addresses(dictionary["Chosen_Addresses"], DataFrame, column_dictionary["Address_Column"])
 
     elif (dictionary["ID of Dropdown"] == "Less-Than") or (dictionary["ID of Dropdown"] == "Greater-Than"):
-        return general_functions.sort_inequality_DataFrame(dictionary, DataFrame, column_dictionary["Inequality"])
+        return general_functions.sort_inequality_DataFrame(dictionary, DataFrame, column_dictionary["Inequality_Column"])
 
                

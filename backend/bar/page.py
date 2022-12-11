@@ -14,13 +14,13 @@ def initial_page_render(tool):
 
     DataFrame = dataframe.create_count_transactions_bar_DataFrame(DataFrame)
 
-    column_dictionary = {"Address": "Address", "Inequality": "Total"}
+    column_dictionary = {"Address_Column": "Address", "Inequality_Column": "Total"}
 
     plotly_graph = graph.create_count_transactions_graph(DataFrame)
 
-    address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address"])
+    address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address_Column"])
 
-    inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality"])
+    inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality_Column"])
 
     # #FIXME Need to look at convert_Graph_to_JSON()
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
@@ -43,7 +43,7 @@ def page_rerender(frontend_dictionary):
 
     plotly_graph = graph.create_count_transactions_graph(graph_DataFrame)
     
-    address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address"])
+    address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address_Column"])
     
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
 
