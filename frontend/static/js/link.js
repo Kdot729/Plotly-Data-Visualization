@@ -46,6 +46,14 @@ function link_website(link, address){
     $(`#${identifier}`).text(address.substr(0, 6));
 };
 
+function changed_website(){
+        //Note This is neccesary because without it will include Zapper website and the new website, essentiatly doubling the actually amount of badges need
+      //Note We only need the badges from the new website so .empty() is neccesary in this function too because we never call update_page which has $('#badge-area').empty()
+      $("#badge-area").empty();
+      if ($("#Website").val() == "Blur")
+          alert("Blur requires you to connect a wallet to use. If you're not comfortable with that they use the other sites");
+      if (($("#Address").val()).length != 0)
+          check_website($("#Website").val(), $("#Address").val())
+}
 
-
-export {check_website}
+export {check_website, changed_website}

@@ -1,6 +1,7 @@
 import {initilize_dictionary} from "./dictionary.js"
 import {update_graph_and_dropdowns} from "./update.js"
 import {button_click} from "../button_click.js"
+import {changed_website} from "../link.js"
 
 
 //TODO "Reset-Icon" triggers this function. Not sure if that's going to be a problem later
@@ -54,15 +55,9 @@ $(document).ready(function () {
       update_page(event);
     });
 
-    $("#Website").on("change", function(event)
+    $("#Website").on("change", function()
     {
-      //Note This is neccesary because without it will include Zapper website and the new website, essentiatly doubling the actually amount of badges need
-      //Note We only need the badges from the new website so .empty() is neccesary in this function too because we never call update_page which has $('#badge-area').empty()
-      $("#badge-area").empty();
-      if ($("#Website").val() == "Blur")
-          alert("Blur requires you to connect a wallet to use. If you're not comfortable with that they use the other sites");
-      if (($("#Address").val()).length != 0)
-          check_website($("#Website").val(), $("#Address").val())
+      changed_website()
     });
 
     $('#Reset-Icon').on("click", function(event)
