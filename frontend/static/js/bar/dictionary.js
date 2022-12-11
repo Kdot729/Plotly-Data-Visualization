@@ -23,9 +23,9 @@ function check_ID(ID){
         return dictionary.address_specific_dictionary()
     }
 
-    else if (ID == "Type-Address")
+    else if (ID == "Type")
     {
-        return dictionary.type_address_specific_dictionary()
+        return dictionary.type_specific_dictionary()
     }
 
     else if ((ID == "Less-Than") || (ID == "Greater-Than"))

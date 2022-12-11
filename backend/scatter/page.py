@@ -39,11 +39,11 @@ def page_rerender(frontend_dictionary):
     print("scatter", frontend_dictionary["Tool"])
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
 
-    column_dictionary = {"Address_Column": frontend_dictionary["Address_Type"], "Inequality_Column": "ETH"}
+    column_dictionary = {"Address_Column": frontend_dictionary["Type"], "Inequality_Column": "ETH"}
 
     graph_DataFrame = event.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
 
-    plotly_graph = graph.create_scatter_graph(graph_DataFrame, frontend_dictionary["Address_Type"])
+    plotly_graph = graph.create_scatter_graph(graph_DataFrame, frontend_dictionary["Type"])
 
     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address_Column"])
     

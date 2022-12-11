@@ -56,7 +56,7 @@ $(document).ready(function () {
 
     });
 
-    $("#Type-Address").on("change", function(event)
+    $("#Type").on("change", function(event)
     {   
       update_page(event);
         

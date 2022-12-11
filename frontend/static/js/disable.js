@@ -32,8 +32,8 @@ function disabled_icon(event)
 
     }
     
-    //Note "Type-Address" won't disable other icons
-    else if ((event.target.id != "Reset-Icon") && (event.target.id != "Type-Address"))
+    //Note "Type" won't disable other icons
+    else if ((event.target.id != "Reset-Icon") && (event.target.id != "Type"))
     {
     
     //Note Passing tooltip id because it's the easiest to split
