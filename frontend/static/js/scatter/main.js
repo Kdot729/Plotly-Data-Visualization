@@ -2,10 +2,6 @@ import {initilize_dictionary} from "./dictionary.js"
 import {update_graph_and_dropdowns} from "./update.js"
 
 
-console.log("4452")
-let string_url = window.location.href
-let split_url = string_url.split("/")
-
 //TODO "Reset-Icon" triggers this function. Not sure if that's going to be a problem later
 $(document).ready(function () {
 

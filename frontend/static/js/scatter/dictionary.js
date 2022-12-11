@@ -76,4 +76,4 @@ function check_ID(ID){
 
 }
 
-export {initilize_dictionary, check_ID}
+export {initilize_dictionary}

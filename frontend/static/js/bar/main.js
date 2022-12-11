@@ -1,11 +1,8 @@
 import {initilize_dictionary} from "../bar/dictionary.js"
 import {update_graph_and_dropdowns} from "../bar/update.js"
-import {check_website} from "../link"
-import {disabled_icon} from "../disable"
+// import {check_website} from "../link"
+// import {disabled_icon} from "../disable"
 
-
-let string_url = window.location.href
-let split_url = string_url.split("/")
 
 //TODO "Reset-Icon" triggers this function. Not sure if that's going to be a problem later
 $(document).ready(function () {
