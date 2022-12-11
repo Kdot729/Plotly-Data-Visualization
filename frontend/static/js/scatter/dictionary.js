@@ -4,16 +4,16 @@ import * as dictionary from "../dropdown_dictionary.js"
 function initilize_dictionary(event)
 {
 
-    let standard_dropdown_dictionary = dictionary.standard_dictionary(event)
+    let standard_dictionary = dictionary.standard_dictionary(event)
 
     
-    if (standard_dropdown_dictionary["Specificity"] == "basic")
+    if (standard_dictionary["Specificity"] == "basic")
     {
 
-        let new_dictionary = check_ID(standard_dropdown_dictionary["ID of Dropdown"]) 
+        let additional_dictionary = check_ID(standard_dictionary["ID of Dropdown"]) 
         
         //Note Combine both dictionaries into one
-        return Object.assign({}, standard_dropdown_dictionary, new_dictionary);
+        return Object.assign({}, standard_dictionary, additional_dictionary);
     }   
 }
 
