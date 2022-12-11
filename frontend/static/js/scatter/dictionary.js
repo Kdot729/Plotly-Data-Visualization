@@ -3,13 +3,11 @@ import * as dictionary from "../dropdown_dictionary.js"
 
 function initilize_dictionary(event)
 {
-    let string_url = window.location.href
-    let split_url = string_url.split("/")
-    
-    let standard_dropdown_dictionary = dictionary.standard_dictionary(event, split_url)
+
+    let standard_dropdown_dictionary = dictionary.standard_dictionary(event)
 
     
-    if (split_url[4] == "basic")
+    if (standard_dropdown_dictionary["Specificity"] == "basic")
     {
 
         let new_dictionary = check_ID(standard_dropdown_dictionary["ID of Dropdown"]) 

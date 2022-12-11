@@ -2,15 +2,13 @@ import * as dictionary from "../dropdown_dictionary.js"
 
 function initilize_dictionary(event)
 {
-    let string_url = window.location.href
-    let split_url = string_url.split("/")
-    
-    let standard_dropdown_dictionary = dictionary.standard_dictionary(event, split_url)
 
-    if (split_url[4] == "count_transactions")
+    let standard_dropdown_dictionary = dictionary.standard_dictionary(event)
+
+    if (standard_dropdown_dictionary["Specificity"] == "count_transactions")
     {
         let new_dictionary = check_ID(standard_dropdown_dictionary["ID of Dropdown"])
-        
+
         //Note Combine both dictionaries into one
         return Object.assign({}, standard_dropdown_dictionary, new_dictionary);
 
