@@ -1,18 +1,20 @@
 import {initilize_dictionary} from "../bar/dictionary.js"
 import {update_graph_and_dropdowns} from "../bar/update.js"
-import {button_click} from "../button_click.js"
+import {reveal_dropdown} from "../reveal.js"
 import {changed_website} from "../link.js"
 
 
 
-//TODO "Reset-Icon" triggers this function. Not sure if that's going to be a problem later
+
 $(document).ready(function () {
 
     //Note Selector is all button tags that end with "Button". It's case sensitive
     //Example id that is called "Address-Icon-Button"
     $("button[id$='Button']").on("click", function(event) 
     {
-      button_click(event)
+      //Note Don't need to show dropdown for "Reset-Icon" because there's no dropdown for the "reset"
+      if (event.target.id != "Reset-Icon")
+        {reveal_dropdown(event)}
     });
   
   

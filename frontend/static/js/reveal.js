@@ -1,4 +1,4 @@
-function button_click(event)
+function reveal_dropdown(event)
 {
           // console.log(event.target.id)
           let split_event = event.target.id.split("-")  
@@ -17,14 +17,12 @@ function button_click(event)
         //   console.log("dropdown_id", dropdown_id)
           if ($(`#${dropdown_id}`).is(":visible") == false )
           {   
-            console.log("3")
             $(`#${dropdown_id}`).show()       
           }
           else if ($(`#${dropdown_id}`).is(":visible") == true )
           {  
-            console.log("4")
             $(`#${dropdown_id}`).hide()    
           }
 }
 
-export {button_click}
+export {reveal_dropdown}

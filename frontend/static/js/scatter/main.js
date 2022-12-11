@@ -1,6 +1,6 @@
 import {initilize_dictionary} from "./dictionary.js"
 import {update_graph_and_dropdowns} from "./update.js"
-import {button_click} from "../button_click.js"
+import {reveal_dropdown} from "../reveal.js"
 import {changed_website} from "../link.js"
 
 
@@ -11,7 +11,7 @@ $(document).ready(function () {
     //Example id that is called "Address-Icon-Button"
     $("button[id$='Button']").on("click", function(event) 
     {
-      button_click(event)
+      reveal_dropdown(event)
     });
   
   
