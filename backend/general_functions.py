@@ -42,15 +42,15 @@ def sort_DataFrame_for_Addresses(choosen_address, DataFrame, address_column_name
 
 
 def sort_DataFrame_for_Inequality(ETH_values, DataFrame, inequality_column_name):
-    return DataFrame[(DataFrame[inequality_column_name] >= ETH_values["Min_ETH"]) &
-                                (DataFrame[inequality_column_name] <= ETH_values["Max_ETH"])]
+    return DataFrame[(DataFrame[inequality_column_name] >= ETH_values["Min ETH"]) &
+                                (DataFrame[inequality_column_name] <= ETH_values["Max ETH"])]
 
 
 
 
 
 def sort_inequality_DataFrame(dictionary, DataFrame, inequality_column_name):
-    ETH_values = {"Max_ETH": float(dictionary["Less_Than"]), "Min_ETH": float(dictionary["Greater_Than"])}
+    ETH_values = {"Max ETH": float(dictionary["Less Than"]), "Min ETH": float(dictionary["Greater Than"])}
     ETH_DataFrame = sort_DataFrame_for_Inequality(ETH_values, DataFrame, inequality_column_name) 
     return ETH_DataFrame
 

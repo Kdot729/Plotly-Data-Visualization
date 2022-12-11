@@ -16,11 +16,11 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
 
             //FIXME Need to pass in a new "Address" dropdown for when "Seller" is picked. Might have to use repopulate_address_dropdown()
             //FIXME Reset needs to clear the checkmark in the "Address" dropdpown
-            //Note Check if the key "Chosen_Addresses" is in dropdown_dictionary
-            if (("Chosen_Addresses" in dropdown_dictionary))
+            //Note Check if the key "Chosen Addresses" is in dropdown_dictionary
+            if (("Chosen Addresses" in dropdown_dictionary))
             {
-                dropdown_dictionary["Chosen_Addresses"].split(',');
-                repopulate_address_dropdown(result["Address List"], dropdown_dictionary["Chosen_Addresses"])
+                dropdown_dictionary["Chosen Addresses"].split(',');
+                repopulate_address_dropdown(result["Address List"], dropdown_dictionary["Chosen Addresses"])
                 
             }
             else

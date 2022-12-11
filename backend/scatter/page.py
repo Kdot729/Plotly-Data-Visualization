@@ -15,13 +15,13 @@ def initial_page_render(tool):
 
     DataFrame = general_functions.create_DataFrame(tool)
 
-    column_dictionary = {"Address_Column": "Buyer", "Inequality_Column": "ETH"}
+    column_dictionary = {"Address Column": "Buyer", "Inequality Column": "ETH"}
 
     plotly_graph = graph.create_scatter_graph(DataFrame, "Buyer")
 
-    address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address_Column"])
+    address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
 
-    inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality_Column"])
+    inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality Column"])
 
     # #FIXME Need to look at convert_Graph_to_JSON()
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
@@ -39,13 +39,13 @@ def page_rerender(frontend_dictionary):
     print("scatter", frontend_dictionary["Tool"])
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
 
-    column_dictionary = {"Address_Column": frontend_dictionary["Type"], "Inequality_Column": "ETH"}
+    column_dictionary = {"Address Column": frontend_dictionary["Type"], "Inequality Column": "ETH"}
 
     graph_DataFrame = event.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
 
     plotly_graph = graph.create_scatter_graph(graph_DataFrame, frontend_dictionary["Type"])
 
-    address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address_Column"])
+    address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
     
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
 

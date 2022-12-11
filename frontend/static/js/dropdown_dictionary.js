@@ -16,8 +16,8 @@ function standard_dictionary(event)
 function date_specific_dictionary()
     {
     return {
-        "Start_Date": $("#Start-Date").val(),                    //Note Using JQuery to get Start-Date value
-        "End_Date": $("#End-Date").val(),                        //Note Using JQuery to get End-Date value
+        "Start Date": $("#Start-Date").val(),                    //Note Using JQuery to get Start-Date value
+        "End Date": $("#End-Date").val(),                        //Note Using JQuery to get End-Date value
         "Type": $("#Type").val()
             }
     }
@@ -25,7 +25,7 @@ function date_specific_dictionary()
 function address_specific_dictionary()
     {
     return {
-        "Chosen_Addresses": ($("#Address").val()).toString(),  //Note Using JQuery to get Address value, then converting to string
+        "Chosen Addresses": ($("#Address").val()).toString(),  //Note Using JQuery to get Address value, then converting to string
         "Type": $("#Type").val()
             }
     }
@@ -40,8 +40,8 @@ function type_specific_dictionary()
 function inequality_specific_dictionary()
     {
     return {
-        "Less_Than": $("select#Less-Than").val(),               //Note Using JQuery to get Less-Than selected value
-        "Greater_Than": $("select#Greater-Than").val(),          //Note Using JQuery to get Greater-Than selected value
+        "Less Than": $("select#Less-Than").val(),               //Note Using JQuery to get Less-Than selected value
+        "Greater Than": $("select#Greater-Than").val(),          //Note Using JQuery to get Greater-Than selected value
         "Type": $("#Type").val()
             }
     }
