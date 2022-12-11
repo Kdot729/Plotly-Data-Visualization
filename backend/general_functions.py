@@ -14,8 +14,7 @@ panda.set_option('display.max_colwidth', None)
 
 def create_DataFrame(Tool):   
     #* Condense and dynamic way of creating DataFrame 
-    #Note Need to use "lower()" function because csv file are lowercased       
-    print(f"csv\\updated_{Tool.lower()}_transactions.csv")                
+    #Note Need to use "lower()" function because csv file are lowercased                     
     return panda.read_csv(f"csv\\updated_{Tool.lower()}_transactions.csv",
                                         names=('Date', 'Hash', 'ETH', 'Seller', 'Buyer')
                           )        
@@ -37,10 +36,12 @@ def sort_ascending_and_drop_duplicates_list(DataFrame, column_name):
     return ((DataFrame[column_name].drop_duplicates()).sort_values(ascending=True)).tolist() 
 
 
-def sort_DataFrame_for_Addresses(dictionary, DataFrame, address_column_name):
-    converted_list = (dictionary["Chosen_Addresses"].rstrip()).split(",")
+def sort_DataFrame_for_Addresses(choosen_address, DataFrame, address_column_name):
+    converted_list = (choosen_address.rstrip()).split(",")
+    print(DataFrame[DataFrame[address_column_name].isin(converted_list)])
     #FIXME Hardcoded the "Buyer" need to change it to be dynamic
     return DataFrame[DataFrame[address_column_name].isin(converted_list)]
+
 
 def sort_DataFrame_for_Inequality(ETH_values, DataFrame, inequality_column_name):
     return DataFrame[(DataFrame[inequality_column_name] >= ETH_values["Min_ETH"]) &

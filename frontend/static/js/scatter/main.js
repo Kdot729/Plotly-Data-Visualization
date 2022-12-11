@@ -1,9 +1,8 @@
 import {initilize_dictionary} from "./dictionary.js"
 import {update_graph_and_dropdowns} from "./update.js"
-import {check_website} from "../link"
-import {disabled_icon} from "../disable"
 
 
+console.log("4452")
 let string_url = window.location.href
 let split_url = string_url.split("/")
 
@@ -14,6 +13,7 @@ $(document).ready(function () {
     //Example id that is called "Address-Icon-Button"
     $("button[id$='Button']").on("click", function(event) 
     {
+      console.log("ok")
 
       let split_event = event.target.id.split("-")  
 

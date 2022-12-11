@@ -1,8 +1,10 @@
+import {disabled_icon} from "../disable.js"
+
 function update_graph_and_dropdowns(dropdown_dictionary, event) 
     {
     $.getJSON({
-        //Note Goes to fuction update_page() because it has /calling as route
-        url: "/update_page",                                   
+        //Note Goes to fuction update_scatter_page() because it has /calling as route
+        url: "/update_scatter_page",                                   
         data: dropdown_dictionary,
         success: function (result) 
         { 
@@ -21,7 +23,7 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             {
                 console.log("if")
                 dropdown_dictionary["Chosen_Addresses"].split(',');
-                repopulate_address_dropdown(result["Address List"], selected_addresses)
+                repopulate_address_dropdown(result["Address List"], dropdown_dictionary["Chosen_Addresses"])
                 
             }
             else
@@ -35,7 +37,7 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
 
             }
             $(".selectpicker").selectpicker("refresh");
-            disabled_dropdown(event);
+            disabled_icon(event);
         }
         })
     };

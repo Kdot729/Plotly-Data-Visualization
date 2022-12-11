@@ -11,13 +11,11 @@ panda.set_option('display.max_colwidth', None)
 #FIXME dictionary["Address_Type"] doesn't work with bar chart
 def sort_new_DataFrame(dictionary, DataFrame, column_dictionary):
 
-    print(DataFrame)
     if (dictionary["ID of Dropdown"] == "Type-Address") or (dictionary["ID of Dropdown"] == "Reset-Icon"):
         return DataFrame
 
     elif (dictionary["ID of Dropdown"] == "Address"):
-        print(general_functions.sort_DataFrame_for_Addresses(dictionary, DataFrame, column_dictionary["Address"]))
-        return general_functions.sort_DataFrame_for_Addresses(dictionary, DataFrame, column_dictionary["Address"])
+        return general_functions.sort_DataFrame_for_Addresses(dictionary["Chosen_Addresses"], DataFrame, column_dictionary["Address"])
 
     elif (dictionary["ID of Dropdown"] == "Less-Than") or (dictionary["ID of Dropdown"] == "Greater-Than"):
         return general_functions.sort_inequality_DataFrame(dictionary, DataFrame, column_dictionary["Inequality"])
