@@ -20,8 +20,7 @@ $(document).ready(function () {
   
     $(document).on("click", function(event) 
     {
-      //FIX Put "content" in all the dropdown to make it easier to hide. Need to replace "content" later
-      $(".custom-tooltip").not($(".custom-tooltip").has($(event.target))).children(".content").hide()
+      $(".custom-tooltip").not($(".custom-tooltip").has($(event.target))).children(".reveal").hide()
   
     })
 
