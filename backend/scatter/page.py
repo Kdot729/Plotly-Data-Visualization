@@ -36,6 +36,7 @@ def initial_page_render(tool):
 
 def page_rerender(frontend_dictionary):
 
+    print("scatter", frontend_dictionary["Tool"])
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
 
     column_dictionary = {"Address_Column": frontend_dictionary["Address_Type"], "Inequality_Column": "ETH"}

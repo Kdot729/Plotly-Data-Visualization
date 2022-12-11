@@ -20,7 +20,6 @@ def update_scatter_page():
 
     #* Convert request.args. An ImmutableMultiDict to a regular dictionary
     frontend_dictionary = dict(request.args)
-    print(frontend_dictionary)
     return scatter_page.page_rerender(frontend_dictionary)
 
 @app.route('/update_bar_page', methods=['GET'])

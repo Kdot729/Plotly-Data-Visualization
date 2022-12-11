@@ -15,8 +15,6 @@ function initilize_dictionary(event)
     {
         let new_dictionary = check_ID(standard_dropdown_dictionary["ID of Dropdown"])
         let finished_dictionary = Object.assign({}, standard_dropdown_dictionary, new_dictionary);  
-
-
         return finished_dictionary
 
     }
@@ -28,6 +26,7 @@ function check_ID(ID){
 
     if (ID == "Address")
     {
+        console.log("Address")
         let specific_dictionary = 
         {
             "Chosen_Addresses": ($("#Address").val()).toString(),  //* Using JQuery to get Address value, then converting to string

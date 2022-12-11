@@ -32,12 +32,12 @@ def initial_page_render(tool):
 
 
 def page_rerender(frontend_dictionary):
-
+    print("bar",frontend_dictionary)
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
 
     DataFrame = dataframe.create_count_transactions_bar_DataFrame(DataFrame)
 
-    column_dictionary = {"Address": "Address", "Inequality": "Total"}
+    column_dictionary = {"Address_Column": "Address", "Inequality_Column": "Total"}
 
     graph_DataFrame = event.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
 

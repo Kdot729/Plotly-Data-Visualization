@@ -9,7 +9,6 @@ $(document).ready(function () {
     //Example id that is called "Address-Icon-Button"
     $("button[id$='Button']").on("click", function(event) 
     {
-      console.log("ok")
 
       let split_event = event.target.id.split("-")  
 
