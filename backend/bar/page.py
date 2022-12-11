@@ -32,7 +32,7 @@ def initial_page_render(tool):
 
 
 def page_rerender(frontend_dictionary):
-    print("bar",frontend_dictionary)
+
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
 
     DataFrame = dataframe.create_count_transactions_bar_DataFrame(DataFrame)

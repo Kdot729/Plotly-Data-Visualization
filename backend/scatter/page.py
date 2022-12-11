@@ -14,9 +14,10 @@ def initial_page_render(tool):
     page_filepath =  f"graph/scatter/basic.html"
 
     DataFrame = general_functions.create_DataFrame(tool)
-
+    
     column_dictionary = {"Address Column": "Buyer", "Inequality Column": "ETH"}
-
+    badges = general_functions.linking_address(column_dictionary["Address Column"], DataFrame)
+    
     plotly_graph = graph.create_scatter_graph(DataFrame, "Buyer")
 
     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
@@ -30,13 +31,14 @@ def initial_page_render(tool):
                             graphJSON=graphJSON, 
                             address_list=address_list,
                             inequality_dictionary=inequality_dictionary,
-                            date_dictionary=date_dictionary)
+                            date_dictionary=date_dictionary,
+                            badges = badges)
 
 
 
 def page_rerender(frontend_dictionary):
 
-    print("scatter", frontend_dictionary["Tool"])
+
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
 
     column_dictionary = {"Address Column": frontend_dictionary["Type"], "Inequality Column": "ETH"}

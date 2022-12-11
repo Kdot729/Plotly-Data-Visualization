@@ -63,8 +63,12 @@ def sort_Inequality_List(DataFrame, column_name):
 
 
 #TODO Return a list of the latest address, dropping duplicates
-def linking_address(DataFrame):
-    pass
+def linking_address(address_column_name, DataFrame):
+    DataFrame = (DataFrame[address_column_name].str.slice(0,5)).drop_duplicates()
+    print(DataFrame[:11])
+    return DataFrame[:11]
+    # print(sort_ascending_and_drop_duplicates_list(DataFrame, address_column_name))
+    # return sort_ascending_and_drop_duplicates_list(DataFrame, address_column_name)[:11]
 
 def convert_Graph_to_JSON(plotly_graph):
     graphJSON = json.dumps(obj=plotly_graph , cls=plotly.utils.PlotlyJSONEncoder) #! graphJSON needs to match graphJSON in render template because in the template it's graph graphJSON 
