@@ -26,7 +26,6 @@ function check_ID(ID){
 
     if (ID == "Address")
     {
-        console.log("Address")
         let specific_dictionary = 
         {
             "Chosen_Addresses": ($("#Address").val()).toString(),  //* Using JQuery to get Address value, then converting to string

@@ -12,7 +12,6 @@ function disabled_icon(event)
         for(let i = 0; i < tooltip_id_list.length; i++)
         {
             let split_id = tooltip_id_list[i].split("Tooltip")[0]
-            console.log("split", split_id)
 
             let button_id = split_id + "Icon-Button"
             let tooltip_id = split_id + "Tooltip"

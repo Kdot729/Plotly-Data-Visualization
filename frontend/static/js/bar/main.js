@@ -3,7 +3,7 @@ import {update_graph_and_dropdowns} from "../bar/update.js"
 // import {check_website} from "../link"
 // import {disabled_icon} from "../disable"
 
-console.log("wtf")
+
 //TODO "Reset-Icon" triggers this function. Not sure if that's going to be a problem later
 $(document).ready(function () {
 
