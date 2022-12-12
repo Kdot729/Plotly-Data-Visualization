@@ -15,8 +15,7 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             $('#badge-area').empty();
 
 
-            //FIXME Need to pass in a new "Address" dropdown for when "Seller" is picked. Might have to use repopulate_address_dropdown()
-            //FIXME Reset needs to clear the checkmark in the "Address" dropdpown
+
             $("#Address option").remove();
 
             //Note Check if the key "Chosen Addresses" is in dropdown_dictionary

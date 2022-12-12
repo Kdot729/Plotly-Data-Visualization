@@ -24,7 +24,7 @@ def initial_page_render(tool):
 
     inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality Column"])
 
-    # #FIXME Need to look at convert_Graph_to_JSON()
+
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
 
     return render_template(template_name_or_list = page_filepath,

@@ -8,7 +8,7 @@ panda.set_option('display.width', None)
 panda.set_option('display.max_colwidth', None)
 
 
-#FIXME dictionary["Type"] doesn't work with bar chart
+
 def sort_new_DataFrame(dictionary, DataFrame, column_dictionary):
 
     if (dictionary["ID of Dropdown"] == "Type") or (dictionary["ID of Dropdown"] == "Reset-Icon"):
