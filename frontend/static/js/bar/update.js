@@ -1,4 +1,5 @@
 import {disabled_icon} from "../disable.js"
+import {check_website} from "../badges.js"
 
 function update_graph_and_dropdowns(dropdown_dictionary, event) 
     {
@@ -12,11 +13,7 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             //Note JSON.parse(result["JSON Graph"]) converts data into a object. Need to have it as an object
             Plotly.newPlot("chart", JSON.parse(result["JSON Graph"]), {staticPlot: true});
                    
-            $('#badge-area').empty();
-
-
-
-            $("#Address option").remove();
+            empty_dropdowns()
 
             //Note Check if the key "Chosen Addresses" is in dropdown_dictionary
             if (("Chosen Addresses" in dropdown_dictionary))
@@ -36,6 +33,7 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             }
             $(".selectpicker").selectpicker("refresh");
             disabled_icon(event);
+            check_website($("#Website").val(), result["Badges"])
         }
         })
     };
@@ -47,7 +45,7 @@ function empty_dropdowns()
     // $("#Greater-Than").empty();
 
     // //! Forget what this does, but "Address" dropdown works. I think it removes all the options
-    // $("#Address option").remove();
+    $("#Address option").remove();
 };
 function repopulate_inequality_dropdowns(selector_ID, inequality_list)
 {
