@@ -35,28 +35,46 @@ function disabled_icon(event)
     //Note "Type" won't disable other icons
     else if ((event.target.id != "Reset-Icon") && (event.target.id != "Type"))
     {
-    
+   
+    //Note Split the event by "-" then grab the last index
+    let last_index_event_id = (event.target.id.split("-")).at(-1)
+
+
+    //Note Iterate through all the icons
     //Note Passing tooltip id because it's the easiest to split
     for(let i = 0; i < tooltip_id_list.length; i++)
         {
+
+            //Example of split_id: Start-Date-
             let split_id = tooltip_id_list[i].split("Tooltip")[0]
             
-            // console.log(split_id)
+            //Example of button_id: Start-Date-Icon-Button
             let button_id = split_id + "Icon-Button"
+
+            //Example of tooltip_id: Start-Date-Tooltip
             let tooltip_id = split_id + "Tooltip"
+
+            //Example of icon_id: Start-Date-Icon
             let icon_id = split_id + "Icon"
 
-            // console.log(button_id, tooltip_id, icon_id)
             
             //Note Get get of last character which is "-" because event.target.id doesn't have a "-" 
-            let conditional_id = split_id.slice(0, -1)
-            // console.log("conditional", conditional_id)
-            // console.log(event.target.id)
+            //Example of id: Start-Date
+            let id = split_id.slice(0, -1)
+
+            //Note Split all the ids by "-" then grab the last index
+            //Example of last_index_id: It would split "Start-Date" in a list containing "Start" and "Date" then grab the last index which is "Date"
+            let last_index_id = (id.split("-")).at(-1)
+
 
             //Note Harded coding that the "Website" and "Reset" icon don't get disabled
-            //Note (event.target.id != conditional_id) makes it so the icon, you're currently using doesn't get disabled
-            if ((event.target.id != conditional_id) && (conditional_id != "Website") && (conditional_id != "Reset"))
+            //Note (event.target.id != id) makes it so the icon, you're currently using doesn't get disabled
+            //Note (last_index_event_id != last_index_id) makes it so icon that are the same don't get disabled
+            //Example If "Start-Date" or "End-Date" gets used the other date icon doesn't get disabled
+            //Example If "Less-Than" or "Greater-Than" gets used the other inequality icon doesn't get disabled
+            if ((event.target.id != id) && (id != "Website") && (id != "Reset") && (last_index_event_id != last_index_id))
             {
+
                 //Note Makes button unclickable
                 $(`#${button_id}`).prop("disabled", true);
 
