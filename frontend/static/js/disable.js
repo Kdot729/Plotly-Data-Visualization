@@ -9,33 +9,41 @@ function disabled_icon(event)
     // console.log("before condition",event.target.id)
     if (event.target.id == "Reset-Icon")
     {
-        for(let i = 0; i < tooltip_id_list.length; i++)
-        {
-            let split_id = tooltip_id_list[i].split("Tooltip")[0]
-
-            let button_id = split_id + "Icon-Button"
-            let tooltip_id = split_id + "Tooltip"
-            let icon_id = split_id + "Icon"
-
-            //Note Get get of last character which is "-". Then replace the middle "-" with a space
-            let tooltip_text = split_id.slice(0, -1).replaceAll("-", " ")
-            
-            //Note Makes button clickable
-            $(`#${button_id}`).prop("disabled", false);
-
-            //Note Changes tooltiptext to it's original text
-            $(`#${tooltip_id}`).text(tooltip_text)
-            
-            //Note Changes icon color to it's original color
-            $(`#${icon_id}`).css("color", "#004489")
-        }
-
+        reset_icon_clicked(tooltip_id_list, event)
     }
     
     //Note "Type" won't disable other icons
     else if ((event.target.id != "Reset-Icon") && (event.target.id != "Type"))
     {
-   
+        other_icons_clicked(tooltip_id_list, event)
+    }
+}
+
+function reset_icon_clicked(tooltip_id_list){
+    for(let i = 0; i < tooltip_id_list.length; i++)
+    {
+        let split_id = tooltip_id_list[i].split("Tooltip")[0]
+
+        let button_id = split_id + "Icon-Button"
+        let tooltip_id = split_id + "Tooltip"
+        let icon_id = split_id + "Icon"
+
+        //Note Get get of last character which is "-". Then replace the middle "-" with a space
+        let tooltip_text = split_id.slice(0, -1).replaceAll("-", " ")
+        
+        //Note Makes button clickable
+        $(`#${button_id}`).prop("disabled", false);
+
+        //Note Changes tooltiptext to it's original text
+        $(`#${tooltip_id}`).text(tooltip_text)
+        
+        //Note Changes icon color to it's original color
+        $(`#${icon_id}`).css("color", "#004489")
+    }
+}
+
+function other_icons_clicked(tooltip_id_list, event){
+       
     //Note Split the event by "-" then grab the last index
     let last_index_event_id = (event.target.id.split("-")).at(-1)
 
@@ -86,9 +94,5 @@ function disabled_icon(event)
             }
             
         }   
-    }
 }
-
-
-
 export {disabled_icon}
