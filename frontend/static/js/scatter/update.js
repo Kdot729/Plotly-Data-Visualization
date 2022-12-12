@@ -1,4 +1,5 @@
 import {disabled_icon} from "../disable.js"
+import {check_website} from "../badges.js"
 
 function update_graph_and_dropdowns(dropdown_dictionary, event) 
     {
@@ -34,6 +35,8 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             }
             $(".selectpicker").selectpicker("refresh");
             disabled_icon(event);
+            console.table(result["Badges"])
+            check_website($("#Website").val(), result["Badges"])
         }
         })
     };

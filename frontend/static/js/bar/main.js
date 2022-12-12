@@ -1,7 +1,7 @@
 import {initilize_dictionary} from "../bar/dictionary.js"
 import {update_graph_and_dropdowns} from "../bar/update.js"
 import {reveal_dropdown} from "../reveal.js"
-import {changed_website} from "../link.js"
+import {changed_website} from "../badges.js"
 
 
 

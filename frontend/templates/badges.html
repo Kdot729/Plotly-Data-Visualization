@@ -4,12 +4,12 @@
         <a href="' + link + '" class="custom-badge-pill" value="' + identifier + '" target="_blank" id="' + identifier + '"></a> -->
 
 <div id="badge-area" class="badge-pill-grid">
-
+    <!--Note Hard coding Zapper link because Zapper is the default  -->
     <!--Note Key is full_address. Value is short_address -->
     {% for key, value in badges.items() %}   
     <a href="https://zapper.fi/account/{{ key }}?tab=nft&network=ethereum&collectionToggle=collection" class="custom-badge-pill" value="{{ value }}" id="{{ value }}" target="_blank">{{ value }}</a>
     
     {% endfor %}
 </div> 
-<!--  Adding badge-ill to link to Opensea and Zapper  -->
+
 {% endblock  %}  

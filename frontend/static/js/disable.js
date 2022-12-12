@@ -1,4 +1,4 @@
-import {check_website} from "./link.js"
+import {check_website} from "./badges.js"
 
 
 function disabled_icon(event) 

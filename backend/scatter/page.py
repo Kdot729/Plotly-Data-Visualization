@@ -42,13 +42,13 @@ def page_rerender(frontend_dictionary):
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
 
     column_dictionary = {"Address Column": frontend_dictionary["Type"], "Inequality Column": "ETH"}
-
+    
     graph_DataFrame = event.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
-
+    badges = general_functions.linking_address(column_dictionary["Address Column"], graph_DataFrame)
     plotly_graph = graph.create_scatter_graph(graph_DataFrame, frontend_dictionary["Type"])
 
     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
     
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
 
-    return {"JSON Graph": graphJSON, "Address List": address_list}
+    return {"JSON Graph": graphJSON, "Address List": address_list, "Badges": badges}
