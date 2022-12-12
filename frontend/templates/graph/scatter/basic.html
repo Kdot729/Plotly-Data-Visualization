@@ -26,32 +26,19 @@
 {% include "dropdowns/external_website.html" %}
 {% include "dropdowns/reset.html" %}
 </div>
-<!-- <div class="container-fluid text-center" id="main"> 
+<!-- <div class="container-fluid text-center" id="main">  -->
+
+{% include "badges.html" %}
 
 
 
-        <!--! Get rid of Reset button? Can just "crtl R" instead of clicking the button-->
-        <!-- <div class="col ">
-            <button id="Reset" type="button" class="btn btn-danger">Reset</button>
-        </div>  -->
 
-        <!-- <option value="{{ greater_than }}" id="{{ greater_than }}">{{ greater_than }}</option>  
-        <a href="' + link + '" class="custom-badge-pill" value="' + identifier + '" target="_blank" id="' + identifier + '"></a> -->
 
-    <div id="badge-area" class="badge-pill-grid">
-        {% block badge %}
-        {% for badges in badges %}   
-        <a class="custom-badge-pill" value="{{ badges }}" id="{{ badges }}">{{ badges }}</a>
-        
-        {% endfor %}
-        {% endblock %}
-    </div> 
-    <!--  Adding badge-ill to link to Opensea and Zapper  -->
  
-    <!-- </div>  -->
+
     <!-- Organization End of Container -->
 
-    <div>{% include "graph/base_graph.html" %}</div>
+{% include "graph/base_graph.html" %}
 
 {% endblock %}
 

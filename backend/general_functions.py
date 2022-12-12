@@ -64,11 +64,19 @@ def sort_Inequality_List(DataFrame, column_name):
 
 #TODO Return a list of the latest address, dropping duplicates
 def linking_address(address_column_name, DataFrame):
-    DataFrame = (DataFrame[address_column_name].str.slice(0,5)).drop_duplicates()
-    print(DataFrame[:11])
-    return DataFrame[:11]
-    # print(sort_ascending_and_drop_duplicates_list(DataFrame, address_column_name))
-    # return sort_ascending_and_drop_duplicates_list(DataFrame, address_column_name)[:11]
+
+    address =(DataFrame[address_column_name].drop_duplicates())
+
+    #Note Going up the tenth index because it's needs to match the max in selectpicker
+    full_address = address[:10].tolist() 
+    short_address = address[:10].str.slice(0,5).tolist() 
+
+
+    #Note full_address is key. short_address is value
+    address_dictionary = dict(zip(full_address, short_address))
+    print(address_dictionary)
+    return address_dictionary
+
 
 def convert_Graph_to_JSON(plotly_graph):
     graphJSON = json.dumps(obj=plotly_graph , cls=plotly.utils.PlotlyJSONEncoder) #! graphJSON needs to match graphJSON in render template because in the template it's graph graphJSON 

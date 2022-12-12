@@ -1,11 +1,11 @@
 {% block graph %}
-
-<div id="chart" class="chart"></div>
-<script>
-    newgraph = {{ graphJSON | safe }};
-    //d.config={staticPlot: true};
-    Plotly.newPlot('chart', newgraph, {});
-    
-</script>
-
+<div>
+    <div id="chart" class="chart"></div>
+    <script>
+        newgraph = {{ graphJSON | safe }};
+        //d.config={staticPlot: true};
+        Plotly.newPlot('chart', newgraph, {});
+        
+    </script>
+</div>
 {% endblock %}
