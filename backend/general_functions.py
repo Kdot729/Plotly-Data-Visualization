@@ -13,25 +13,25 @@ panda.set_option('display.max_colwidth', None)
 
 
 def create_DataFrame(Tool):   
-    #* Condense and dynamic way of creating DataFrame 
+
     #Note Need to use "lower()" function because csv file are lowercased                     
     return panda.read_csv(f"csv\\updated_{Tool.lower()}_transactions.csv",
                                         names=('Date', 'Hash', 'ETH', 'Seller', 'Buyer')
                           )        
 
-def sort_Date_DataFrame(chosen_start_date, chosen_end_date, DataFrame):                     #* Filter the dataframe to only include the inputs which are start_date and end_date
+def sort_Date_DataFrame(chosen_start_date, chosen_end_date, DataFrame):                     
      if chosen_start_date and chosen_end_date:
-        return DataFrame[(DataFrame["Date"] >= chosen_start_date) & #* Returns the DataFrame inbetween the dates
+        return DataFrame[(DataFrame["Date"] >= chosen_start_date) & 
                                   (DataFrame["Date"] <= chosen_end_date)]                                                       
      elif not chosen_start_date and not chosen_end_date:
         return DataFrame[(DataFrame["Date"] >= "2021-10-08") & 
                                   (DataFrame["Date"] <= datetime.now().strftime("%Y-%m-%d"))]                           
                                 
-#* Drop the duplicates of whatever column was passed in the DataFrame. Sort it descending. Then, convert it to a list. Returns passed in "column_name" of DataFrame. In that order
+#Note Drop the duplicates of whatever column was passed in the DataFrame. Sort it descending. Then, convert it to a list. Returns passed in "column_name" of DataFrame. In that order
 def sort_descending_and_drop_duplicates_list(DataFrame, column_name):
     return ((DataFrame[column_name].drop_duplicates()).sort_values(ascending=False)).tolist() 
 
-#* Drop the duplicates of whatever column was passed in the DataFrame. Sort it ascending. Then, convert it to a list. Returns passed in "column_name" of DataFrame.  In that order
+#Note Drop the duplicates of whatever column was passed in the DataFrame. Sort it ascending. Then, convert it to a list. Returns passed in "column_name" of DataFrame.  In that order
 def sort_ascending_and_drop_duplicates_list(DataFrame, column_name):
     return ((DataFrame[column_name].drop_duplicates()).sort_values(ascending=True)).tolist() 
 
@@ -62,8 +62,8 @@ def sort_Inequality_List(DataFrame, column_name):
 
 
 
-#TODO Return a list of the latest address, dropping duplicates
-def linking_address(address_column_name, DataFrame):
+
+def create_badges(address_column_name, DataFrame):
 
     address =(DataFrame[address_column_name].drop_duplicates())
 

@@ -16,7 +16,7 @@ def initial_page_render(tool):
     DataFrame = general_functions.create_DataFrame(tool)
     
     column_dictionary = {"Address Column": "Buyer", "Inequality Column": "ETH"}
-    badges = general_functions.linking_address(column_dictionary["Address Column"], DataFrame)
+    badges = general_functions.create_badges(column_dictionary["Address Column"], DataFrame)
     
     plotly_graph = graph.create_scatter_graph(DataFrame, "Buyer")
 
@@ -44,7 +44,7 @@ def page_rerender(frontend_dictionary):
     column_dictionary = {"Address Column": frontend_dictionary["Type"], "Inequality Column": "ETH"}
     
     graph_DataFrame = event.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
-    badges = general_functions.linking_address(column_dictionary["Address Column"], graph_DataFrame)
+    badges = general_functions.create_badges(column_dictionary["Address Column"], graph_DataFrame)
     plotly_graph = graph.create_scatter_graph(graph_DataFrame, frontend_dictionary["Type"])
 
     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
