@@ -20,7 +20,7 @@
   /* Changes wheres the text appears in the badge */
   line-height: 1.25;
 }
-/*Note Inherit from "badge-grid" */
+/*Note Child of class ".badge-pill-grid" */
 .custom-badge-pill {
   width: 100px;
   border-radius: 40px;
@@ -51,7 +51,7 @@
   } 
 
 /*Organization Tooltip related */
-/*Note This is the parent to the icons */
+/*Inherit Parent of the icons */
 .custom-tooltip {
   position: relative;
   display: inline-flex;
@@ -61,7 +61,7 @@
 
 }
 /*Note Tooltip text */
-/*Note If it has tooltiptext inside a tooltip */
+/*Inherit If it has tooltiptext inside a tooltip */
 .custom-tooltip .custom-tooltip-text {
   /*Note Don't change top and left because it aligns it to the left */
   top: -25px;
@@ -88,7 +88,7 @@
 }
   /*Organization Tooltip  related */
   
-/*Note Parent element is ".custom-tooltip" */
+/*Inherit Child of class ".custom-tooltip" */
 .override-button{
   display: inline-flex;
   z-index: 1;
@@ -104,7 +104,7 @@
 
 
   }
-/*Note Parent element is ".override-button". Grandparent is ".custom-tooltip" */
+/*Inherit Child of class ".override-button". Grandchild of class ".custom-tooltip" */
 /* TODO Positioning for icon is shit because of using -15px */
 /*Organization Icon related */
 .style-icon {
@@ -126,7 +126,7 @@
 }
 /*Organization Icon related */  
 
-/*Note Parent is ".custom-tooltip" */
+/*Inherit Child of class ".custom-tooltip" */
 .date-dropdown {
   width: 230px;
   height: 50px;
@@ -140,7 +140,7 @@
 }
 
 
-/*Note Inherits from .date-dropdown */
+/*Inherit Child of class ".date-dropdown" */
 .custom-input{
   width: inherit;
   height: inherit;
@@ -152,7 +152,7 @@
   box-sizing: border-box; */
 }
 
-
+/*Inherit Child of class ".custom-tooltip" */
 /* The container must be positioned relative: */
 .inequality-dropdown {
   display: none;  
@@ -203,17 +203,21 @@ select.custom-dropdown {
   z-index: -4;
 }
 
-/*Note Inherit from class "image-header-grid" */
+/*Inherit Child of class ".image-header-grid" */
 .override-anchor{
   height: inherit;
+  width: 30px;
   font-size: inherit;
-  margin: 0px;
-  padding: 0px;
+
+
 }
+
+/*Inherit Child of class ".override-anchor". Grandchild of class ".image-header-grid"*/
 .image{
   position: absolute;
   font-size: inherit;
   height: inherit;
+  width: inherit;
   text-align: center;
 }
 
