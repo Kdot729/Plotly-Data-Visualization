@@ -5,7 +5,8 @@
 {% endblock %}
 
 {% block content %}
-    <div class="filler-div"></div>
+{% include "header.html" %}
+
     <div class="grid-container">
         {% include "dropdowns/type_transaction.html" %}
         {% include "dropdowns/address.html" %}
