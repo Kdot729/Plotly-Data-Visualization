@@ -27,7 +27,6 @@ def update_bar_page():
 
     #* Convert request.args. An ImmutableMultiDict to a regular dictionary
     frontend_dictionary = dict(request.args)
-
     return bar_page.page_rerender(frontend_dictionary)
 
 

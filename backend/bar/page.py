@@ -36,7 +36,7 @@ def initial_page_render(tool):
 def page_rerender(frontend_dictionary):
 
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
-
+    print("Type",frontend_dictionary["Type"])
     DataFrame = dataframe.create_count_transactions_bar_DataFrame(DataFrame)
 
     column_dictionary = {"Address Column": "Address", "Inequality Column": "Total"}
