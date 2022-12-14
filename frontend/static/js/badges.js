@@ -42,7 +42,7 @@ function link_website(link, address){
     let website_name = (link.split(/[.|/]/))[2]; 
     let identifier = `${website_name}-${address}`;
     
-    $("#badge-area").append('<a href="' + link + '" class="custom-badge-pill" value="' + identifier + '" target="_blank" id="' + identifier + '"></a>');
+    $("#badge-area").append('<a href="' + link + '" class="custom-badge-pill" value="' + identifier + '" target="_blank" rel="noopener noreferrer" id="' + identifier + '"></a>');
     
     //Note substr range needs to match the slice in python
     $(`#${identifier}`).text(address.substr(0, 6));
