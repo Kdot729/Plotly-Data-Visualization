@@ -28,12 +28,16 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
                 {
                     $("#Address").append($("<option>").val(result["Address List"][i]).text(result["Address List"][i]));        
                 }
-                
-
             }
             $(".selectpicker").selectpicker("refresh");
             disabled_icon(event);
             check_website($("#Website").val(), result["Badges"])
+
+            //Note Reset the selected values for inequality dropdown
+            if (event.target.id == "Reset-Icon")
+            {
+                reset_selected_inequality()
+            }
         }
         })
     };
@@ -46,7 +50,12 @@ function empty_dropdowns()
 };
 
 
-
+function reset_selected_inequality()
+{
+    //Note Resest the selected value of each inequality since it's the default graph we can grab the zeroth index because it's the min and max
+    $('#Less-Than').prop("selectedIndex", 0);
+    $('#Greater-Than').prop("selectedIndex", 0);
+}
 
 function repopulate_address_dropdown(address_list, selected_addresses)
 {

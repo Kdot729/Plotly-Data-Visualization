@@ -9,7 +9,7 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
         data: dropdown_dictionary,
         success: function (result) 
         { 
-
+            console.log(event.target.id)
             //Note JSON.parse(result["JSON Graph"]) converts data into a object. Need to have it as an object
             Plotly.newPlot("chart", JSON.parse(result["JSON Graph"]), {staticPlot: true});
                    
@@ -28,15 +28,25 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
                 {
                     $("#Address").append($("<option>").val(result["Address List"][i]).text(result["Address List"][i]));        
                 }
-                
-
             }
             $(".selectpicker").selectpicker("refresh");
             disabled_icon(event);
             check_website($("#Website").val(), result["Badges"])
+
+            //Note Reset the selected values for inequality dropdown
+            if (event.target.id == "Reset-Icon")
+            {
+                reset_selected_inequality()
+            }
         }
         })
     };
+function reset_selected_inequality()
+{
+    //Note Resest the selected value of each inequality since it's the default graph we can grab the zeroth index because it's the min and max
+    $('#Less-Than').prop("selectedIndex", 0);
+    $('#Greater-Than').prop("selectedIndex", 0);
+}
 
 function empty_dropdowns()
 {   
