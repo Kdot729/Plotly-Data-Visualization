@@ -30,8 +30,9 @@ $(document).ready(function () {
 
     });
 
-    $("#Transaction-Type").on("change", function(event)
+    $("#Type").on("change", function(event)
     {   
+      console.log("call type")
       update_page(event);
         
     });

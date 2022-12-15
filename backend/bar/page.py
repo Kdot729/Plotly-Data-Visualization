@@ -17,7 +17,8 @@ def initial_page_render(tool):
     column_dictionary = {"Address Column": "Address", "Inequality Column": "Total"}
     badges = general_functions.create_badges(column_dictionary["Address Column"], DataFrame)
 
-    plotly_graph = graph.create_count_transactions_graph(DataFrame)
+    #Note Harded coding the graph type because "Total" is the default value
+    plotly_graph = graph.create_count_transactions_graph(DataFrame, "Total")
 
     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
 
@@ -36,17 +37,31 @@ def initial_page_render(tool):
 def page_rerender(frontend_dictionary):
 
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
-    print("Type",frontend_dictionary["Type"])
+
     DataFrame = dataframe.create_count_transactions_bar_DataFrame(DataFrame)
 
+    
     column_dictionary = {"Address Column": "Address", "Inequality Column": "Total"}
 
     graph_DataFrame = event.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
+
+    # print(graph_DataFrame)
+
     badges = general_functions.create_badges(column_dictionary["Address Column"], graph_DataFrame)
-    plotly_graph = graph.create_count_transactions_graph(graph_DataFrame)
+    plotly_graph = graph.create_count_transactions_graph(graph_DataFrame, frontend_dictionary["Type"])
     
-    address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
-    
+    address_list = general_functions.sort_descending_and_drop_duplicates_list(graph_DataFrame, column_dictionary["Address Column"])
+    print("address list",address_list)
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
 
+    #!---------------------------Delete
+
+    #FIXME Problem with this is when passing ["Buy", "Sell"] into the graph because we dropped it
+    # for DataFrame_column_name in DataFrame:
+    #     print("column name", DataFrame_column_name)
+    #     if ((DataFrame_column_name != "Address") and (DataFrame_column_name != frontend_dictionary["Type"])):
+    #         DataFrame.drop([DataFrame_column_name], axis=1, inplace=True)
+    # print(DataFrame)
+
+     #!---------------------------Delete
     return {"JSON Graph": graphJSON, "Address List": address_list, "Badges": badges}

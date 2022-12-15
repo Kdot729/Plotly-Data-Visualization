@@ -2,14 +2,21 @@ import plotly.express as plotlyX
 
 
 
-def create_count_transactions_graph(DataFrame):
+def create_count_transactions_graph(DataFrame, type):
+
+        if type == "Total":
+                y_axis = ["Sell", "Buy"]
+                color = {'Sell': 'red', 'Buy': 'green'}
+        elif type == "Buy":
+                y_axis = "Buy"
+                color = {'Buy': 'green'}
+        elif type == "Sell":
+                y_axis = "Sell"
+                color = {'Sell': 'red'}
         figure = plotlyX.bar(DataFrame, 
                         x="Address", 
-                        y=["Sell", "Buy"],
-                        color_discrete_map={
-                        'Sell': 'red',
-                        'Buy': 'green'
-                        },
+                        y=y_axis,
+                        color_discrete_map=color,
                         title="Transactions by Address")
                         
         figure.update_xaxes(tickfont_size=7)

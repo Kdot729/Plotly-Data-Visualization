@@ -7,6 +7,7 @@ app = Flask(__name__,  static_url_path='', static_folder="frontend/static", temp
 
 @app.route('/scatter/basic/<string:tool>')
 def route_scatter_page(tool):
+
     return scatter_page.initial_page_render(tool)
 
 @app.route('/bar/count_transactions/<string:tool>')

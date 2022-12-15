@@ -75,7 +75,7 @@ def create_badges(address_column_name, DataFrame):
 
     #Note full_address is key. short_address is value
     address_dictionary = dict(zip(full_address, short_address))
-    print(address_dictionary)
+    # print(address_dictionary)
     return address_dictionary
 
 
