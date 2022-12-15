@@ -3,9 +3,6 @@ import {update_graph_and_dropdowns} from "../bar/update.js"
 import {reveal_dropdown} from "../reveal.js"
 import {changed_website} from "../badges.js"
 
-
-
-
 $(document).ready(function () {
 
     //Note Selector is all button tags that end with "Button". It's case sensitive

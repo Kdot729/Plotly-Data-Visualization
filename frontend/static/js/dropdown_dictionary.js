@@ -48,6 +48,10 @@ function inequality_specific_dictionary()
 
 function reset_specific_dictionary()
     {
+    //Note Resest the selected value of each inequality since it's the default graph we can grab the zeroth index because it's the min and max
+    $('#Less-Than').prop("selectedIndex", 0);
+    $('#Greater-Than').prop("selectedIndex", 0);
+
     return {
         "Type": $("#Type").val()               //Note Using JQuery to get Type value
             }
