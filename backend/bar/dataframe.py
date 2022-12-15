@@ -34,3 +34,9 @@ def create_count_transactions_bar_DataFrame(DataFrame):
 
 
         return result
+         
+def filter_columns_DataFrame(DataFrame, column_name):
+        if column_name != "Total":
+                DataFrame = DataFrame.filter(["Address", column_name])
+                DataFrame = DataFrame[(DataFrame[list(DataFrame.columns)] != 0).all(axis=1)]
+        return DataFrame

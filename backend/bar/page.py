@@ -37,20 +37,20 @@ def initial_page_render(tool):
 def page_rerender(frontend_dictionary):
 
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
-
     DataFrame = dataframe.create_count_transactions_bar_DataFrame(DataFrame)
+    DataFrame = dataframe.filter_columns_DataFrame(DataFrame, frontend_dictionary["Type"])
+    print(DataFrame)
 
+    column_dictionary = {"Address Column": "Address", "Inequality Column": frontend_dictionary["Type"]}
+
+    DataFrame = event.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
+
+    # print(DataFrame)
+
+    badges = general_functions.create_badges(column_dictionary["Address Column"], DataFrame)
+    plotly_graph = graph.create_count_transactions_graph(DataFrame, frontend_dictionary["Type"])
     
-    column_dictionary = {"Address Column": "Address", "Inequality Column": "Total"}
-
-    graph_DataFrame = event.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
-
-    # print(graph_DataFrame)
-
-    badges = general_functions.create_badges(column_dictionary["Address Column"], graph_DataFrame)
-    plotly_graph = graph.create_count_transactions_graph(graph_DataFrame, frontend_dictionary["Type"])
-    
-    address_list = general_functions.sort_descending_and_drop_duplicates_list(graph_DataFrame, column_dictionary["Address Column"])
+    address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
     print("address list",address_list)
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
 
