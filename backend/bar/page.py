@@ -39,7 +39,7 @@ def page_rerender(frontend_dictionary):
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
     DataFrame = dataframe.create_count_transactions_bar_DataFrame(DataFrame)
     DataFrame = dataframe.filter_columns_DataFrame(DataFrame, frontend_dictionary["Type"])
-    print(DataFrame)
+
 
     column_dictionary = {"Address Column": "Address", "Inequality Column": frontend_dictionary["Type"]}
 
@@ -51,17 +51,16 @@ def page_rerender(frontend_dictionary):
     plotly_graph = graph.create_count_transactions_graph(DataFrame, frontend_dictionary["Type"])
     
     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
-    print("address list",address_list)
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
 
-    #!---------------------------Delete
-
-    #FIXME Problem with this is when passing ["Buy", "Sell"] into the graph because we dropped it
-    # for DataFrame_column_name in DataFrame:
-    #     print("column name", DataFrame_column_name)
-    #     if ((DataFrame_column_name != "Address") and (DataFrame_column_name != frontend_dictionary["Type"])):
-    #         DataFrame.drop([DataFrame_column_name], axis=1, inplace=True)
-    # print(DataFrame)
-
-     #!---------------------------Delete
-    return {"JSON Graph": graphJSON, "Address List": address_list, "Badges": badges}
+    #TODO Trying to repopulate inequality when "Type" is changed because they're not going to be the same
+    if (frontend_dictionary["ID of Dropdown"] == "Type"):
+        inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality Column"])
+        print(inequality_dictionary)
+        return {"JSON Graph": graphJSON, 
+        "Address List": address_list,
+        "Badges": badges,
+        "Descending List": inequality_dictionary["Descending List"],
+        "Ascending List": inequality_dictionary["Ascending List"]}
+    else:
+        return {"JSON Graph": graphJSON, "Address List": address_list, "Badges": badges}
