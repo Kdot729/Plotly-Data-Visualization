@@ -17,11 +17,11 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
 
             if (event.target.id == "Type")
             {
-            $("#Less-Than").empty();
-            $("#Greater-Than").empty();
-            repopulate_inequality_dropdowns("#Less-Than", result["Descending List"])
-            repopulate_inequality_dropdowns("#Greater-Than", result["Ascending List"])
-            console.log(result["Ascending List"])
+                $("#Less-Than").empty();
+                $("#Greater-Than").empty();
+                repopulate_inequality_dropdowns("#Less-Than", result["Descending List"])
+                repopulate_inequality_dropdowns("#Greater-Than", result["Ascending List"])
+                console.log(result["Ascending List"])
             }
 
             //Note Check if the key "Chosen Addresses" is in dropdown_dictionary
