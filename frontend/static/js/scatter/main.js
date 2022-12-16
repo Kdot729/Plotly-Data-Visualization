@@ -1,7 +1,7 @@
 import {initilize_dictionary} from "./dictionary.js"
 import {update_graph_and_dropdowns} from "./update.js"
 import {reveal_dropdown} from "../reveal.js"
-import {changed_website} from "../badges.js"
+import {website_changed} from "../badges.js"
 
 
 //TODO "Reset-Icon" triggers this function. Not sure if that's going to be a problem later
@@ -56,7 +56,7 @@ $(document).ready(function () {
 
     $("#Website").on("change", function()
     {
-      changed_website()
+      website_changed()
     });
 
     $('#Reset-Icon').on("click", function(event)

@@ -1,5 +1,5 @@
 import {disabled_icon} from "../disable.js"
-import {check_website} from "../badges.js"
+import {website_changed} from "../badges.js"
 
 function update_graph_and_dropdowns(dropdown_dictionary, event) 
     {
@@ -9,7 +9,6 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
         data: dropdown_dictionary,
         success: function (result) 
         { 
-            console.log(event.target.id)
             //Note JSON.parse(result["JSON Graph"]) converts data into a object. Need to have it as an object
             Plotly.newPlot("chart", JSON.parse(result["JSON Graph"]), {staticPlot: true});
                    
@@ -21,7 +20,7 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
                 $("#Greater-Than").empty();
                 repopulate_inequality_dropdowns("#Less-Than", result["Descending List"])
                 repopulate_inequality_dropdowns("#Greater-Than", result["Ascending List"])
-                console.log(result["Ascending List"])
+  
             }
 
             //Note Check if the key "Chosen Addresses" is in dropdown_dictionary
@@ -40,7 +39,7 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             }
             $(".selectpicker").selectpicker("refresh");
             disabled_icon(event);
-            check_website($("#Website").val(), result["Badges"])
+            website_changed($("#Website").val(), result["Badges"])
 
             //Note Reset the selected values for inequality dropdown
             if (event.target.id == "Reset-Icon")

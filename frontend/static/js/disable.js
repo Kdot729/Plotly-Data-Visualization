@@ -1,12 +1,8 @@
-import {check_website} from "./badges.js"
-
-
 function disabled_icon(event) 
 {
     //Note Select all "span" tag where the parent has a class "custom-tooltip"
     let tooltip_id_list = $.map($('.custom-tooltip > span'), span_id => span_id.id);
 
-    // console.log("before condition",event.target.id)
     if (event.target.id == "Reset-Icon")
     {
         reset_icon_clicked(tooltip_id_list, event)

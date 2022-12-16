@@ -1,7 +1,12 @@
 import {initilize_dictionary} from "../bar/dictionary.js"
 import {update_graph_and_dropdowns} from "../bar/update.js"
 import {reveal_dropdown} from "../reveal.js"
-import {changed_website} from "../badges.js"
+import {website_changed} from "../badges.js"
+// let tooltip_id_list = $.map($('.custom-tooltip > span'), span_id => span_id.id);
+// $('#badge-area > .custom-badge-pill').each(function() {
+//   console.log($(this))
+
+// });
 
 $(document).ready(function () {
 
@@ -29,7 +34,6 @@ $(document).ready(function () {
 
     $("#Type").on("change", function(event)
     {   
-      console.log("call type")
       update_page(event);
         
     });
@@ -48,8 +52,9 @@ $(document).ready(function () {
 
 
     $("#Website").on("change", function()
-    {
-      changed_website();
+    {  
+      console.log("clicked website icon")
+      website_changed();
     });
 
     $('#Reset-Icon').on("click", function(event)
