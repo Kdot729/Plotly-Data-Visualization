@@ -1,6 +1,7 @@
 import {disabled_icon} from "../disable.js"
 import {link_website} from "../badges.js"
 import {repopulate_address_dropdown, repopulate_inequality_dropdowns, reset_selected_inequality} from "../dropdown_functions.js"
+import {event_checker} from "./event.js"
 
 function update_graph_and_dropdowns(dropdown_dictionary, event) 
     {
@@ -20,38 +21,12 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             // //! Forget what this does, but "Address" dropdown works. I think it removes all the options
             $("#Address option").remove();
 
-            if (event.target.id == "Type")
-            {
-                $("#Less-Than").empty();
-                $("#Greater-Than").empty();
-                repopulate_inequality_dropdowns("#Less-Than", result["Descending List"])
-                repopulate_inequality_dropdowns("#Greater-Than", result["Ascending List"])
-  
-            }
+            event_checker(event.target.id, result)
 
-            //Note Check if the key "Chosen Addresses" is in dropdown_dictionary
-            if (("Chosen Addresses" in dropdown_dictionary))
-            {
-                dropdown_dictionary["Chosen Addresses"].split(',');
-                repopulate_address_dropdown(result["Address List"], dropdown_dictionary["Chosen Addresses"])
-                
-            }
-            else
-            {
-                for(let i = 0; i < result["Address List"].length; i++) 
-                {
-                    $("#Address").append($("<option>").val(result["Address List"][i]).text(result["Address List"][i]));        
-                }
-            }
             $(".selectpicker").selectpicker("refresh");
             disabled_icon(event);
             link_website($("#Website").val(), result["Badges"])
 
-            //Note Reset the selected values for inequality dropdown
-            if (event.target.id == "Reset-Icon")
-            {
-                reset_selected_inequality()
-            }
         }
         })
     };

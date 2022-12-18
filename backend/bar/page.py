@@ -56,7 +56,7 @@ def page_rerender(frontend_dictionary):
     #TODO Trying to repopulate inequality when "Type" is changed because they're not going to be the same
     if (frontend_dictionary["ID of Dropdown"] == "Type"):
         inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality Column"])
-        print(inequality_dictionary)
+        # print(inequality_dictionary)
         return {"JSON Graph": graphJSON, 
         "Address List": address_list,
         "Badges": badges,
