@@ -1,7 +1,5 @@
 function website_changed()
 {
-    if ($("#Website").val() == "Blur")
-        alert("Blur requires you to connect a wallet to use. If you're not comfortable with that they use the other sites");
     let badges_dictionary = create_badges_dictionary();
     link_website($("#Website").val(), badges_dictionary);
 }
@@ -25,7 +23,7 @@ function create_badges_dictionary()
     return badges_dictionary;
 }
 
-function link_website(choosen_website, badges_dictionary)
+function link_website(chosen_website, badges_dictionary)
 {   
     // console.log(badges_dictionary)
     // console.log("in check website")
@@ -33,31 +31,31 @@ function link_website(choosen_website, badges_dictionary)
     //Note key is full_address. value is short_address
     for(let [key, value] of Object.entries(badges_dictionary))
     {
-    if (choosen_website == "Zapper")
+    if (chosen_website == "Zapper")
         {
         //Example Website is https://zapper.fi/account/0xb3aa9923489bc2bfec323bf05346acd4afbc92a0?tab=nft&collectionToggle=collection
         let link = `https://zapper.fi/account/${key}?tab=nft&network=ethereum&collectionToggle=collection`;
         $("#badge-area").append('<a href="' + link + '" class="custom-badge-pill" value="' + key + '" target="_blank" rel="noopener noreferrer" id="' + key + '">' + value + '</a>');
         }
-    else if (choosen_website == "Prosper-Circle")
+    else if (chosen_website == "Prosper-Circle")
         {
         //Example Website is https://prospercircle.com/wallet/0xb3aa9923489bc2bfec323bf05346acd4afbc92a0
         let link = `https://prospercircle.com/wallet/${key}`;
         $("#badge-area").append('<a href="' + link + '" class="custom-badge-pill" value="' + key + '" target="_blank" rel="noopener noreferrer" id="' + key + '">' + value + '</a>');
         }
-    else if (choosen_website == "NFT-Go")
+    else if (chosen_website == "NFT-Go")
         {
         //Example Website is https://nftgo.io/account/ETH/0xB3aA9923489Bc2BFEc323Bf05346AcD4afbc92A0/NFT
         let link = `https://nftgo.io/account/ETH/${key}/NFT`;
         $("#badge-area").append('<a href="' + link + '" class="custom-badge-pill" value="' + key + '" target="_blank" rel="noopener noreferrer" id="' + key + '">' + value + '</a>');
         }
-    else if (choosen_website == "OpenSea")
+    else if (chosen_website == "OpenSea")
         {
         //Example Website is https://opensea.io/0xB3aA9923489Bc2BFEc323Bf05346AcD4afbc92A0
         let link = `https://opensea.io/${key}`;
         $("#badge-area").append('<a href="' + link + '" class="custom-badge-pill" value="' + key + '" target="_blank" rel="noopener noreferrer" id="' + key + '">' + value + '</a>');
         }
-    else if (choosen_website == "Blur")
+    else if (chosen_website == "Blur")
         {
         //Example Website is https://blur.io/0xb3aa9923489bc2bfec323bf05346acd4afbc92a0
         let link = `https://blur.io/${key}`;
@@ -66,4 +64,4 @@ function link_website(choosen_website, badges_dictionary)
     };
 };
 
-export {website_changed}
+export {website_changed, link_website}

@@ -1,5 +1,5 @@
 import {disabled_icon} from "../disable.js"
-import {website_changed} from "../badges.js"
+import {link_website} from "../badges.js"
 
 function update_graph_and_dropdowns(dropdown_dictionary, event) 
     {
@@ -39,7 +39,7 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             }
             $(".selectpicker").selectpicker("refresh");
             disabled_icon(event);
-            website_changed($("#Website").val(), result["Badges"])
+            link_website($("#Website").val(), result["Badges"])
 
             //Note Reset the selected values for inequality dropdown
             if (event.target.id == "Reset-Icon")
