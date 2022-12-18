@@ -17,8 +17,7 @@ $(document).ready(function () {
   
     $(document).on("click", function(event) 
     {
-      if ($(".reveal").is(":visible") == false)
-      {$(".custom-tooltip").not($(".custom-tooltip").has($(event.target))).children(".reveal").hide()}
+      $(".custom-tooltip").not($(".custom-tooltip").has($(event.target))).children(".reveal").hide()
   
     })
 
