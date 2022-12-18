@@ -18,14 +18,12 @@ $(document).ready(function () {
   
     $(document).on("click", function(event) 
     {
-      if(event.target.id)
       console.log(event.target.id)
-
-      if ($(".reveal").is(":visible") == false)
-      {$(".custom-tooltip").not($(".custom-tooltip").has($(event.target))).children(".reveal").hide()}
+      $(".custom-tooltip").not($(".custom-tooltip").has($(event.target))).children(".reveal").hide()
   
     })
 
+    //TODO Can make below dynamic by using something like  $("button[id$='Button']").on("click", function(event) 
     $("#Address").on("change", function(event)
     {
       update_page(event);
