@@ -1,4 +1,4 @@
-import {initilize_dictionary} from "./dictionary.js"
+import {initilize_dictionary} from "../dictionary.js"
 import {update_graph_and_dropdowns} from "./update.js"
 import {reveal_dropdown} from "../reveal.js"
 import {website_changed} from "../badges.js"
