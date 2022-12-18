@@ -20,6 +20,7 @@ def initial_page_render(tool):
     #Note Harded coding the graph type because "Total" is the default value
     plotly_graph = graph.create_count_transactions_graph(DataFrame, "Total")
 
+    
     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
 
     inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality Column"])
@@ -43,13 +44,13 @@ def page_rerender(frontend_dictionary):
 
     column_dictionary = {"Address Column": "Address", "Inequality Column": frontend_dictionary["Type"]}
 
-    DataFrame = event.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
+    graph_DataFrame = event.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
 
     # print(DataFrame)
 
-    badges = general_functions.create_badges(column_dictionary["Address Column"], DataFrame)
-    plotly_graph = graph.create_count_transactions_graph(DataFrame, frontend_dictionary["Type"])
-    
+    badges = general_functions.create_badges(column_dictionary["Address Column"], graph_DataFrame)
+    plotly_graph = graph.create_count_transactions_graph(graph_DataFrame, frontend_dictionary["Type"])
+    #Note Using DataFrame instead of graph_DataFrame because DataFrame contains all the address. Allowing them to select multiple addresses
     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
 

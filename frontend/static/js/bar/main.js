@@ -2,11 +2,7 @@ import {initilize_dictionary} from "../bar/dictionary.js"
 import {update_graph_and_dropdowns} from "../bar/update.js"
 import {reveal_dropdown} from "../reveal.js"
 import {website_changed} from "../badges.js"
-// let tooltip_id_list = $.map($('.custom-tooltip > span'), span_id => span_id.id);
-// $('#badge-area > .custom-badge-pill').each(function() {
-//   console.log($(this))
 
-// });
 
 $(document).ready(function () {
 
@@ -22,7 +18,11 @@ $(document).ready(function () {
   
     $(document).on("click", function(event) 
     {
-      $(".custom-tooltip").not($(".custom-tooltip").has($(event.target))).children(".reveal").hide()
+      if(event.target.id)
+      console.log(event.target.id)
+
+      if ($(".reveal").is(":visible") == false)
+      {$(".custom-tooltip").not($(".custom-tooltip").has($(event.target))).children(".reveal").hide()}
   
     })
 
@@ -53,7 +53,6 @@ $(document).ready(function () {
 
     $("#Website").on("change", function()
     {  
-      console.log("clicked website icon")
       website_changed();
     });
 

@@ -14,14 +14,14 @@ function reveal_dropdown(event)
           //Note Example of dropdown_substring, "End-Than-Dropdown"
           let dropdown_id = partial_id + "Dropdown"
 
-          if ($(`#${dropdown_id}`).is(":visible") == false )
+          if ($(`#${dropdown_id}`).is(":visible") == false)
           {   
             $(`#${dropdown_id}`).show()       
           }
-          else if ($(`#${dropdown_id}`).is(":visible") == true )
-          {  
-            $(`#${dropdown_id}`).hide()    
-          }
+          // else if ($(`#${dropdown_id}`).is(":visible") == true )
+          // {  
+          //   $(`#${dropdown_id}`).hide()    
+          // }
 }
 
 export {reveal_dropdown}

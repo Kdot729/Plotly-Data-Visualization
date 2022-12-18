@@ -1,27 +1,27 @@
 import {repopulate_address_dropdown, repopulate_inequality_dropdowns, reset_selected_inequality} from "../dropdown_functions.js"
 
-function event_checker(event_id, result)
+function event_checker(event_id, result, dropdown_dictionary)
 {
     if (event_id == "Type")
-        {type_event(result)}
+        {type_event(result["Descending List"], result["Ascending List"])}
 
     else if (event_id == "Address")
-        {address_event(result)}
+        {address_event(result, dropdown_dictionary)}
 
     //Note Reset the selected values for inequality dropdown
     else if (event_id == "Reset-Icon")
         {reset_selected_inequality()}
 }
 
-function type_event(result)
+function type_event(desc_list, asc_list)
 {
     $("#Less-Than").empty();
     $("#Greater-Than").empty();
-    repopulate_inequality_dropdowns("#Less-Than", result["Descending List"])
-    repopulate_inequality_dropdowns("#Greater-Than", result["Ascending List"])
+    repopulate_inequality_dropdowns("#Less-Than", desc_list)
+    repopulate_inequality_dropdowns("#Greater-Than", asc_list)
 }
 
-function address_event(result)
+function address_event(result, dropdown_dictionary)
 {
     //Note Check if the key "Chosen Addresses" is in dropdown_dictionary
     if (("Chosen Addresses" in dropdown_dictionary))

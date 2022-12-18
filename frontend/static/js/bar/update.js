@@ -15,16 +15,16 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             Plotly.newPlot("chart", JSON.parse(result["JSON Graph"]), {staticPlot: true});
                    
             $('#badge-area').empty();
-            // $("#Less-Than").empty();
-            // $("#Greater-Than").empty();
-        
-            // //! Forget what this does, but "Address" dropdown works. I think it removes all the options
+            
+            //Note Remove all the options in the "Address" dropdown
             $("#Address option").remove();
 
-            event_checker(event.target.id, result)
+            event_checker(event.target.id, result, dropdown_dictionary)
 
             $(".selectpicker").selectpicker("refresh");
+
             disabled_icon(event);
+
             link_website($("#Website").val(), result["Badges"])
 
         }
