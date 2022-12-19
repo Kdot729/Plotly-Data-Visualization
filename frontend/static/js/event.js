@@ -3,7 +3,10 @@ import {repopulate_address_dropdown, repopulate_inequality_dropdowns, reset_sele
 function event_checker(event_id, result, dropdown_dictionary)
 {
     if (event_id == "Type")
-        {type_event(result["Descending List"], result["Ascending List"])}
+        {
+            type_event(result["Descending List"], result["Ascending List"])
+            address_event(result, dropdown_dictionary)
+        }
 
     else if (event_id == "Address")
         {address_event(result, dropdown_dictionary)}

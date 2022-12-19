@@ -1,7 +1,7 @@
 from flask import render_template
 from datetime import date
 import backend.general_functions as general_functions
-import backend.scatter.event as event
+import backend.event as event
 import backend.scatter.graph as graph
 
 #Note Beginning date of NFT. Default value for "Start Date" dropdown
