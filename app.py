@@ -20,24 +20,12 @@ def update_page_router():
 
     #Note Convert request.args. An ImmutableMultiDict to a regular dictionary
     frontend_dictionary = dict(request.args)
-    print(frontend_dictionary)
+    
     if frontend_dictionary["Specificity"] == "basic":
         return scatter_page.page_rerender(frontend_dictionary)
     elif frontend_dictionary["Specificity"] == "count_transactions":
         return bar_page.page_rerender(frontend_dictionary)
-# @app.route('/update_scatter_page', methods=['GET'])
-# def update_scatter_page():  
 
-#     #* Convert request.args. An ImmutableMultiDict to a regular dictionary
-#     frontend_dictionary = dict(request.args)
-#     return scatter_page.page_rerender(frontend_dictionary)
-
-# @app.route('/update_bar_page', methods=['GET'])
-# def update_bar_page():  
-
-#     #* Convert request.args. An ImmutableMultiDict to a regular dictionary
-#     frontend_dictionary = dict(request.args)
-#     return bar_page.page_rerender(frontend_dictionary)
 
 
 

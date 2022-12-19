@@ -38,7 +38,6 @@ def initial_page_render(tool):
 
 def page_rerender(frontend_dictionary):
 
-    print(frontend_dictionary)
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
 
     column_dictionary = {"Address Column": frontend_dictionary["Type"], "Inequality Column": "ETH"}
