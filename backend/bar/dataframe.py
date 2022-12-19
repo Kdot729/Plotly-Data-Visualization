@@ -35,8 +35,15 @@ def create_count_transactions_bar_DataFrame(DataFrame):
 
         return result
          
-def filter_columns_DataFrame(DataFrame, column_name):
-        if column_name != "Total":
-                DataFrame = DataFrame.filter(["Address", column_name])
+def filter_columns_DataFrame(specificity, DataFrame, type_column_name):
+        if specificity == "basic":
+                DataFrame = DataFrame.filter(["Date", "Hash", "ETH", type_column_name])
                 DataFrame = DataFrame[(DataFrame[list(DataFrame.columns)] != 0).all(axis=1)]
+        elif specificity == "count transactions":
+                if type_column_name != "Total":
+                        DataFrame = DataFrame.filter(["Address", type_column_name])
+                        DataFrame = DataFrame[(DataFrame[list(DataFrame.columns)] != 0).all(axis=1)]
         return DataFrame
+
+
+

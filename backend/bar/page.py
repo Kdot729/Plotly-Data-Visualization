@@ -39,6 +39,7 @@ def page_rerender(frontend_dictionary):
 
     DataFrame = general_functions.create_basic_DataFrame(frontend_dictionary["Tool"])
     DataFrame = dataframe.create_count_transactions_bar_DataFrame(DataFrame)
+    
     DataFrame = dataframe.filter_columns_DataFrame(DataFrame, frontend_dictionary["Type"])
 
 
