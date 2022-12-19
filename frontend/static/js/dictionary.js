@@ -27,20 +27,20 @@ function check_ID(ID){
         return dictionary.address_specific_dictionary()
     }
 
-    else if (ID == "Type")
-    {
-        return dictionary.type_specific_dictionary()
-    }
+    // else if (ID == "Type")
+    // {
+    //     return dictionary.type_specific_dictionary()
+    // }
 
     else if ((ID == "Less-Than") || (ID == "Greater-Than"))
     {
         return dictionary.inequality_specific_dictionary()
     }
 
-    else if (ID == "Reset-Icon")
-    {
-        return dictionary.reset_specific_dictionary()
-    }
+    // else if (ID == "Reset-Icon")
+    // {
+    //     return dictionary.reset_specific_dictionary()
+    // }
 
 }
 
