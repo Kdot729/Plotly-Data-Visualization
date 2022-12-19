@@ -10,7 +10,10 @@ function event_checker(event_id, result, dropdown_dictionary)
 
     //Note Reset the selected values for inequality dropdown
     else if (event_id == "Reset-Icon")
-        {reset_selected_inequality()}
+        {
+            reset_selected_inequality()
+            address_event(result, dropdown_dictionary)
+        }
 }
 
 function type_event(desc_list, asc_list)

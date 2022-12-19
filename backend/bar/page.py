@@ -40,7 +40,7 @@ def page_rerender(frontend_dictionary):
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
     DataFrame = dataframe.create_count_transactions_bar_DataFrame(DataFrame)
     DataFrame = dataframe.filter_columns_DataFrame(DataFrame, frontend_dictionary["Type"])
-
+    print(DataFrame[:3])
 
     column_dictionary = {"Address Column": "Address", "Inequality Column": frontend_dictionary["Type"]}
 
