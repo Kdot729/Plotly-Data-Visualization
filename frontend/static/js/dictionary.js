@@ -8,6 +8,7 @@ function initilize_dictionary(event)
 
         let additional_dictionary = check_ID(standard_dictionary["ID of Dropdown"])
 
+        console.log(Object.assign({}, standard_dictionary, additional_dictionary))
         //Note Combine both dictionaries into one
         return Object.assign({}, standard_dictionary, additional_dictionary);
 

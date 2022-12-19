@@ -11,8 +11,8 @@ function always_empty()
     // $("#Less-Than").empty();
     // $("#Greater-Than").empty();
 
-    //! Forget what this does, but "Address" dropdown works. I think it removes all the options from "Address"
-    $("#Address option").remove();
+    //TODO Maybe fixing this will help the position of the dropdown
+    $("#Address").empty();
 };
 function repopulate_inequality_dropdowns(selector_ID, inequality_list)
 {

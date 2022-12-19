@@ -40,13 +40,13 @@ def page_rerender(frontend_dictionary):
     DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
     DataFrame = dataframe.create_count_transactions_bar_DataFrame(DataFrame)
     DataFrame = dataframe.filter_columns_DataFrame(DataFrame, frontend_dictionary["Type"])
-    print(DataFrame[:3])
+
 
     column_dictionary = {"Address Column": "Address", "Inequality Column": frontend_dictionary["Type"]}
 
     graph_DataFrame = event.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
 
-    # print(DataFrame)
+    print(DataFrame[:10])
 
     badges = general_functions.create_badges(column_dictionary["Address Column"], graph_DataFrame)
     plotly_graph = graph.create_count_transactions_graph(graph_DataFrame, frontend_dictionary["Type"])
@@ -54,7 +54,7 @@ def page_rerender(frontend_dictionary):
     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
 
-    print(address_list)
+    # print(address_list)
     #TODO Trying to repopulate inequality when "Type" is changed because they're not going to be the same
     if (frontend_dictionary["ID of Dropdown"] == "Type"):
         inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality Column"])
