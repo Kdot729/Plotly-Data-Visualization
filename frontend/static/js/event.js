@@ -1,4 +1,4 @@
-import {repopulate_address_dropdown, repopulate_inequality_dropdowns, reset_selected_inequality} from "../dropdown_functions.js"
+import {repopulate_address_dropdown, repopulate_inequality_dropdowns, reset_selected_inequality} from "./dropdown_functions.js"
 
 function event_checker(event_id, result, dropdown_dictionary)
 {

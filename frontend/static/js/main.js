@@ -1,8 +1,8 @@
 import {initilize_dictionary} from "./dictionary.js"
-import {update_graph_and_dropdowns} from "./bar/update.js"
+import {update_graph_and_dropdowns} from "./update.js"
 import {reveal_dropdown} from "./reveal.js"
 import {website_changed} from "./badges.js"
-
+console.log($("#Type").val())
 
 $(document).ready(function () {
 
@@ -20,16 +20,16 @@ $(document).ready(function () {
     {
       if ($(".reveal").is(":visible") == true)
       {
+        //! Have no idea how this works, but dropdown disappears when clicking outisde and clicking on other dropdowns
         $(".custom-tooltip").not($(".custom-tooltip").has($(event.target))).children(".reveal").hide()
       }
   
     })
 
-    //TODO Can make below dynamic by using something like  $("button[id$='Button']").on("click", function(event) 
-    //Note on click too because of "Reset-Icon"
+    //TODO Need to change ".send" to something that makes more sense 
+    //Note on click too because of "Reset-Icon" doesn't have a dropdown
     $(".send").on("change click", function(event)
     {
-      console.log(".send", event.target.id)
       if (event.target.id == "Website")
       {
         website_changed();
@@ -38,12 +38,9 @@ $(document).ready(function () {
       {
         update_page(event);
       }
-
     });
 
-
-
-    });
+    }); //Organization End of $(document).ready
     
 
 function update_page(event)

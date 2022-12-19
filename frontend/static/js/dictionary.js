@@ -5,14 +5,13 @@ function initilize_dictionary(event)
 
     let standard_dictionary = dictionary.standard_dictionary(event)
 
-    if (standard_dictionary["Specificity"] == "count_transactions")
-    {
+
         let additional_dictionary = check_ID(standard_dictionary["ID of Dropdown"])
 
         //Note Combine both dictionaries into one
         return Object.assign({}, standard_dictionary, additional_dictionary);
 
-    }
+    
     
 }
 
