@@ -1,6 +1,6 @@
 import {disabled_icon} from "./disable.js"
 import {link_website} from "./badges.js"
-import {repopulate_address_dropdown, repopulate_inequality_dropdowns, reset_selected_inequality} from "./dropdown_functions.js"
+import {always_empty} from "./dropdown_functions.js"
 import {event_checker} from "./event.js"
 
 function update_graph_and_dropdowns(dropdown_dictionary, event) 
@@ -14,10 +14,7 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
             //Note JSON.parse(result["JSON Graph"]) converts data into a object. Need to have it as an object
             Plotly.newPlot("chart", JSON.parse(result["JSON Graph"]), {staticPlot: true});
                    
-            $('#badge-area').empty();
-            
-            //Note Remove all the options in the "Address" dropdown
-            $("#Address option").remove();
+            always_empty()
 
             event_checker(event.target.id, result, dropdown_dictionary)
 

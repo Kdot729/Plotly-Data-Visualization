@@ -5,13 +5,13 @@ function reset_selected_inequality()
     $('#Greater-Than').prop("selectedIndex", 0);
 };
 
-function empty_dropdowns()
+function always_empty()
 {   
     $('#badge-area').empty();
     // $("#Less-Than").empty();
     // $("#Greater-Than").empty();
 
-    // //! Forget what this does, but "Address" dropdown works. I think it removes all the options
+    //! Forget what this does, but "Address" dropdown works. I think it removes all the options from "Address"
     $("#Address option").remove();
 };
 function repopulate_inequality_dropdowns(selector_ID, inequality_list)
@@ -34,7 +34,7 @@ function repopulate_address_dropdown(address_list, selected_addresses)
 };
 
 export {reset_selected_inequality,
-        empty_dropdowns,
+        always_empty,
         repopulate_inequality_dropdowns,
         repopulate_address_dropdown
         }
