@@ -12,7 +12,7 @@ panda.set_option('display.max_colwidth', None)
 
 
 
-def create_DataFrame(Tool):   
+def create_basic_DataFrame(Tool):   
 
     #Note Need to use "lower()" function because csv file are lowercased                     
     return panda.read_csv(f"csv\\updated_{Tool.lower()}_transactions.csv",

@@ -13,7 +13,7 @@ def initial_page_render(tool):
 
     page_filepath =  f"graph/scatter/basic.html"
 
-    DataFrame = general_functions.create_DataFrame(tool)
+    DataFrame = general_functions.create_basic_DataFrame(tool)
     
     column_dictionary = {"Address Column": "Buyer", "Inequality Column": "ETH"}
     badges = general_functions.create_badges(column_dictionary["Address Column"], DataFrame)
@@ -38,7 +38,7 @@ def initial_page_render(tool):
 
 def page_rerender(frontend_dictionary):
 
-    DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
+    DataFrame = general_functions.create_basic_DataFrame(frontend_dictionary["Tool"])
 
     column_dictionary = {"Address Column": frontend_dictionary["Type"], "Inequality Column": "ETH"}
     
@@ -50,9 +50,10 @@ def page_rerender(frontend_dictionary):
     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
     
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
+
+    #Note id of "Type" gets a special condition because the inqualities could be different
     if (frontend_dictionary["ID of Dropdown"] == "Type"):
         inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality Column"])
-
         return {"JSON Graph": graphJSON, 
         "Address List": address_list,
         "Badges": badges,

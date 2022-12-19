@@ -10,7 +10,7 @@ def initial_page_render(tool):
 
     page_filepath =  f"graph/bar/count_transactions.html"
 
-    DataFrame = general_functions.create_DataFrame(tool)
+    DataFrame = general_functions.create_basic_DataFrame(tool)
 
     DataFrame = dataframe.create_count_transactions_bar_DataFrame(DataFrame)
 
@@ -37,7 +37,7 @@ def initial_page_render(tool):
 
 def page_rerender(frontend_dictionary):
 
-    DataFrame = general_functions.create_DataFrame(frontend_dictionary["Tool"])
+    DataFrame = general_functions.create_basic_DataFrame(frontend_dictionary["Tool"])
     DataFrame = dataframe.create_count_transactions_bar_DataFrame(DataFrame)
     DataFrame = dataframe.filter_columns_DataFrame(DataFrame, frontend_dictionary["Type"])
 
@@ -55,10 +55,10 @@ def page_rerender(frontend_dictionary):
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
 
     # print(address_list)
+        #Note id of "Type" gets a special condition because the inqualities could be different
     #TODO Trying to repopulate inequality when "Type" is changed because they're not going to be the same
     if (frontend_dictionary["ID of Dropdown"] == "Type"):
         inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality Column"])
-
         return {"JSON Graph": graphJSON, 
         "Address List": address_list,
         "Badges": badges,
