@@ -50,5 +50,13 @@ def page_rerender(frontend_dictionary):
     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
     
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
+    if (frontend_dictionary["ID of Dropdown"] == "Type"):
+        inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality Column"])
 
-    return {"JSON Graph": graphJSON, "Address List": address_list, "Badges": badges}
+        return {"JSON Graph": graphJSON, 
+        "Address List": address_list,
+        "Badges": badges,
+        "Descending List": inequality_dictionary["Descending List"],
+        "Ascending List": inequality_dictionary["Ascending List"]}
+    else:
+        return {"JSON Graph": graphJSON, "Address List": address_list, "Badges": badges}

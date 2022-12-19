@@ -3,7 +3,6 @@ function standard_dictionary(event)
     let string_url = window.location.href
     let split_url = string_url.split("/")
     
-
     return {
         "Graph": split_url[3],                             //Note Using the url to get the Graph Type
         "Specificity": split_url[4], 
@@ -18,8 +17,7 @@ function date_specific_dictionary()
     {
     return {
         "Start Date": $("#Start-Date").val(),                    //Note Using JQuery to get Start-Date value
-        "End Date": $("#End-Date").val(),                        //Note Using JQuery to get End-Date value
-        
+        "End Date": $("#End-Date").val(),                        //Note Using JQuery to get End-Date value 
             }
     }
 
@@ -27,35 +25,20 @@ function address_specific_dictionary()
     {
     return {
         "Chosen Addresses": ($("#Address").val()).toString(),  //Note Using JQuery to get Address value, then converting to string
-        
             }
     }
 
-// function type_specific_dictionary()
-//     {
-//     return {
-//                        //Note Using JQuery to get Type value
-//             }
-//     }
 
 function inequality_specific_dictionary()
     {
     return {
         "Less Than": $("select#Less-Than").val(),               //Note Using JQuery to get Less-Than selected value
         "Greater Than": $("select#Greater-Than").val(),          //Note Using JQuery to get Greater-Than selected value
-        
             }
     }
 
-// function reset_specific_dictionary()
-//     {
-//     return {
-//                        //Note Using JQuery to get Type value
-//             }
-//     }
-
 export {standard_dictionary, 
-    date_specific_dictionary, 
-    address_specific_dictionary, 
-    inequality_specific_dictionary, 
-}
+        date_specific_dictionary, 
+        address_specific_dictionary, 
+        inequality_specific_dictionary, 
+        }

@@ -54,7 +54,7 @@ def page_rerender(frontend_dictionary):
     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
 
-    print(address_list)
+    # print(address_list)
     #TODO Trying to repopulate inequality when "Type" is changed because they're not going to be the same
     if (frontend_dictionary["ID of Dropdown"] == "Type"):
         inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality Column"])
