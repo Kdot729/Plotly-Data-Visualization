@@ -1,8 +1,8 @@
 import pandas as panda
 from datetime import datetime
-from dotenv import load_dotenv
+
 import json, plotly
-load_dotenv()
+
 
 
 panda.set_option('display.max_rows', None)
@@ -69,8 +69,8 @@ def create_badges(address_column_name, DataFrame):
 
     #Note Going up the ninth index because it's needs to match the max in selectpicker
     #Note Getting 9 badges because 9 badges seem to fit on a width of 1080 screen
-    full_address = address[:8].tolist() 
-    short_address = address[:8].str.slice(0,5).tolist() 
+    full_address = address.iloc[:8].tolist() 
+    short_address = address.iloc[:8].str.slice(0,5).tolist() 
 
 
     #Note full_address is key. short_address is value

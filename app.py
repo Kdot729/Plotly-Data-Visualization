@@ -1,7 +1,7 @@
 from flask import Flask, request
 import backend.bar.page as bar_page
 import backend.scatter.page as scatter_page
-
+import backend.page as page
 app = Flask(__name__,  static_url_path='', static_folder="frontend/static", template_folder="frontend/templates")
 
 
@@ -22,9 +22,9 @@ def update_page_router():
     frontend_dictionary = dict(request.args)
     
     if frontend_dictionary["Specificity"] == "basic":
-        return scatter_page.page_rerender(frontend_dictionary)
+        return page.page_rerender(frontend_dictionary)
     elif frontend_dictionary["Specificity"] == "count_transactions":
-        return bar_page.page_rerender(frontend_dictionary)
+        return page.page_rerender(frontend_dictionary)
 
 
 

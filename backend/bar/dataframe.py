@@ -1,7 +1,6 @@
 import pandas as panda
-from dotenv import load_dotenv
 
-load_dotenv()
+
 
 
 panda.set_option('display.max_rows', None)
