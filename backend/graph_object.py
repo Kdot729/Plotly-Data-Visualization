@@ -2,6 +2,7 @@ import backend.general_functions as general_functions
 import backend.bar.dataframe as dataframe
 import backend.bar.graph as bar_graph
 import backend.scatter.graph as scatter_graph
+import backend.event as event
 import pandas as panda
 
 class Graph:
@@ -18,7 +19,9 @@ class Graph:
         elif self.specificity == "count transactions":
             self.DataFrame = dataframe.create_count_transactions_bar_DataFrame(base_DataFrame)
             self.unmodifed_DataFrame = dataframe.create_count_transactions_bar_DataFrame(base_DataFrame)
-            
+
+
+
     def create_column_dictionary(self, type_column):
         if self.specificity == "basic":
             self.columns_name = {"Address Column": type_column, "Inequality Column": "ETH"}
@@ -36,6 +39,9 @@ class Graph:
                 if type_column_name != "Total":
                         self.DataFrame = self.DataFrame.filter(["Address", type_column_name])
                         self.DataFrame = self.DataFrame[(self.DataFrame[list(self.DataFrame.columns)] != 0).all(axis=1)]
+
+    def sort_DataFrame(self, dictionary):
+        self.DataFrame = event.sort_new_DataFrame(dictionary, self.DataFrame, self.columns_name)
 
     def use_plotly(self, graph_type):
         if self.specificity == "basic":
