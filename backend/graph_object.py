@@ -16,7 +16,7 @@ class Graph:
         if self.specificity == "basic":
             self.DataFrame = base_DataFrame
             self.unmodifed_DataFrame = base_DataFrame
-        elif self.specificity == "count transactions":
+        elif self.specificity == "count_transactions":
             self.DataFrame = dataframe.create_count_transactions_bar_DataFrame(base_DataFrame)
             self.unmodifed_DataFrame = dataframe.create_count_transactions_bar_DataFrame(base_DataFrame)
 
@@ -26,32 +26,32 @@ class Graph:
         if self.specificity == "basic":
             self.columns_name = {"Address Column": type_column, "Inequality Column": "ETH"}
 
-        elif self.specificity == "count transactions":
+        elif self.specificity == "count_transactions":
             self.columns_name = {"Address Column": "Address", "Inequality Column": type_column}
 
 
     def filter_columns_DataFrame(self, type_column_name):
         if self.specificity == "basic":
-                self.DataFrame = self.DataFrame.filter(["Date", "Hash", "ETH", type_column_name])
+            self.DataFrame = self.DataFrame.filter(["Date", "Hash", "ETH", type_column_name])
 
 
-        elif self.specificity == "count transactions":
-                if type_column_name != "Total":
-                        self.DataFrame = self.DataFrame.filter(["Address", type_column_name])
-                        self.DataFrame = self.DataFrame[(self.DataFrame[list(self.DataFrame.columns)] != 0).all(axis=1)]
+        elif self.specificity == "count_transactions":
+            if type_column_name != "Total":
+                self.DataFrame = self.DataFrame.filter(["Address", type_column_name])
+                self.DataFrame = self.DataFrame[(self.DataFrame[list(self.DataFrame.columns)] != 0).all(axis=1)]
 
     def sort_DataFrame(self, dictionary):
+        print("dictionary",dictionary)
         self.DataFrame = event.sort_new_DataFrame(dictionary, self.DataFrame, self.columns_name)
 
     def use_plotly(self, graph_type):
         if self.specificity == "basic":
             self.plotly_graph = scatter_graph.create_scatter_graph(self.DataFrame, graph_type)
-        elif self.specificity == "count transactions":
+        elif self.specificity == "count_transactions":
             self.plotly_graph = bar_graph.create_count_transactions_graph(self.DataFrame, graph_type)
 
 
     def create_badges(self):
-        print("column name", self.columns_name["Address Column"])
         self.badges = general_functions.create_badges(self.columns_name["Address Column"], self.DataFrame)
         
     def create_address_list(self):

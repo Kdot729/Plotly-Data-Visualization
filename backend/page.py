@@ -3,7 +3,6 @@ import backend.bar.dataframe as dataframe
 
 
 def page_rerender(frontend_dictionary):
-    print("type", frontend_dictionary["Type"])
     graph = graph_object.Graph(frontend_dictionary["Specificity"])
     graph.create_DataFrame(frontend_dictionary["Tool"])
     graph.create_column_dictionary(frontend_dictionary["Type"])
