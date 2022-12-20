@@ -11,7 +11,7 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
         data: dropdown_dictionary,
         success: function (result) 
         { 
-            console.log("1234")
+
             //Note JSON.parse(result["JSON Graph"]) converts data into a object. Need to have it as an object
             Plotly.newPlot("chart", JSON.parse(result["JSON Graph"]), {staticPlot: true});
                    

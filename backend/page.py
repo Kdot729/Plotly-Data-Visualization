@@ -14,10 +14,10 @@ def page_rerender(frontend_dictionary):
     graph.use_plotly(frontend_dictionary["Type"])
 
     graph.create_badges()
-    
+
     graph.create_address_list()
     graph.convert_JSON()
-    print(graph.send_to_frontend(frontend_dictionary["ID of Dropdown"]))
+
 
     return graph.send_to_frontend(frontend_dictionary["ID of Dropdown"])
 
