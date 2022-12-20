@@ -33,31 +33,3 @@ def initial_page_render(tool):
                             inequality_dictionary=inequality_dictionary,
                             date_dictionary=date_dictionary,
                             badges = badges)
-
-
-
-# def page_rerender(frontend_dictionary):
-
-#     DataFrame = general_functions.create_basic_DataFrame(frontend_dictionary["Tool"])
-
-#     column_dictionary = {"Address Column": frontend_dictionary["Type"], "Inequality Column": "ETH"}
-    
-#     graph_DataFrame = event.sort_new_DataFrame(frontend_dictionary, DataFrame, column_dictionary)
-#     badges = general_functions.create_badges(column_dictionary["Address Column"], graph_DataFrame)
-#     plotly_graph = graph.create_scatter_graph(graph_DataFrame, frontend_dictionary["Type"])
-
-#     #Note Using DataFrame instead of graph_DataFrame because DataFrame contains all the address. Allowing them to select multiple addresses
-#     address_list = general_functions.sort_descending_and_drop_duplicates_list(DataFrame, column_dictionary["Address Column"])
-    
-#     graphJSON = general_functions.convert_Graph_to_JSON(plotly_graph)
-
-#     #Note id of "Type" gets a special condition because the inqualities could be different
-#     if (frontend_dictionary["ID of Dropdown"] == "Type"):
-#         inequality_dictionary = general_functions.sort_Inequality_List(DataFrame, column_dictionary["Inequality Column"])
-#         return {"JSON Graph": graphJSON, 
-#         "Address List": address_list,
-#         "Badges": badges,
-#         "Descending List": inequality_dictionary["Descending List"],
-#         "Ascending List": inequality_dictionary["Ascending List"]}
-#     else:
-#         return {"JSON Graph": graphJSON, "Address List": address_list, "Badges": badges}

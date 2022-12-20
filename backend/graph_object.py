@@ -3,13 +3,12 @@ import backend.bar.dataframe as dataframe
 import backend.bar.graph as bar_graph
 import backend.scatter.graph as scatter_graph
 import backend.event as event
-import pandas as panda
+
 
 class Graph:
     #Note unmodifed_DataFrame is an unmodified version which is going to be used to get the address_list
     def __init__(self, specificity):
         self.specificity = specificity
-
 
     def create_DataFrame(self, tool):
         base_DataFrame = general_functions.create_basic_DataFrame(tool)
@@ -19,8 +18,6 @@ class Graph:
         elif self.specificity == "count_transactions":
             self.DataFrame = dataframe.create_count_transactions_bar_DataFrame(base_DataFrame)
             self.unmodifed_DataFrame = dataframe.create_count_transactions_bar_DataFrame(base_DataFrame)
-
-
 
     def create_column_dictionary(self, type_column):
         if self.specificity == "basic":
@@ -33,7 +30,6 @@ class Graph:
     def filter_columns_DataFrame(self, type_column_name):
         if self.specificity == "basic":
             self.DataFrame = self.DataFrame.filter(["Date", "Hash", "ETH", type_column_name])
-
 
         elif self.specificity == "count_transactions":
             if type_column_name != "Total":
