@@ -1,9 +1,6 @@
 import backend.graph_factory as graph_factory
 
 
-
-
-
 def page_rerender(frontend_dictionary):
     graph = graph_factory.Graph_Factory.build_graph(frontend_dictionary['Specificity'])
     graph.create_DataFrame(frontend_dictionary["Tool"])
@@ -18,6 +15,6 @@ def page_rerender(frontend_dictionary):
     graph.create_address_list()
     graph.convert_JSON()
 
-
+    print(graph.send_to_frontend(frontend_dictionary["ID of Dropdown"]))
     return graph.send_to_frontend(frontend_dictionary["ID of Dropdown"])
 

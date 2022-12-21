@@ -20,11 +20,11 @@ def update_page_router():
 
     #Note Convert request.args. An ImmutableMultiDict to a regular dictionary
     frontend_dictionary = dict(request.args)
-    
-    if frontend_dictionary["Specificity"] == "basic":
-        return page.page_rerender(frontend_dictionary)
-    elif frontend_dictionary["Specificity"] == "count_transactions":
-        return page.page_rerender(frontend_dictionary)
+    return page.page_rerender(frontend_dictionary)
+    # if frontend_dictionary["Specificity"] == "basic":
+    #     return page.page_rerender(frontend_dictionary)
+    # elif frontend_dictionary["Specificity"] == "count_transactions":
+    #     return page.page_rerender(frontend_dictionary)
 
 
 

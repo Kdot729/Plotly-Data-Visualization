@@ -15,7 +15,7 @@ class Graph_Factory(ABC):
     @staticmethod
     def build_graph(specificity):
         if specificity == "basic":
-            pass
+            return Basic_Scatter_Graph()
         elif specificity == "count_transactions":
             return Count_Bar_Graph()
 
