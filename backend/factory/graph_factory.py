@@ -43,7 +43,6 @@ class Graph_Factory(ABC):
 
     def create_badges(self):
         self.badges = general_functions.create_badges(self.columns_name["Address Column"], self.DataFrame)
-        print("badges",self.badges)
     def create_address_list(self):
         #Note Using DataFrame instead of graph_DataFrame because DataFrame contains all the address. Allowing them to select multiple addresses
         self.address_list = general_functions.sort_descending_and_drop_duplicates_list(self.unmodifed_DataFrame, self.columns_name["Address Column"])
