@@ -15,6 +15,6 @@ def page_rerender(frontend_dictionary):
     graph.create_address_list()
     graph.convert_JSON()
 
-    print(graph.send_to_frontend(frontend_dictionary["ID of Dropdown"]))
+    # print(graph.send_to_frontend(frontend_dictionary["ID of Dropdown"]))
     return graph.send_to_frontend(frontend_dictionary["ID of Dropdown"])
 
