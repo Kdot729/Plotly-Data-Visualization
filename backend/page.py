@@ -1,4 +1,4 @@
-from backend.factory.superclass import Graph_Factory
+from backend.factory.graph_object import Graph_Factory
 
 def page_rerender(frontend_dictionary):
     graph = Graph_Factory.build_graph(frontend_dictionary['Specificity'])

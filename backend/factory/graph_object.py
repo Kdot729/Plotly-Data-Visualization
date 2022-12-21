@@ -26,11 +26,9 @@ class Graph_Factory(ABC):
     def create_column_dictionary(self, type_column):
         pass
 
-
     @abstractmethod
     def filter_columns_DataFrame(self, type_column_name):
         pass
-
 
     def sort_DataFrame(self, dictionary):
         # print("dictionary",dictionary)
@@ -39,7 +37,6 @@ class Graph_Factory(ABC):
     @abstractmethod
     def use_plotly(self, graph_type):
         pass
-
 
     def create_badges(self):
         self.badges = general_functions.create_badges(self.columns_name["Address Column"], self.DataFrame)
@@ -95,3 +92,5 @@ class Basic_Scatter_Graph(Graph_Factory):
 
     def use_plotly(self, graph_type):
         self.plotly_graph = scatter_graph.create_scatter_graph(self.DataFrame, graph_type)
+
+        
