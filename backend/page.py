@@ -1,11 +1,11 @@
-import backend.graph_object as graph_object
+import backend.graph_factory as graph_factory
 
 
 
 
 
 def page_rerender(frontend_dictionary):
-    graph = graph_object.Graph(frontend_dictionary["Specificity"])
+    graph = graph_factory.Graph_Factory.build_graph(frontend_dictionary['Specificity'])
     graph.create_DataFrame(frontend_dictionary["Tool"])
     graph.create_column_dictionary(frontend_dictionary["Type"])
     graph.filter_columns_DataFrame(frontend_dictionary["Type"])
