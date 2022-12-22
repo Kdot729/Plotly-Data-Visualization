@@ -11,7 +11,8 @@ class Graph_Factory(ABC):
     #Note This will chose which graph object to instantiate 
     @staticmethod
     def build_graph(specificity):
-    
+        
+        #Note import statement needs to be inside this function to avoid circular imports
         import backend.factory.subclass as subclass
 
         if specificity == "basic":

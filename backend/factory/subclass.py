@@ -1,7 +1,7 @@
 
 import backend.bar.dataframe as dataframe
 import backend.bar.graph as bar_graph
-from backend.factory.graph_object import Graph_Factory
+from backend.factory.superclass import Graph_Factory
 from flask import render_template
 from datetime import date
 import backend.bar.graph as bar_graph

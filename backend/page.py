@@ -1,4 +1,4 @@
-from backend.factory.graph_object import Graph_Factory
+from backend.factory.superclass import Graph_Factory
 
 def initial_page_render(specificity, tool):
     graph = Graph_Factory.build_graph(specificity)
