@@ -1,8 +1,5 @@
 import pandas as panda
 
-
-
-
 panda.set_option('display.max_rows', None)
 panda.set_option('display.max_columns', None)
 panda.set_option('display.width', None)

@@ -9,6 +9,7 @@ def initial_page_render(specificity, tool):
     graph.create_badges()
     graph.create_address_list()
     graph.convert_JSON()
+    graph.create_inequality_dictionary()
     return graph.get_template()
 
 def page_rerender(frontend_dictionary):
@@ -24,6 +25,6 @@ def page_rerender(frontend_dictionary):
 
     graph.create_address_list()
     graph.convert_JSON()
-
+    graph.create_inequality_dictionary()
     return graph.send_to_frontend(frontend_dictionary["ID of Dropdown"])
 

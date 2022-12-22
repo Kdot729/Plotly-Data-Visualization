@@ -63,9 +63,11 @@ class Graph_Factory(ABC):
     def convert_JSON(self):
         self.graphJSON = general_functions.convert_Graph_to_JSON(self.plotly_graph)
 
+    def create_inequality_dictionary(self):
+        self.inequality_dictionary = general_functions.sort_Inequality_List(self.DataFrame, self.columns_name["Inequality Column"])
+
     def send_to_frontend(self, id_dropdown):
         if (id_dropdown == "Type"):
-            self.inequality_dictionary = general_functions.sort_Inequality_List(self.DataFrame, self.columns_name["Inequality Column"])
             return {"JSON Graph": self.graphJSON, 
             "Address List": self.address_list,
             "Badges": self.badges,
@@ -74,10 +76,11 @@ class Graph_Factory(ABC):
         else:
             return {"JSON Graph": self.graphJSON, "Address List": self.address_list, "Badges": self.badges}
 
+
 class Count_Bar_Graph(Graph_Factory):
     
     def __init__(self):
-        super().__init__()
+        pass
 
     def find_filepath(self):
         self.filepath = f"graph/bar/count_transactions.html"
@@ -108,7 +111,6 @@ class Count_Bar_Graph(Graph_Factory):
         self.plotly_graph = bar_graph.create_count_transactions_graph(self.DataFrame, graph_type)
 
     def get_template(self):
-        self.inequality_dictionary = general_functions.sort_Inequality_List(self.DataFrame, self.columns_name["Inequality Column"])
         return render_template(template_name_or_list = self.filepath,
                             graphJSON=self.graphJSON, 
                             address_list=self.address_list,
@@ -117,7 +119,7 @@ class Count_Bar_Graph(Graph_Factory):
 class Basic_Scatter_Graph(Graph_Factory):
 
     def __init__(self):
-        super().__init__()
+        pass
 
     def find_filepath(self):
         self.filepath = f"graph/scatter/basic.html"
@@ -144,7 +146,6 @@ class Basic_Scatter_Graph(Graph_Factory):
         self.plotly_graph = scatter_graph.create_scatter_graph(self.DataFrame, graph_type)
 
     def get_template(self):
-        self.inequality_dictionary = general_functions.sort_Inequality_List(self.DataFrame, self.columns_name["Inequality Column"])
         return render_template(template_name_or_list = self.filepath,
                             graphJSON=self.graphJSON, 
                             address_list=self.address_list,
