@@ -7,24 +7,25 @@ class Graph_Factory(ABC):
 
     date_dictionary = {"Min Date": '2021-10-08',
                    "Max Date": date.today() }
-                   
-    def __init__(self, graph, specificity):
+
+    def __init__(self, graph, specificity, tool):
         self.graph = graph
         self.specificity = specificity
+        self.tool = tool
 
 
         
     #Note This will chose which graph object to instantiate 
     @staticmethod
-    def build_graph(graph, specificity):
+    def build_graph(graph, specificity, tool):
         
         #Note import statement needs to be inside this function to avoid circular imports
         import backend.factory.subclass as subclass
 
         if specificity == "basic":
-            return subclass.Basic_Scatter_Graph(graph, specificity)
+            return subclass.Basic_Scatter_Graph(graph, specificity, tool)
         elif specificity == "count_transactions":
-            return subclass.Count_Bar_Graph(graph, specificity)
+            return subclass.Count_Bar_Graph(graph, specificity, tool)
 
     @abstractmethod
     def find_filepath(self):
@@ -35,8 +36,8 @@ class Graph_Factory(ABC):
     def hardcode_column_dictionary(self):
         pass
 
-    def create_DataFrame(self, tool):
-        return general_functions.create_basic_DataFrame(tool)
+    def create_DataFrame(self):
+        return general_functions.create_basic_DataFrame(self.tool)
 
     @abstractmethod
     def create_column_dictionary(self, type_column):

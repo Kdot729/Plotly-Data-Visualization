@@ -3,14 +3,13 @@ import backend.bar.dataframe as dataframe
 import backend.bar.graph as bar_graph
 from backend.factory.superclass import Graph_Factory
 from flask import render_template
-# from datetime import date
 import backend.bar.graph as bar_graph
 import backend.scatter.graph as scatter_graph
 
 class Count_Bar_Graph(Graph_Factory):
     
-    def __init__(self, graph, specificity):
-        super().__init__(graph, specificity)
+    def __init__(self, graph, specificity, tool):
+        super().__init__(graph, specificity, tool)
 
     def find_filepath(self):
         self.filepath = super().find_filepath()
@@ -18,8 +17,8 @@ class Count_Bar_Graph(Graph_Factory):
     def hardcode_column_dictionary(self):
         self.columns_name = {"Address Column": "Address", "Inequality Column": "Total"}
         
-    def create_DataFrame(self, tool):
-        self.DataFrame = super().create_DataFrame(tool)
+    def create_DataFrame(self):
+        self.DataFrame = super().create_DataFrame()
         self.DataFrame = dataframe.create_count_transactions_bar_DataFrame(self.DataFrame)
 
         #Note unmodifed_DataFrame is the original DataFrame which is going to be used to get the address_list
@@ -47,8 +46,8 @@ class Count_Bar_Graph(Graph_Factory):
                             badges = self.badges)
 class Basic_Scatter_Graph(Graph_Factory):
 
-    def __init__(self, graph, specificity):
-        super().__init__(graph, specificity)
+    def __init__(self, graph, specificity, tool):
+        super().__init__(graph, specificity, tool)
         
     def find_filepath(self):
         self.filepath = super().find_filepath()
@@ -56,11 +55,11 @@ class Basic_Scatter_Graph(Graph_Factory):
     def hardcode_column_dictionary(self):
         self.columns_name = {"Address Column": "Buyer", "Inequality Column": "ETH"}
 
-    def create_DataFrame(self, tool):
-        self.DataFrame = super().create_DataFrame(tool)
+    def create_DataFrame(self):
+        self.DataFrame = super().create_DataFrame()
+        
         #Note unmodifed_DataFrame is the original DataFrame which is going to be used to get the address_list
         self.unmodifed_DataFrame = self.DataFrame.copy(deep=True)
-
 
     def create_column_dictionary(self, type_column):
         self.columns_name = {"Address Column": type_column, "Inequality Column": "ETH"}
