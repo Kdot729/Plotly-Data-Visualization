@@ -9,11 +9,14 @@ import backend.scatter.graph as scatter_graph
 
 class Count_Bar_Graph(Graph_Factory):
     
-    def __init__(self):
-        pass
+    def __init__(self, graph, specificity):
+        super().__init__(graph, specificity)
+
+
 
     def find_filepath(self):
-        self.filepath = f"graph/bar/count_transactions.html"
+        self.filepath = super().find_filepath()
+        # self.filepath = f"graph/bar/count_transactions.html"
 
     def hardcode_column_dictionary(self):
         self.columns_name = {"Address Column": "Address", "Inequality Column": "Total"}
@@ -48,11 +51,13 @@ class Count_Bar_Graph(Graph_Factory):
                             badges = self.badges)
 class Basic_Scatter_Graph(Graph_Factory):
 
-    def __init__(self):
-        pass
+    def __init__(self, graph, specificity):
+        super().__init__(graph, specificity)
+        
 
     def find_filepath(self):
-        self.filepath = f"graph/scatter/basic.html"
+        self.filepath = super().find_filepath()
+        # self.filepath = f"graph/scatter/basic.html"
 
     def hardcode_column_dictionary(self):
         self.columns_name = {"Address Column": "Buyer", "Inequality Column": "ETH"}

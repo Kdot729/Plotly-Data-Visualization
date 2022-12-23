@@ -5,24 +5,28 @@ from abc import ABC, abstractmethod
 
 class Graph_Factory(ABC):
 
-    def __init__(self):
-        pass
+    def __init__(self, graph, specificity):
+        self.graph = graph
+        self.specificity = specificity
+
+
         
     #Note This will chose which graph object to instantiate 
     @staticmethod
-    def build_graph(specificity):
+    def build_graph(graph, specificity):
         
         #Note import statement needs to be inside this function to avoid circular imports
         import backend.factory.subclass as subclass
 
         if specificity == "basic":
-            return subclass.Basic_Scatter_Graph()
+            return subclass.Basic_Scatter_Graph(graph, specificity)
         elif specificity == "count_transactions":
-            return subclass.Count_Bar_Graph()
+            return subclass.Count_Bar_Graph(graph, specificity)
 
     @abstractmethod
     def find_filepath(self):
-        pass
+        return f"graph/{self.graph}/{self.specificity}.html"
+
     
     @abstractmethod
     def hardcode_column_dictionary(self):

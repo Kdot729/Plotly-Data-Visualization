@@ -6,11 +6,11 @@ app = Flask(__name__,  static_url_path='', static_folder="frontend/static", temp
 @app.route('/scatter/basic/<string:tool>')
 def route_scatter_page(tool):
 
-    return page.initial_page_render("basic", tool)
+    return page.initial_page_render("scatter", "basic", tool)
 
 @app.route('/bar/count_transactions/<string:tool>')
 def route_bar_page(tool):
-    return page.initial_page_render("count_transactions", tool)
+    return page.initial_page_render("bar", "count_transactions", tool)
 
 
 @app.route('/update_page_router', methods=['GET'])
