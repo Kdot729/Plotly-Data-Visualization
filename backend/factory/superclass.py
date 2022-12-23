@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 class Graph_Factory(ABC):
 
     date_dictionary = {"Min Date": '2021-10-08',
-                   "Max Date": date.today() }
+                        "Max Date": date.today()}
 
     def __init__(self, graph, specificity, tool):
         self.graph = graph
@@ -85,7 +85,15 @@ class Graph_Factory(ABC):
         else:
             return {"JSON Graph": self.graphJSON, "Address List": self.address_list, "Badges": self.badges}
 
+    #Note Double underscore makes the variable private meaning another function can't manipulate it
+    @property
+    def type_column_name(self):
+        return self.__type_column_name
 
+    #Note Double underscore makes the variable private meaning another function can't manipulate it
+    @type_column_name.setter
+    def type_column_name(self, type_column_name):
+        self.__type_column_name = type_column_name
 
 
         
