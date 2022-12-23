@@ -1,10 +1,13 @@
 import backend.general_functions as general_functions
-
+from datetime import date
 import backend.event as event
 from abc import ABC, abstractmethod
 
 class Graph_Factory(ABC):
 
+    date_dictionary = {"Min Date": '2021-10-08',
+                   "Max Date": date.today() }
+                   
     def __init__(self, graph, specificity):
         self.graph = graph
         self.specificity = specificity

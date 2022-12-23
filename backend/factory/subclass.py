@@ -3,7 +3,7 @@ import backend.bar.dataframe as dataframe
 import backend.bar.graph as bar_graph
 from backend.factory.superclass import Graph_Factory
 from flask import render_template
-from datetime import date
+# from datetime import date
 import backend.bar.graph as bar_graph
 import backend.scatter.graph as scatter_graph
 
@@ -12,11 +12,8 @@ class Count_Bar_Graph(Graph_Factory):
     def __init__(self, graph, specificity):
         super().__init__(graph, specificity)
 
-
-
     def find_filepath(self):
         self.filepath = super().find_filepath()
-        # self.filepath = f"graph/bar/count_transactions.html"
 
     def hardcode_column_dictionary(self):
         self.columns_name = {"Address Column": "Address", "Inequality Column": "Total"}
@@ -27,7 +24,6 @@ class Count_Bar_Graph(Graph_Factory):
 
         #Note unmodifed_DataFrame is the original DataFrame which is going to be used to get the address_list
         self.unmodifed_DataFrame = self.DataFrame.copy(deep=True)
-
 
     def create_column_dictionary(self, type_column):
         self.columns_name = {"Address Column": "Address", "Inequality Column": type_column}
@@ -54,10 +50,8 @@ class Basic_Scatter_Graph(Graph_Factory):
     def __init__(self, graph, specificity):
         super().__init__(graph, specificity)
         
-
     def find_filepath(self):
         self.filepath = super().find_filepath()
-        # self.filepath = f"graph/scatter/basic.html"
 
     def hardcode_column_dictionary(self):
         self.columns_name = {"Address Column": "Buyer", "Inequality Column": "ETH"}
@@ -85,6 +79,5 @@ class Basic_Scatter_Graph(Graph_Factory):
                             graphJSON=self.graphJSON, 
                             address_list=self.address_list,
                             inequality_dictionary=self.inequality_dictionary,
-                            date_dictionary={"Min Date": '2021-10-08',
-                   "Max Date": date.today() },
+                            date_dictionary=self.date_dictionary,
                             badges = self.badges)
