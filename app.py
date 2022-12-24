@@ -2,7 +2,7 @@ from flask import Flask, request
 import backend.page as page
 app = Flask(__name__,  static_url_path='', static_folder="frontend/static", template_folder="frontend/templates")
 
-# @app.route('/graph/<string:graph>/<string:specificity>/<string:tool>')
+
 @app.route('/graph/<string:graph>/<string:specificity>/<string:tool>')
 def page_router(graph, specificity, tool):
     print(graph, specificity, tool)

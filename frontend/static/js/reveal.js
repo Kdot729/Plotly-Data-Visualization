@@ -32,7 +32,6 @@ function question_mark_ping(id)
   let selected_end_date = $('#End-Date').val();
   console.log(selected_less_than, selected_greater_than)
   if (id != "Reset-Icon")
-
   {
     if ((selected_less_than < selected_greater_than) || (selected_greater_than > selected_less_than))
     {
