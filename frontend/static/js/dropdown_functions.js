@@ -1,8 +1,18 @@
 function reset_selected_inequality()
 {
-    //Note Resest the selected value of each inequality since it's the default graph we can grab the zeroth index because it's the min and max
+    //Note Reset the selected value of each inequality since it's the default graph we can grab the zeroth index because it's the min and max
     $('#Less-Than').prop("selectedIndex", 0);
     $('#Greater-Than').prop("selectedIndex", 0);
+};
+
+function reset_date()
+{
+    //Note Reset the input value of each date so the popup can work properly
+    let currentDate = new Date().toJSON().slice(0, 10);
+    console.log(currentDate)
+    $("#Start-Date").val("2021-10-08")
+    $("#End-Date").val(currentDate)
+
 };
 
 function always_empty()
@@ -36,5 +46,6 @@ function repopulate_address_dropdown(address_list, selected_addresses)
 export {reset_selected_inequality,
         always_empty,
         repopulate_inequality_dropdowns,
-        repopulate_address_dropdown
+        repopulate_address_dropdown,
+        reset_date
         }

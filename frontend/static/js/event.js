@@ -1,4 +1,4 @@
-import {repopulate_address_dropdown, repopulate_inequality_dropdowns, reset_selected_inequality} from "./dropdown_functions.js"
+import {repopulate_address_dropdown, repopulate_inequality_dropdowns, reset_selected_inequality, reset_date} from "./dropdown_functions.js"
 
 function event_checker(event_id, result, dropdown_dictionary)
 {
@@ -14,6 +14,7 @@ function event_checker(event_id, result, dropdown_dictionary)
     //Note Reset the selected values for inequality dropdown
     else if (event_id == "Reset-Icon")
         {
+            reset_date()
             reset_selected_inequality()
             address_event(result, dropdown_dictionary)
         }

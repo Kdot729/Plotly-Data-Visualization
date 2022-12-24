@@ -30,7 +30,7 @@ function question_mark_ping(id)
   let selected_greater_than = $('#Greater-Than option:selected').val();
   let selected_start_date = $('#Start-Date').val();
   let selected_end_date = $('#End-Date').val();
-  console.log(selected_less_than, selected_greater_than)
+  console.log(selected_less_than, selected_greater_than, selected_start_date, selected_end_date)
   if (id != "Reset-Icon")
   {
     if ((selected_less_than < selected_greater_than) || (selected_greater_than > selected_less_than))
