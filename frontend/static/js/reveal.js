@@ -24,4 +24,16 @@ function reveal_dropdown(event)
           // }
 }
 
-export {reveal_dropdown}
+function question_mark_ping()
+{
+  let selected_less_than = $('#Less-Than option:selected').val();
+  let selected_greater_than = $('#Greater-Than option:selected').val();
+
+  if ((selected_less_than < selected_greater_than) || (selected_greater_than > selected_less_than))
+  {
+    console.log("showing")
+    $("#Question").show()
+  }
+
+}
+export {reveal_dropdown, question_mark_ping}

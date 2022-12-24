@@ -23,6 +23,12 @@ $(document).ready(function () {
         //! Have no idea how this works, but dropdown disappears when clicking outisde and clicking on other dropdowns
         $(".custom-tooltip").not($(".custom-tooltip").has($(event.target))).children(".reveal").hide()
       }
+
+      if (($("#Question").is(":visible") == true ) && (event.target.id != "Question"))
+      {
+        console.log("in question")
+        $("#Question").hide()
+      }
   
     })
 
