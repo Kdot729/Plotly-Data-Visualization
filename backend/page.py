@@ -6,7 +6,7 @@ def initial_page_render(graph, specificity, tool):
     graph.find_filepath()
     graph.create_DataFrame()
     graph.hardcode_column_dictionary()
-    graph.hardcode_create_plotly()
+    graph.create_plotly()
     graph.create_badges()
     graph.create_address_list()
     graph.convert_JSON()
@@ -17,8 +17,7 @@ def page_rerender(frontend_dictionary):
     print("len", len(frontend_dictionary))
     graph = Graph_Factory.build_graph(frontend_dictionary["Graph"], frontend_dictionary['Specificity'], frontend_dictionary["Tool"])
     graph.create_DataFrame()
-    graph.type_column_name = frontend_dictionary["Type"]
-    graph.create_column_dictionary()
+    graph.create_column_dictionary(frontend_dictionary["Type"])
     graph.filter_columns_DataFrame()
     graph.sort_DataFrame(frontend_dictionary)
 

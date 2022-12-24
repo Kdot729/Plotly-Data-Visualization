@@ -58,10 +58,6 @@ class Graph_Factory(ABC):
     @abstractmethod
     def get_template(self):
         pass
-
-    @abstractmethod
-    def hardcode_create_plotly(self):
-        pass
     
     def create_badges(self):
         self.badges = general_functions.create_badges(self.columns_name["Address Column"], self.DataFrame)
@@ -85,15 +81,6 @@ class Graph_Factory(ABC):
         else:
             return {"JSON Graph": self.graphJSON, "Address List": self.address_list, "Badges": self.badges}
 
-    #Note Double underscore makes the variable private meaning another function can't manipulate it
-    @property
-    def type_column_name(self):
-        return self.__type_column_name
-
-    #Note Double underscore makes the variable private meaning another function can't manipulate it
-    @type_column_name.setter
-    def type_column_name(self, type_column_name):
-        self.__type_column_name = type_column_name
 
 
         
