@@ -31,6 +31,13 @@ class Graph_Factory(ABC):
     def find_filepath(self):
         return f"graph/{self.graph}/{self.specificity}.html"
 
+    @abstractmethod
+    def create_plotly(self, graph_type):
+        pass
+
+    @abstractmethod
+    def initialize_template(self):
+        pass
     
     @abstractmethod
     def hardcode_column_dictionary(self):
@@ -50,14 +57,6 @@ class Graph_Factory(ABC):
     def sort_DataFrame(self, dictionary):
         # print("dictionary",dictionary)
         self.DataFrame = event.sort_new_DataFrame(dictionary, self.DataFrame, self.columns_name)
-
-    @abstractmethod
-    def create_plotly(self, graph_type):
-        pass
-
-    @abstractmethod
-    def initialize_template(self):
-        pass
     
     def create_badges(self):
         self.badges = general_functions.create_badges(self.columns_name["Address Column"], self.DataFrame)
@@ -72,14 +71,14 @@ class Graph_Factory(ABC):
     def create_inequality_dictionary(self):
         self.inequality_dictionary = general_functions.sort_Inequality_List(self.DataFrame, self.columns_name["Inequality Column"])
 
-    def rerender_template(self, id_dropdown):
-        if (id_dropdown == "Type"):
+    def rerender_template(self, dropdown_id):
+        if (dropdown_id == "Type"):
             return {"JSON Graph": self.graphJSON, 
             "Address List": self.address_list,
             "Badges": self.badges,
             "Descending List": self.inequality_dictionary["Descending List"],
             "Ascending List": self.inequality_dictionary["Ascending List"]}
-        else:
+        elif (dropdown_id != "Type"):
             return {"JSON Graph": self.graphJSON, "Address List": self.address_list, "Badges": self.badges}
 
 
