@@ -72,7 +72,7 @@ class Graph_Factory(ABC):
     def create_inequality_dictionary(self):
         self.inequality_dictionary = general_functions.sort_Inequality_List(self.DataFrame, self.columns_name["Inequality Column"])
 
-    def send_to_frontend(self, id_dropdown):
+    def rerender_template(self, id_dropdown):
         if (id_dropdown == "Type"):
             return {"JSON Graph": self.graphJSON, 
             "Address List": self.address_list,
