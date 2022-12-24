@@ -28,8 +28,17 @@ function question_mark_ping()
 {
   let selected_less_than = $('#Less-Than option:selected').val();
   let selected_greater_than = $('#Greater-Than option:selected').val();
+  let selected_start_date = $('#Start-Date').val();
+  let selected_end_date = $('#End-Date').val();
 
+  console.log(selected_start_date, selected_end_date)
   if ((selected_less_than < selected_greater_than) || (selected_greater_than > selected_less_than))
+  {
+    console.log("showing")
+    $("#Question").show()
+  }
+
+  else if ((selected_start_date > selected_end_date) || (selected_end_date < selected_start_date))
   {
     console.log("showing")
     $("#Question").show()

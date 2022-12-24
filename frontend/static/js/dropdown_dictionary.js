@@ -2,7 +2,7 @@ function standard_dictionary(event)
 {
     let string_url = window.location.href
     let split_url = string_url.split("/")
-    console.log(split_url)
+
     return {
         "Graph": split_url[4],                             //Note Using the url to get the Graph Type
         "Specificity": split_url[5], 
