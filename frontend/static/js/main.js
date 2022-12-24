@@ -26,7 +26,6 @@ $(document).ready(function () {
 
       if (($("#Question").is(":visible") == true ) && (event.target.id != "Question"))
       {
-        console.log("in question")
         $("#Question").hide()
       }
   
