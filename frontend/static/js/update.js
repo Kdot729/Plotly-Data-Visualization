@@ -15,7 +15,7 @@ function update_graph_and_dropdowns(dropdown_dictionary, event)
 
             //Note JSON.parse(result["JSON Graph"]) converts data into a object. Need to have it as an object
             Plotly.newPlot("chart", JSON.parse(result["JSON Graph"]), {staticPlot: true});
-            question_mark_ping()
+            question_mark_ping(event.target.id)
             always_empty()
 
             event_checker(event.target.id, result, dropdown_dictionary)
