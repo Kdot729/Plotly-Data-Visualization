@@ -9,7 +9,7 @@ function reset_date()
 {
     //Note Reset the input value of each date so the popup can work properly
     let currentDate = new Date().toJSON().slice(0, 10);
-    console.log(currentDate)
+
     $("#Start-Date").val("2021-10-08")
     $("#End-Date").val(currentDate)
 
