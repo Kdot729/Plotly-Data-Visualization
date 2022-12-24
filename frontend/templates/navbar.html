@@ -11,8 +11,8 @@
             Thimble
           </a>
           <div class="dropdown-menu" aria-labelledby="Thimble">
-            <a class="dropdown-item" href="{{ url_for('route_scatter_page', tool='thimble') }}">Scatter</a>
-            <a class="dropdown-item" href="{{ url_for('route_bar_page', tool='thimble') }}">Bar</a>
+            <a class="dropdown-item" href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='thimble') }}">Scatter</a>
+            <a class="dropdown-item" href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='thimble') }}">Bar</a>
           </div> 
 
 
@@ -24,8 +24,8 @@
             Scissor
           </a>
           <div class="dropdown-menu" aria-labelledby="Scissor">
-            <a class="dropdown-item" href="{{ url_for('route_scatter_page', tool='scissor') }}">Scatter</a>
-            <a class="dropdown-item" href="{{ url_for('route_bar_page', tool='scissor') }}">Bar</a>
+            <a class="dropdown-item" href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='scissor') }}">Scatter</a>
+            <a class="dropdown-item" href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='scissor') }}">Bar</a>
           </div> 
         </li>
 
@@ -35,8 +35,8 @@
             Tape
           </a>
           <div class="dropdown-menu" aria-labelledby="Tape">
-            <a class="dropdown-item" href="{{ url_for('route_scatter_page', tool='tape') }}">Scatter</a>
-            <a class="dropdown-item" href="{{ url_for('route_bar_page', tool='tape') }}">Bar</a>
+            <a class="dropdown-item" href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='tape') }}">Scatter</a>
+            <a class="dropdown-item" href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='tape') }}">Bar</a>
             </div>  
         </li>
 

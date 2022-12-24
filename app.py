@@ -3,14 +3,14 @@ import backend.page as page
 app = Flask(__name__,  static_url_path='', static_folder="frontend/static", template_folder="frontend/templates")
 
 
-@app.route('/scatter/basic/<string:tool>')
-def route_scatter_page(tool):
+@app.route('/<string:graph>/<string:specificity>/<string:tool>')
+def page_router(graph, specificity, tool):
 
-    return page.initial_page_render("scatter", "basic", tool)
+    return page.initial_page_render(graph, specificity, tool)
 
-@app.route('/bar/count_transactions/<string:tool>')
-def route_bar_page(tool):
-    return page.initial_page_render("bar", "count_transactions", tool)
+# @app.route('/bar/count_transactions/<string:tool>')
+# def route_bar_page(tool):
+#     return page.initial_page_render("bar", "count_transactions", tool)
 
 
 @app.route('/update_page_router', methods=['GET'])
