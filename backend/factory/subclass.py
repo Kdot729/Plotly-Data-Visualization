@@ -14,15 +14,15 @@ class Count_Bar_Graph(Graph_Factory):
     def find_filepath(self):
         self.filepath = super().find_filepath()
 
-    def hardcode_column_dictionary(self):
-        self.columns_name = {"Address Column": "Address", "Inequality Column": "Total"}
-        
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
         self.DataFrame = dataframe.create_count_transactions_bar_DataFrame(self.DataFrame)
 
         #Note unmodifed_DataFrame is the original DataFrame which is going to be used to get the address_list
         self.unmodifed_DataFrame = self.DataFrame.copy(deep=True)
+
+    def hardcode_column_dictionary(self):
+        self.columns_name = {"Address Column": "Address", "Inequality Column": "Total"}
 
     def create_column_dictionary(self, type_column_name):
         self.columns_name = {"Address Column": "Address", "Inequality Column": type_column_name}
@@ -35,7 +35,7 @@ class Count_Bar_Graph(Graph_Factory):
     def create_plotly(self):
         self.plotly_graph = bar_graph.create_count_transactions_graph(self.DataFrame, self.columns_name["Inequality Column"])
 
-    def get_template(self):
+    def initialize_template(self):
         return render_template(template_name_or_list = self.filepath,
                             graphJSON=self.graphJSON, 
                             address_list=self.address_list,
@@ -48,8 +48,6 @@ class Basic_Scatter_Graph(Graph_Factory):
         
     def find_filepath(self):
         self.filepath = super().find_filepath()
-
-
 
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
@@ -69,7 +67,7 @@ class Basic_Scatter_Graph(Graph_Factory):
     def create_plotly(self):
         self.plotly_graph = scatter_graph.create_scatter_graph(self.DataFrame, self.columns_name["Address Column"])
 
-    def get_template(self):
+    def initialize_template(self):
         return render_template(template_name_or_list = self.filepath,
                             graphJSON=self.graphJSON, 
                             address_list=self.address_list,

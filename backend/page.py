@@ -11,7 +11,7 @@ def initial_page_render(graph, specificity, tool):
     graph.create_address_list()
     graph.convert_JSON()
     graph.create_inequality_dictionary()
-    return graph.get_template()
+    return graph.initialize_template()
 
 def page_rerender(frontend_dictionary):
     print("len", len(frontend_dictionary))
