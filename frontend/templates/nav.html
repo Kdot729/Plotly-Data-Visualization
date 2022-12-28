@@ -1,0 +1,69 @@
+{% block nav %}
+
+    <div class="nav-wrapper">
+      <nav class="main-grid-navbar">
+
+        <div class="sub-grid">
+          <a class="tool-text">Thimble</a>
+          <div class="graph-grid">
+            <div class="bar-grid">
+              <a class="graph-text">Bar</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='thimble') }}" class="left-column">Count</a>
+                <a href="#" class="right-column">Volume</a>
+              </div>
+            </div>
+            <div class="scatter-grid">
+              <a class="graph-text">Scatter</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='thimble') }}" class="left-column">Basic</a>
+                <a href="#" class="right-column">Animate</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sub-grid">
+          <a class="tool-text">Scissor</a>
+          <div class="graph-grid">
+            <div class="bar-grid">
+              <a class="graph-text">Bar</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='scissor') }}" class="left-column">Count</a>
+                <a href="#" class="right-column">Volume</a>
+              </div>
+            </div>
+            <div class="scatter-grid">
+              <a class="graph-text">Scatter</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='scissor') }}" class="left-column">Basic</a>
+                <a href="#" class="right-column">Animate</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sub-grid">
+          <a class="tool-text">Tape</a>
+          <div class="graph-grid">
+            <div class="bar-grid">
+              <a class="graph-text">Bar</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='tape') }}" class="left-column">Count</a>
+                <a href="#" class="right-column">Volume</a>
+              </div>
+            </div>
+            <div class="scatter-grid">
+              <a class="graph-text">Scatter</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='tape') }}" class="left-column">Basic</a>
+                <a href="#" class="right-column">Animate</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </nav>
+  </div>
+  {% endblock %}

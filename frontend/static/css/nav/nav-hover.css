@@ -1,0 +1,16 @@
+.graph-text:hover + .specificity-grid, .specificity-grid:hover
+{
+  display: grid;
+}
+
+
+.tool-text:hover + .graph-grid, .graph-grid:hover
+{
+  display: grid;
+}
+
+/* Note When hovering "a" tag in nav change background color */
+.main-grid-navbar a:hover
+{
+  background-color: aqua;
+}
