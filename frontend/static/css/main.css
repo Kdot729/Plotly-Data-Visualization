@@ -1,6 +1,12 @@
 /*TODO Look at all z-index */
 /*TODO Need to look at CSS. Positiong is shit for the button and icon */
 /*FIXME CSS is garbage need to relook over */
+*
+{
+  padding: 0px;
+  margin: 0px;
+}
+
 /*Organization Badge related */
 .badge-pill-grid{
   display: grid;
