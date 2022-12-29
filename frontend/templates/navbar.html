@@ -1,44 +1,76 @@
-{% block navbar %}
+{% block nav %}
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="nav-wrapper">
 
-      <ul class="navbar-nav mr-auto">
+      <nav class="main-grid-navbar">
 
-        <!--Note Thimble-->
-        <li class="nav-item dropdown dropup">
-          <a class="nav-link dropdown-toggle" href="#" id="Thimble" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Thimble
-          </a>
-          <div class="dropdown-menu" aria-labelledby="Thimble">
-            <a class="dropdown-item" href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='thimble') }}">Scatter</a>
-            <a class="dropdown-item" href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='thimble') }}">Bar</a>
-          </div> 
-        </li>
+        <!--Organization First sub-grid -->
+        <div class="sub-grid">
+          <a class="tool-text">Thimble</a>
+          <div class="graph-grid">
+            <div class="bar-grid">
+              <a class="graph-text">Bar</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='thimble') }}" class="left-column">Count</a>
+                <a href="#" class="right-column">Volume</a>
+              </div>
+            </div>
+            <div class="scatter-grid">
+              <a class="graph-text">Scatter</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='thimble') }}" class="left-column">Basic</a>
+                <a href="#" class="right-column">Animate</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <!--Note Scissor-->
-        <li class="nav-item dropdown dropup">
-          <a class="nav-link dropdown-toggle" href="#" id="Scissor" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Scissor
-          </a>
-          <div class="dropdown-menu" aria-labelledby="Scissor">
-            <a class="dropdown-item" href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='scissor') }}">Scatter</a>
-            <a class="dropdown-item" href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='scissor') }}">Bar</a>
-          </div> 
-        </li>
+        <!--Organization Second sub-grid -->
+        <div class="sub-grid">
+          <a class="tool-text">Scissor</a>
+          <div class="graph-grid">
+            <div class="bar-grid">
+              <a class="graph-text">Bar</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='scissor') }}" class="left-column">Count</a>
+                <a href="#" class="right-column">Volume</a>
+              </div>
+            </div>
+            <div class="scatter-grid">
+              <a class="graph-text">Scatter</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='scissor') }}" class="left-column">Basic</a>
+                <a href="#" class="right-column">Animate</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <!--Note Tape-->
-        <li class="nav-item dropdown dropup">
-          <a class="nav-link dropdown-toggle" href="#" id="Tape" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Tape
-          </a>
-          <div class="dropdown-menu" aria-labelledby="Tape">
-            <a class="dropdown-item" href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='tape') }}">Scatter</a>
-            <a class="dropdown-item" href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='tape') }}">Bar</a>
-            </div>  
-        </li>
+        <!--Organization Third sub-grid -->
+        <div class="sub-grid">
+          <a class="tool-text">Tape</a>
+          <div class="graph-grid">
+            <div class="bar-grid">
+              <a class="graph-text">Bar</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='tape') }}" class="left-column">Count</a>
+                <a href="#" class="right-column">Volume</a>
+              </div>
+            </div>
+            <div class="scatter-grid">
+              <a class="graph-text">Scatter</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='tape') }}" class="left-column">Basic</a>
+                <a href="#" class="right-column">Animate</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      </ul>
-    </div>
-  </nav>
-{% endblock %}
+      </nav>
+
+      {% include "social_media.html" %}
+
+  </div>
+  
+  {% endblock %}
