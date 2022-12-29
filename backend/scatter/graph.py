@@ -10,6 +10,9 @@ def create_scatter_graph(DataFrame, Type):
                             # color_discrete_sequence=f"rgb(0,0,{viridis(1)})",
                             hover_data=['Hash'],
                             title="Transactions",
+
+                            #FIXME Testing width and height
+                            #! Delete later
                             width=1600, height=630)
                             # symbol=Type) #! Not sure if symbol is necessary
 
@@ -25,6 +28,7 @@ def create_scatter_graph(DataFrame, Type):
     #     color='red'))
 
     figure.update_layout(title_x=0.5)
+
 
     #! Make it so there's a button which can turn the legend on and off
     # figure.layout.update(showlegend=False)
