@@ -35,9 +35,9 @@ def create_count_transactions_graph(DataFrame, type):
                 },
         yaxis = {
                 "tickmode":'linear',
-                "tick0": "0",
-                #Note Increment y-axis by 3
-                "dtick": "3",
+                "tick0": 1,
+                #Note Increment y-axis by 1
+                "dtick": 1,
                 }
         )
 
@@ -55,8 +55,10 @@ def create_count_transactions_graph(DataFrame, type):
         #Note Legend only works for "Total" because it's the only one with multiple colors for bars
         figure.update_layout(legend={
                 #Note Change position of legend to be inside the graph
+                "yanchor": "top",
                 "y": 1,
-                "x": 0,
+                "xanchor":"right",
+                "x": 1,
 
                 #Note Styling the legend box
                 "bgcolor": "#e5ecf6",
