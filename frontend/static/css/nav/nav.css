@@ -152,7 +152,7 @@
 }
 
 /*Organization Image related */  
-.test-grid
+.social-media-grid
 {
   /* Note column is width*/
   grid-template-columns: repeat(3, 50px);
@@ -165,24 +165,43 @@
   bottom: 0px;
   background-color: transparent;
 
-  justify-items: center;
 }
 
-.override-anchor{
-  height: 50px;
-  width: 50px;
+.sub-social-media-grid
+{
+  /* display: grid; */
+  grid-template-columns: repeat(1, 50px);
+  grid-template-rows: repeat(1, 50px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* justify-content: center;
   align-items: center; */
+
 }
+
+/* .override-anchor{
+  height: 25px;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
 
 
 .image{
-  position: absolute;
-  height: 50px;
-  width: 50px;
+
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  height: 40px;
+  width: 40px;
   background-color: transparent;
   /* justify-content: center;
   align-items: center; */
+
 
 }
 
