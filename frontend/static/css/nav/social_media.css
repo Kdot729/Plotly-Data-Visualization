@@ -1,0 +1,38 @@
+/*Organization Image related */  
+.social-media-grid
+{
+  /* Note column is width*/
+  grid-template-columns: repeat(3, 50px);
+  /* Note row is height. Height needs to match "nav-wrapper" */
+  grid-template-rows: repeat(1, 50px);
+
+  grid-column-gap: .5%;
+  display: grid;
+  justify-content: right;
+  bottom: 0px;
+  background-color: transparent;
+
+}
+
+.sub-social-media-grid
+{
+
+  /* Note Height and row need to match "social-media-grid" */
+  grid-template-columns: repeat(1, 50px);
+  grid-template-rows: repeat(1, 50px);
+
+  /* Note Center the things in the grid */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.social-media-image{
+  height: 40px;
+  width: 40px;
+  background-color: transparent;
+}
+
+/*Organization Image related */ 

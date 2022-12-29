@@ -1,5 +1,5 @@
 @import "nav-hover.css";
-
+@import "social_media.css";
 /* Note Root Selector */
 *
 {
@@ -150,61 +150,3 @@
   height: 50px;
 
 }
-
-/*Organization Image related */  
-.social-media-grid
-{
-  /* Note column is width*/
-  grid-template-columns: repeat(3, 50px);
-  /* Note row is height. Height needs to match "nav-wrapper" */
-  grid-template-rows: repeat(1, 50px);
-
-  grid-column-gap: .5%;
-  display: grid;
-  justify-content: right;
-  bottom: 0px;
-  background-color: transparent;
-
-}
-
-.sub-social-media-grid
-{
-  /* display: grid; */
-  grid-template-columns: repeat(1, 50px);
-  grid-template-rows: repeat(1, 50px);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* justify-content: center;
-  align-items: center; */
-
-}
-
-/* .override-anchor{
-  height: 25px;
-  width: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-
-.image{
-
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-
-  height: 40px;
-  width: 40px;
-  background-color: transparent;
-  /* justify-content: center;
-  align-items: center; */
-
-
-}
-
-
-
-/*Organization Image related */ 
