@@ -9,7 +9,8 @@ def create_scatter_graph(DataFrame, Type):
                             color=Type, #! Not sure if color is necessary
                             # color_discrete_sequence=f"rgb(0,0,{viridis(1)})",
                             hover_data=['Hash'],
-                            title="Transactions")
+                            title="Transactions",
+                            width=1600, height=630)
                             # symbol=Type) #! Not sure if symbol is necessary
 
 

@@ -47,21 +47,18 @@ def create_count_transactions_graph(DataFrame, type):
 
 
         figure.update_traces(textposition='outside')
+
         #Note Text size is 25 and if it can't fit then hide it
         figure.update_layout(uniformtext_minsize=25, uniformtext_mode='hide')
 
-        #Note Change positioning of legend
-        # figure.update_layout(legend=dict(
-        #                         y=1,
-        #                         x=0,
-        #                         bgcolor="#e5ecf6",
-        #                         bordercolor="black",
-        #                         borderwidth=1
-        #                         ))
-
+        #Note Styling the legend
+        #Note Legend only works for "Total" because it's the only one with multiple colors for bars
         figure.update_layout(legend={
+                #Note Change position of legend to be inside the graph
                 "y": 1,
                 "x": 0,
+
+                #Note Styling the legend box
                 "bgcolor": "#e5ecf6",
                 "bordercolor": "black",
                 "borderwidth": 1
@@ -79,13 +76,14 @@ def multi_color_bar(DataFrame, y_axis, color):
 
                         #FIXME Testing width and height
                         #! Delete later
-                        width=1600, height=650)
-                        # width=1500, height=700)
+                        width=1600, height=670)
+
 
 def single_color_bar(DataFrame, y_axis, color):
         figure = plotlyX.bar(DataFrame, 
         x="Address", 
         y=y_axis,
-        title="Transactions by Address")
+        title="Transactions by Address",
+        width=1600, height=670)
         figure.update_traces(marker_color=color)
         return figure
