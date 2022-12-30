@@ -68,8 +68,8 @@ def create_badges(address_column_name, DataFrame):
 
     #Note Going up the ninth index because it's needs to match the max in selectpicker
     #Note Getting 9 badges because 9 badges seem to fit on a width of 1080 screen
-    full_address = address.iloc[:8].tolist() 
-    short_address = address.iloc[:8].str.slice(0,5).tolist() 
+    full_address = address.iloc[:9].tolist() 
+    short_address = address.iloc[:9].str.slice(0,5).tolist() 
 
 
     #Note full_address is key. short_address is value
