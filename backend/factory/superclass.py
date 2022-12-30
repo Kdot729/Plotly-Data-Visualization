@@ -26,6 +26,8 @@ class Graph_Factory(ABC):
             return subclass.Basic_Scatter_Graph(graph, specificity, tool)
         elif specificity == "count_transactions":
             return subclass.Count_Bar_Graph(graph, specificity, tool)
+        elif specificity == "volume":
+            return subclass.Volume_Bar_Graph(graph, specificity, tool)
 
     @abstractmethod
     def find_filepath(self):

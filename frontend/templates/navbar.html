@@ -12,7 +12,7 @@
               <a class="graph-text">Bar</a>
               <div class="specificity-grid">
                 <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='thimble') }}" class="left-column">Count</a>
-                <a href="#" class="right-column">Volume</a>
+                <a href="{{ url_for('page_router', graph='bar', specificity='volume', tool='thimble') }}" class="right-column">Volume</a>
               </div>
             </div>
             <div class="scatter-grid">
@@ -33,7 +33,7 @@
               <a class="graph-text">Bar</a>
               <div class="specificity-grid">
                 <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='scissor') }}" class="left-column">Count</a>
-                <a href="#" class="right-column">Volume</a>
+                <a href="{{ url_for('page_router', graph='bar', specificity='volume', tool='scissor') }}"  class="right-column">Volume</a>
               </div>
             </div>
             <div class="scatter-grid">
@@ -54,7 +54,7 @@
               <a class="graph-text">Bar</a>
               <div class="specificity-grid">
                 <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='tape') }}" class="left-column">Count</a>
-                <a href="#" class="right-column">Volume</a>
+                <a href="{{ url_for('page_router', graph='bar', specificity='volume', tool='tape') }}" class="right-column">Volume</a>
               </div>
             </div>
             <div class="scatter-grid">
