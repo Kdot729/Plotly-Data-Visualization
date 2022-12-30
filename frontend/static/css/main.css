@@ -15,7 +15,7 @@
 
   grid-column-gap: .2%;
   /*Note Columns needs to match the data-max-options in "selectpicker" */
-  grid-template-columns: repeat(9, .1fr); /* 9 columns 0.1 fraction each */
+  grid-template-columns: repeat(9, .05fr); /* 9 columns 0.05 fraction each */
 
   font-size: 30px;
   z-index: -1;
@@ -47,7 +47,7 @@
 /*Organization Badge related */
 
 
-.grid-container{
+.icon-grid{
     display: grid;
     grid-column-gap: .5%;
     /* grid-auto-columns: 3%; */
