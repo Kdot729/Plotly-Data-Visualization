@@ -156,14 +156,14 @@ class Heatmap_Graph(Graph_Factory):
         return render_template(template_name_or_list = self.filepath,
                             graphJSON=self.graphJSON)
 
-    #! Overriding superclass method
+    #Note Overriding superclass method
     def create_badges(self):
         pass
 
-    #! Overriding superclass method
+    #Note Overriding superclass method
     def create_address_list(self):
         pass
 
-    #! Overriding superclass method
+    #Note Overriding superclass method
     def create_inequality_dictionary(self):
         pass
