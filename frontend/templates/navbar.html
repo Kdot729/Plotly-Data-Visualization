@@ -22,6 +22,13 @@
                 <a href="#" class="right-column">Animate</a>
               </div>
             </div>
+            <div class="heatmap-grid">
+              <a class="graph-text">Heatmap</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='heatmap', specificity='heatmap', tool='thimble') }}" class="left-column">Heatmap</a>
+                <a href="#" class="right-column">Empty</a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -43,6 +50,13 @@
                 <a href="#" class="right-column">Animate</a>
               </div>
             </div>
+            <div class="heatmap-grid">
+              <a class="graph-text">Heatmap</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='heatmap', specificity='heatmap', tool='scissor') }}" class="left-column">Heatmap</a>
+                <a href="#" class="right-column">Empty</a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -62,6 +76,13 @@
               <div class="specificity-grid">
                 <a href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='tape') }}" class="left-column">Basic</a>
                 <a href="#" class="right-column">Animate</a>
+              </div>
+            </div>
+            <div class="heatmap-grid">
+              <a class="graph-text">Heatmap</a>
+              <div class="specificity-grid">
+                <a href="{{ url_for('page_router', graph='heatmap', specificity='heatmap', tool='tape') }}" class="left-column">Heatmap</a>
+                <a href="#" class="right-column">Empty</a>
               </div>
             </div>
           </div>
