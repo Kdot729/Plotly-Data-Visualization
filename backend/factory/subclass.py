@@ -51,7 +51,7 @@ class Volume_Bar_Graph(Graph_Factory):
 
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
-        self.DataFrame = volumne_dataframe.create_volumne_DataFrame(self.DataFrame)
+        self.DataFrame = volumne_dataframe.create_volume_DataFrame(self.DataFrame)
         # self.DataFrame = dataframe.create_count_transactions_bar_DataFrame(self.DataFrame)
 
         # #Note unmodifed_DataFrame is the original DataFrame which is going to be used to get the address_list

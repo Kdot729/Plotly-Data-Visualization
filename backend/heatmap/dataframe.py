@@ -1,6 +1,6 @@
 import pandas as panda
 
-def create_heatmap_DataFrame():
+def create_heatmap_DataFrame(DataFrame):
 #! Might be a problem later
     #Note Ignoring the warning. Maybe solve later
     panda.set_option('mode.chained_assignment', None)   
