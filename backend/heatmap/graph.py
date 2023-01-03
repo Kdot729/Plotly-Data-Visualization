@@ -18,6 +18,7 @@ def create_heatmap(axes):
 
                 colorscale='algae',
 
+                #! For some reason texttemplate won't work on website but works when on local
                 #Note Put the volume amount inside the each box
                 texttemplate="%{z} ETH",
 
