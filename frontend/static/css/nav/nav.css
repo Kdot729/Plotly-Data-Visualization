@@ -1,5 +1,6 @@
 @import "nav-hover.css";
 @import "social_media.css";
+
 /* Note Root Selector */
 *
 {
@@ -29,7 +30,7 @@
   /* Note column is width*/
   grid-template-columns: repeat(3, 300px);
   /* Note row is height */
-  grid-template-rows: repeat(1, 150px);
+  grid-template-rows: repeat(1, 300px);
   grid-column-gap: 1%;
   grid-row-gap: 0%;
   background: transparent;
@@ -54,8 +55,8 @@
   /* Note Splits the column from "main-grid-navbar" which is 300px  into two columns that are 150px each*/
   grid-template-columns: repeat(2, 150px);
  
-  /* Note Splits the row from "main-grid-navbar" which is 150px into three columns that are 50px each */
-  grid-template-rows: repeat(3, 50px);
+  /* Note Splits the row from "main-grid-navbar" which is 300px into 6 columns that are 50px each */
+  grid-template-rows: repeat(6, 50px);
 }
 
 
@@ -68,15 +69,53 @@
   /* Note Splits the column from "main-grid-navbar" which is 300px  into two columns that are 150px each*/
   grid-template-columns: repeat(2, 150px);
 
-  /* Note Splits the row from "main-grid-navbar" which is 150px into three columns that are 50px each */
-  grid-template-rows: repeat(2, 50px);
+  /* Note Splits the row from "main-grid-navbar" which is 300px into 5 columns that are 50px each */
+  /* Note Minus one row because we don't need the bottom layer */
+  grid-template-rows: repeat(5, 50px);
 }
 
-/* Note Same column and width as "graph-grid" */
-/* Note Minus one row from "graph-grid" */
+/*Note Same column and width as "graph-grid" */
+/*Note  Row positioning is minus 1 from "graph-grid" */
 .bar-grid
 {
-  /* display: none; */
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  grid-template-rows: repeat(1, 50px);
+  grid-column: 1 / span 2;
+  grid-row: 5 / span 1;
+}
+
+/*Note Same column and width as "graph-grid" */
+/*Note Row positioning is minus 1 from "bar-grid" */
+.scatter-grid
+{
+  background-color: ededed;
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  grid-template-rows: repeat(1, 50px);
+  grid-column: 1 / span 2;
+  grid-row: 4 / span 1;
+}
+
+/*Note Same column and width as "graph-grid" */
+/*Note Row positioning is minus 1 from "scatter-grid" */
+.heatmap-grid
+{
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  grid-template-rows: repeat(1, 50px);
+  grid-column: 1 / span 2;
+  grid-row: 3 / span 1;
+}
+
+/*Note Same column and width as "graph-grid" */
+/*Note Row positioning is minus 1 from "heatmap-grid" */
+.sunburst-grid
+{
+  background-color: ededed;
   background-color: transparent;
   display: grid;
   grid-template-columns: repeat(2, 150px);
@@ -85,12 +124,11 @@
   grid-row: 2 / span 1;
 }
 
-/* Note Same column and width as "graph-grid" */
-/* Note Minus one row from "graph-grid" */
-.scatter-grid
+/*Note Same column and width as "graph-grid" */
+/*Note Row positioning is minus 1 from "sunburst-grid" */
+.candlestick-grid
 {
   background-color: ededed;
-  /* display: none; */
   background-color: transparent;
   display: grid;
   grid-template-columns: repeat(2, 150px);
@@ -99,12 +137,12 @@
   grid-row: 1 / span 1;
 }
 
-/* Note Same row numbers and height as "bar-grid" and "scatter-grid" */
+/*Note Same row numbers and height as "bar-grid" and "scatter-grid" */
 .specificity-grid
 {
-  background-color: #f4f4f4;
   display: none;
   /* display: grid; */
+  background-color: #f4f4f4;
   grid-template-columns: repeat(2, 75px);
   grid-template-rows: repeat(1, 50px);
   grid-column: 2 / span 1;
@@ -117,7 +155,7 @@
   width: 150px;
   height: 50px;
   grid-column: 1 / span 1;
-  grid-row: 3 / span 1;
+  grid-row: 6 / span 1;
 
 }
 
