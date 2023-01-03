@@ -3,7 +3,7 @@ import plotly.graph_objects as plotGO
 #Note y_axis is the weekday as a number
 weekday_names_list =["Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday"]
 
-def create_heatmap(DataFrame, z_axis, columns_list):
+def create_heatmap(z_axis, columns_list):
 
     figure = plotGO.Figure(
         data=plotGO.Heatmap(
