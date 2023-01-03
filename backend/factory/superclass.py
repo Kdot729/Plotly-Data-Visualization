@@ -29,7 +29,7 @@ class Graph_Factory(ABC):
         elif specificity == "volume":
             return subclass.Volume_Bar_Graph(graph, specificity, tool)
         elif specificity == "heatmap":
-            return subclass.Volume_Bar_Graph(graph, specificity, tool)
+            return subclass.Heatmap_Graph(graph, specificity, tool)
 
     @abstractmethod
     def find_filepath(self):

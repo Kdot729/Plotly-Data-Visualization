@@ -3,18 +3,18 @@ import plotly.graph_objects as plotGO
 #Note y_axis is the weekday as a number
 weekday_names_list =["Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday"]
 
-def create_heatmap(z_axis, columns_list):
+def create_heatmap(axes):
 
     figure = plotGO.Figure(
         data=plotGO.Heatmap(
                 #Note The z-axis is the volume
-                z=z_axis,
+                z=axes["z"],
 
                 #Note X-axis is the month-year
-                x=columns_list,
+                x=axes["x"],
 
                 #Note Y-axis is the day of the week
-                y=weekday_names_list,
+                y=axes["y"],
 
                 colorscale='algae',
 
