@@ -42,4 +42,7 @@ def create_heatmap(axes):
                     #Note Get rid or margin to enlargen graph
                     margin=dict(l=0, r=0, t=25, b=0)
                     )
+
+    figure.update_layout(width=1580, 
+                        height=700)
     return figure
