@@ -31,7 +31,7 @@ class Graph_Factory(ABC):
         elif specificity == "heatmap":
             return subclass.Heatmap_Graph(graph, specificity, tool)
         elif specificity == "sunburst":
-            return subclass.Heatmap_Graph(graph, specificity, tool)
+            return subclass.Sunburst_Graph(graph, specificity, tool)
 
     @abstractmethod
     def find_filepath(self):

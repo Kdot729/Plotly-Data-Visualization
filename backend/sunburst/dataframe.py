@@ -1,15 +1,8 @@
 import pandas as panda
 import datetime
 
-def create_sunburst_DataFrame():
-    panda.set_option('display.max_rows', None)
-    panda.set_option('display.max_columns', None)
-    panda.set_option('display.width', None)
-    panda.set_option('display.max_colwidth', None)
-    
-    DataFrame = panda.read_csv( "updated_thimble_transactions.csv", 
-                names=('Date', 'Hash', 'ETH', 'Seller', 'Buyer')
-                )   
+def create_sunburst_DataFrame(DataFrame):
+
 
     #! Might be a problem later
     #Note Ignoring the warning. Maybe solve later
