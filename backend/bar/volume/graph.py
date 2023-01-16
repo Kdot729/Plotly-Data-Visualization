@@ -34,6 +34,8 @@ def create_volume_graph(DataFrame):
                     "bordercolor": "black",
                     "borderwidth": 1
                     })
+    figure.update_layout(width=1580, 
+                        height=750)
 
     return figure
 
