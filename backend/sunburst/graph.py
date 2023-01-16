@@ -128,6 +128,9 @@ def create_sunburst(DataFrame):
         name='',
         # level=''
         ), 1, 1)
-    figure.update_layout(title="Volume")
+    figure.update_layout(title="Volume", 
+                        title_x=0.2, 
+                        width=1580, 
+                        height=750)
 
     return figure

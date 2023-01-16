@@ -68,7 +68,7 @@ def create_sunburst_DataFrame(DataFrame):
         graph_DataFrame.loc[len(graph_DataFrame.index)] = [row["Date"], row["Date"][:7] ,row["ETH"]]
 
 
-    print(graph_DataFrame['id'])
+    # print(graph_DataFrame['id'])
 
     override_text = []
 
