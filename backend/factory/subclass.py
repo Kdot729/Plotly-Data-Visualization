@@ -6,6 +6,7 @@ import backend.bar.count.graph as count_graph
 import backend.scatter.graph as scatter_graph
 import backend.bar.volume.dataframe as volumne_dataframe, backend.bar.volume.graph as volumne_graph
 import backend.heatmap.dataframe as heatmap_dataframe, backend.heatmap.graph as heatmap_graph
+import backend.sunburst.dataframe as sunburst_dataframe, backend.sunburst.graph as sunburst_graph
 class Count_Bar_Graph(Graph_Factory):
     
     def __init__(self, graph, specificity, tool):
@@ -151,6 +152,49 @@ class Heatmap_Graph(Graph_Factory):
 
     def create_plotly(self):
         self.plotly_graph = heatmap_graph.create_heatmap(self.axes_dictionary)
+
+    def initialize_template(self):
+        return render_template(template_name_or_list = self.filepath,
+                            graphJSON=self.graphJSON)
+
+    #Note Overriding superclass method
+    def create_badges(self):
+        pass
+
+    #Note Overriding superclass method
+    def create_address_list(self):
+        pass
+
+    #Note Overriding superclass method
+    def create_inequality_dictionary(self):
+        pass
+
+class Sunburst_Graph(Graph_Factory):
+    
+    def __init__(self, graph, specificity, tool):
+        super().__init__(graph, specificity, tool)
+
+    def find_filepath(self):
+        self.filepath = super().find_filepath()
+
+    def create_DataFrame(self):
+        self.DataFrame = super().create_DataFrame()
+        self.DataFrame = sunburst_dataframe.create_sunburst_DataFrame(self.DataFrame)
+
+    def hardcode_column_dictionary(self):
+        pass
+
+    def create_column_dictionary(self, type_column_name):
+        pass
+
+    def filter_columns_DataFrame(self):
+        pass
+            # if self.columns_name["Inequality Column"] != "Total":
+            #     self.DataFrame = self.DataFrame.filter(["Address", self.columns_name["Inequality Column"]])
+            #     self.DataFrame = self.DataFrame[(self.DataFrame[list(self.DataFrame.columns)] != 0).all(axis=1)]
+
+    def create_plotly(self):
+        self.plotly_graph = sunburst_graph.create_sunburst(self.DataFrame)
 
     def initialize_template(self):
         return render_template(template_name_or_list = self.filepath,

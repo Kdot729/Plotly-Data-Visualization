@@ -107,7 +107,7 @@ import datetime
 # #Note Created a new column to be the text
 # graph_DataFrame["Text"] = override_text
 
-def create_sunburst_graph(DataFrame):
+def create_sunburst(DataFrame):
 
     figure = make_subplots(1, 2, specs=[[{"type": "domain"}, {"type": "domain"}]],)
 
