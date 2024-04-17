@@ -56,8 +56,8 @@
   /* Note Splits the column from "main-grid-navbar" which is 300px  into two columns that are 150px each*/
   grid-template-columns: repeat(2, 150px);
  
-  /* Note Splits the row from "main-grid-navbar" which is 300px into 6 columns that are 50px each */
-  grid-template-rows: repeat(6, 50px);
+  /* Note Splits the row from "main-grid-navbar" which is 250px into 5 columns that are 50px each */
+  grid-template-rows: repeat(5, 50px);
 }
 
 
@@ -70,9 +70,9 @@
   /* Note Splits the column from "main-grid-navbar" which is 300px  into two columns that are 150px each*/
   grid-template-columns: repeat(2, 150px);
 
-  /* Note Splits the row from "main-grid-navbar" which is 300px into 5 columns that are 50px each */
+  /* Note Splits the row from "main-grid-navbar" which is 200px into 4 rows that are 50px each */
   /* Note Minus one row because we don't need the bottom layer */
-  grid-template-rows: repeat(5, 50px);
+  grid-template-rows: repeat(4, 50px);
 }
 
 /*Note Same column and width as "graph-grid" */
