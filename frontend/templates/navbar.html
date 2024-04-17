@@ -2,117 +2,117 @@
 
     <div class="nav-wrapper">
 
-      <nav class="main-grid-navbar">
+        <nav class="main-grid-navbar">
 
-        <!--Organization First sub-grid -->
-        <div class="sub-grid">
-          <img src="/pic/thimble.jpeg" class="tool-text" alt="Thimble Picture">
-          <div class="graph-grid">
-            <div class="bar-grid">
-              <a class="graph-text">Bar</a>
-              <div class="specificity-grid">
-                <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='thimble') }}" class="left-column">Count</a>
-                <a href="{{ url_for('page_router', graph='bar', specificity='volume', tool='thimble') }}" class="right-column">Volume</a>
-              </div>
+            <!--Organization First sub-grid -->
+            <div class="sub-grid">
+            <img src="/pic/thimble.jpeg" class="tool-text" alt="Thimble Picture">
+            <div class="graph-grid">
+                <div class="bar-grid">
+                <a class="graph-text">Bar</a>
+                <div class="specificity-grid">
+                    <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='thimble') }}" class="left-column">Count</a>
+                    <a href="{{ url_for('page_router', graph='bar', specificity='volume', tool='thimble') }}" class="right-column">Volume</a>
+                </div>
+                </div>
+                <div class="scatter-grid">
+                <a class="graph-text">Scatter</a>
+                <div class="specificity-grid">
+                    <a href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='thimble') }}" class="left-column">Basic</a>
+                    <a href="#" class="right-column">Animate</a>
+                </div>
+                </div>
+                <div class="heatmap-grid">
+                <a class="graph-text">Heatmap</a>
+                <div class="specificity-grid">
+                    <a href="{{ url_for('page_router', graph='heatmap', specificity='heatmap', tool='thimble') }}" class="left-column">Heatmap</a>
+                    <a href="#" class="right-column">Empty</a>
+                </div>
+                </div>
+                <div class="sunburst-grid">
+                <a class="graph-text">Sunburst</a>
+                <div class="specificity-grid">
+                    <a href="{{ url_for('page_router', graph='sunburst', specificity='sunburst', tool='thimble') }}" class="left-column">Sunburst</a>
+                    <a href="#" class="right-column">Empty</a>
+                </div>
+                </div>
             </div>
-            <div class="scatter-grid">
-              <a class="graph-text">Scatter</a>
-              <div class="specificity-grid">
-                <a href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='thimble') }}" class="left-column">Basic</a>
-                <a href="#" class="right-column">Animate</a>
-              </div>
             </div>
-            <div class="heatmap-grid">
-              <a class="graph-text">Heatmap</a>
-              <div class="specificity-grid">
-                <a href="{{ url_for('page_router', graph='heatmap', specificity='heatmap', tool='thimble') }}" class="left-column">Heatmap</a>
-                <a href="#" class="right-column">Empty</a>
-              </div>
-            </div>
-            <div class="sunburst-grid">
-              <a class="graph-text">Sunburst</a>
-              <div class="specificity-grid">
-                <a href="{{ url_for('page_router', graph='sunburst', specificity='sunburst', tool='thimble') }}" class="left-column">Sunburst</a>
-                <a href="#" class="right-column">Empty</a>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!--Organization Second sub-grid -->
-        <div class="sub-grid">
-          <img src="/pic/scissor.jpeg" class="tool-text" alt="Scissor Picture">
-          <div class="graph-grid">
-            <div class="bar-grid">
-              <a class="graph-text">Bar</a>
-              <div class="specificity-grid">
-                <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='scissor') }}" class="left-column">Count</a>
-                <a href="{{ url_for('page_router', graph='bar', specificity='volume', tool='scissor') }}"  class="right-column">Volume</a>
-              </div>
+            <!--Organization Second sub-grid -->
+            <div class="sub-grid">
+            <img src="/pic/scissor.jpeg" class="tool-text" alt="Scissor Picture">
+            <div class="graph-grid">
+                <div class="bar-grid">
+                <a class="graph-text">Bar</a>
+                <div class="specificity-grid">
+                    <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='scissor') }}" class="left-column">Count</a>
+                    <a href="{{ url_for('page_router', graph='bar', specificity='volume', tool='scissor') }}"  class="right-column">Volume</a>
+                </div>
+                </div>
+                <div class="scatter-grid">
+                <a class="graph-text">Scatter</a>
+                <div class="specificity-grid">
+                    <a href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='scissor') }}" class="left-column">Basic</a>
+                    <a href="#" class="right-column">Animate</a>
+                </div>
+                </div>
+                <div class="heatmap-grid">
+                <a class="graph-text">Heatmap</a>
+                <div class="specificity-grid">
+                    <a href="{{ url_for('page_router', graph='heatmap', specificity='heatmap', tool='scissor') }}" class="left-column">Heatmap</a>
+                    <a href="#" class="right-column">Empty</a>
+                </div>
+                </div>
+                <div class="sunburst-grid">
+                <a class="graph-text">Sunburst</a>
+                <div class="specificity-grid">
+                    <a href="{{ url_for('page_router', graph='sunburst', specificity='sunburst', tool='scissor') }}" class="left-column">Sunburst</a>
+                    <a href="#" class="right-column">Empty</a>
+                </div>
+                </div>
             </div>
-            <div class="scatter-grid">
-              <a class="graph-text">Scatter</a>
-              <div class="specificity-grid">
-                <a href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='scissor') }}" class="left-column">Basic</a>
-                <a href="#" class="right-column">Animate</a>
-              </div>
             </div>
-            <div class="heatmap-grid">
-              <a class="graph-text">Heatmap</a>
-              <div class="specificity-grid">
-                <a href="{{ url_for('page_router', graph='heatmap', specificity='heatmap', tool='scissor') }}" class="left-column">Heatmap</a>
-                <a href="#" class="right-column">Empty</a>
-              </div>
-            </div>
-            <div class="sunburst-grid">
-              <a class="graph-text">Sunburst</a>
-              <div class="specificity-grid">
-                <a href="{{ url_for('page_router', graph='sunburst', specificity='sunburst', tool='scissor') }}" class="left-column">Sunburst</a>
-                <a href="#" class="right-column">Empty</a>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!--Organization Third sub-grid -->
-        <div class="sub-grid">
-          <img src="/pic/tape.jpeg" class="tool-text" alt="Tape Picture">
-          <div class="graph-grid">
-            <div class="bar-grid">
-              <a class="graph-text">Bar</a>
-              <div class="specificity-grid">
-                <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='tape') }}" class="left-column">Count</a>
-                <a href="{{ url_for('page_router', graph='bar', specificity='volume', tool='tape') }}" class="right-column">Volume</a>
-              </div>
+            <!--Organization Third sub-grid -->
+            <div class="sub-grid">
+            <img src="/pic/tape.jpeg" class="tool-text" alt="Tape Picture">
+            <div class="graph-grid">
+                <div class="bar-grid">
+                <a class="graph-text">Bar</a>
+                <div class="specificity-grid">
+                    <a href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='tape') }}" class="left-column">Count</a>
+                    <a href="{{ url_for('page_router', graph='bar', specificity='volume', tool='tape') }}" class="right-column">Volume</a>
+                </div>
+                </div>
+                <div class="scatter-grid">
+                <a class="graph-text">Scatter</a>
+                <div class="specificity-grid">
+                    <a href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='tape') }}" class="left-column">Basic</a>
+                    <a href="#" class="right-column">Animate</a>
+                </div>
+                </div>
+                <div class="heatmap-grid">
+                <a class="graph-text">Heatmap</a>
+                <div class="specificity-grid">
+                    <a href="{{ url_for('page_router', graph='heatmap', specificity='heatmap', tool='tape') }}" class="left-column">Heatmap</a>
+                    <a href="#" class="right-column">Empty</a>
+                </div>
+                </div>
+                <div class="sunburst-grid">
+                <a class="graph-text">Sunburst</a>
+                <div class="specificity-grid">
+                    <a href="{{ url_for('page_router', graph='sunburst', specificity='sunburst', tool='tape') }}" class="left-column">Sunburst</a>
+                    <a href="#" class="right-column">Empty</a>
+                </div>
+                </div>
             </div>
-            <div class="scatter-grid">
-              <a class="graph-text">Scatter</a>
-              <div class="specificity-grid">
-                <a href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='tape') }}" class="left-column">Basic</a>
-                <a href="#" class="right-column">Animate</a>
-              </div>
             </div>
-            <div class="heatmap-grid">
-              <a class="graph-text">Heatmap</a>
-              <div class="specificity-grid">
-                <a href="{{ url_for('page_router', graph='heatmap', specificity='heatmap', tool='tape') }}" class="left-column">Heatmap</a>
-                <a href="#" class="right-column">Empty</a>
-              </div>
-            </div>
-            <div class="sunburst-grid">
-              <a class="graph-text">Sunburst</a>
-              <div class="specificity-grid">
-                <a href="{{ url_for('page_router', graph='sunburst', specificity='sunburst', tool='tape') }}" class="left-column">Sunburst</a>
-                <a href="#" class="right-column">Empty</a>
-              </div>
-            </div>
-          </div>
-        </div>
 
-      </nav>
+        </nav>
 
-      {% include "social_media.html" %}
+    {% include "social_media.html" %}
 
-  </div>
-  
-  {% endblock %}
+    </div>
+
+{% endblock %}
