@@ -1,7 +1,7 @@
 
-import backend.dataframe.count as count_dataframe
+import backend.dataframe.count as Transaction_Dataframe
 from backend.factory.superclass import Graph_Factory
-import backend.graph.count as count_graph
+import backend.graph.count as Transaction_Plotly
 import backend.graph.scatter as scatter_graph
 import backend.dataframe.volume as Volume_Dataframe, backend.graph.volume as Volume_Graph
 import backend.dataframe.heatmap as heatmap_dataframe, backend.graph.heatmap as heatmap_graph
@@ -13,10 +13,10 @@ class Count_Bar_Graph(Graph_Factory):
 
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
-        self.DataFrame = count_dataframe.Create_Transaction_Dataframe(self.DataFrame)
+        self.DataFrame = Transaction_Dataframe.Create_Transaction_Dataframe(self.DataFrame)
 
     def Create_Plotly(self):
-        self.plotly_graph = count_graph.Create_Transaction_Graph(self.DataFrame, self.columns_name["Inequality Column"])
+        self.plotly_graph = Transaction_Plotly.Create_Transaction_Graph(self.DataFrame, self.columns_name["Inequality Column"])
 
 class Volume_Bar_Graph(Graph_Factory):
     
