@@ -11,6 +11,11 @@ def Home():
 def page_router(graph, specificity, tool):
     return page.Render_Graph(graph, specificity, tool)
 
+@app.route('/graph/<string:Graph_Name>/<string:Tool>')
+def page_router(Graph_Name, Tool):
+    return page.Render_Graph(Graph_Name, Tool)
+
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
 
