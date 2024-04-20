@@ -1,12 +1,11 @@
 import plotly.express as plotlyX
 
-def create_scatter_graph(DataFrame, Type):
+def create_scatter_graph(DataFrame):
     
     figure = plotlyX.scatter(DataFrame,
                             x ='Date',
                             y='ETH',
                             # text=Type,
-                            color=Type, #! Not sure if color is necessary
                             # color_discrete_sequence=f"rgb(0,0,{viridis(1)})",
                             hover_data=['Hash'],
                             title="Transactions",
