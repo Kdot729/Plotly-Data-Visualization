@@ -13,7 +13,7 @@ class Count_Bar_Graph(Graph_Factory):
 
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
-        self.DataFrame = count_dataframe.create_count_transactions_bar_DataFrame(self.DataFrame)
+        self.DataFrame = count_dataframe.Create_Transaction_DataFrame(self.DataFrame)
 
     def Create_Plotly(self):
         self.plotly_graph = count_graph.create_count_transactions_graph(self.DataFrame, self.columns_name["Inequality Column"])
