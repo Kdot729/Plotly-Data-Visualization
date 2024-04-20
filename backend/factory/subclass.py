@@ -11,9 +11,6 @@ class Count_Bar_Graph(Graph_Factory):
     def __init__(self, graph, specificity, tool):
         super().__init__(graph, specificity, tool)
 
-    def find_filepath(self):
-        self.filepath = super().find_filepath()
-
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
         self.DataFrame = count_dataframe.create_count_transactions_bar_DataFrame(self.DataFrame)
@@ -25,9 +22,6 @@ class Volume_Bar_Graph(Graph_Factory):
     
     def __init__(self, graph, specificity, tool):
         super().__init__(graph, specificity, tool)
-
-    def find_filepath(self):
-        self.filepath = super().find_filepath()
 
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
@@ -41,9 +35,6 @@ class Basic_Scatter_Graph(Graph_Factory):
     def __init__(self, graph, specificity, tool):
         super().__init__(graph, specificity, tool)
         
-    def find_filepath(self):
-        self.filepath = super().find_filepath()
-
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
 
@@ -54,9 +45,6 @@ class Heatmap_Graph(Graph_Factory):
     
     def __init__(self, graph, specificity, tool):
         super().__init__(graph, specificity, tool)
-
-    def find_filepath(self):
-        self.filepath = super().find_filepath()
 
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
@@ -69,9 +57,6 @@ class Sunburst_Graph(Graph_Factory):
     
     def __init__(self, graph, specificity, tool):
         super().__init__(graph, specificity, tool)
-
-    def find_filepath(self):
-        self.filepath = super().find_filepath()
 
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()

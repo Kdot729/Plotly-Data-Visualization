@@ -28,10 +28,6 @@ class Graph_Factory(ABC):
             return subclass.Sunburst_Graph(graph, specificity, tool)
 
     @abstractmethod
-    def find_filepath(self):
-        return f"graph.html"
-
-    @abstractmethod
     def create_plotly(self, graph_type):
         pass
 
