@@ -15,9 +15,9 @@ class Graph_Factory(ABC):
         #Note import statement needs to be inside this function to avoid circular imports
         import backend.factory.subclass as subclass
 
-        if Graph_Name == "basic":
+        if Graph_Name == "scatter":
             return subclass.Basic_Scatter_Graph(Graph_Name, Tool)
-        elif Graph_Name == "count_transactions":
+        elif Graph_Name == "transaction":
             return subclass.Count_Bar_Graph(Graph_Name, Tool)
         elif Graph_Name == "volume":
             return subclass.Volume_Bar_Graph(Graph_Name, Tool)
