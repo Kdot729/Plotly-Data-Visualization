@@ -1,6 +1,5 @@
+import json, plotly
 import backend.general_functions as general_functions
-from datetime import date
-import backend.event as event
 from abc import ABC, abstractmethod
 from flask import render_template
 
@@ -47,7 +46,7 @@ class Graph_Factory(ABC):
         self.DataFrame = event.sort_new_DataFrame(dictionary, self.DataFrame, self.columns_name)
     
     def convert_JSON(self):
-        self.graphJSON = general_functions.convert_Graph_to_JSON(self.plotly_graph)
+        self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder) 
 
 
 
