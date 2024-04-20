@@ -1,11 +1,11 @@
 
 import backend.dataframe.count as count_dataframe
 from backend.factory.superclass import Graph_Factory
-import backend.bar.count.graph as count_graph
-import backend.scatter.graph as scatter_graph
-import backend.dataframe.volume as Volume_Dataframe, backend.bar.volume.graph as Volume_Graph
-import backend.dataframe.heatmap as heatmap_dataframe, backend.heatmap.graph as heatmap_graph
-import backend.dataframe.sunburst as sunburst_dataframe, backend.sunburst.graph as sunburst_graph
+import backend.graph.count as count_graph
+import backend.graph.scatter as scatter_graph
+import backend.dataframe.volume as Volume_Dataframe, backend.graph.volume as Volume_Graph
+import backend.dataframe.heatmap as heatmap_dataframe, backend.graph.heatmap as heatmap_graph
+import backend.dataframe.sunburst as sunburst_dataframe, backend.graph.sunburst as sunburst_graph
 class Count_Bar_Graph(Graph_Factory):
     
     def __init__(self, Graph_Name, Tool):
