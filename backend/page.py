@@ -6,5 +6,5 @@ def initial_page_render(graph, specificity, tool):
     graph = Graph_Factory.build_graph(graph, specificity, tool)
     graph.create_DataFrame()
     graph.create_plotly()
-    graph.convert_JSON()
+    graph.Convert_Plotly_to_JSON()
     return graph.initialize_template()

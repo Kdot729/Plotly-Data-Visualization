@@ -37,7 +37,7 @@ class Graph_Factory(ABC):
     def create_DataFrame(self):
         return panda.read_csv(f"csv/updated_{self.tool}_transactions.csv", names=('Date', 'Hash', 'ETH', 'Seller', 'Buyer')) 
     
-    def convert_JSON(self):
+    def Convert_Plotly_to_JSON(self):
         self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder) 
 
 
