@@ -1,0 +1,13 @@
+version: "3.12"
+
+services:
+
+  flask:
+    container_name: 10KTF_Plotly
+    ports:
+      - 5000:5000
+    build:
+      context: ./
+    volumes: 
+      - .:/app
+    command: python app.py
