@@ -30,7 +30,7 @@ class Graph_Factory(ABC):
 
     @abstractmethod
     def find_filepath(self):
-        return f"graph/{self.specificity}.html"
+        return f"graph.html"
 
     @abstractmethod
     def create_plotly(self, graph_type):
