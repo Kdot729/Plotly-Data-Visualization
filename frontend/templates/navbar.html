@@ -1,0 +1,52 @@
+{% block navbar %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+        <!--#region Thimble-->
+        <li class="nav-item dropdown dropup">
+            <a class="nav-link dropdown-toggle" href="#" id="Thimble" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Thimble
+            </a>
+            <div class="dropdown-menu" aria-labelledby="Thimble">
+                <a class="dropdown-item" href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='thimble') }}">Scatter</a>
+                <a class="dropdown-item" href="{{ url_for('page_router', graph='bar', specificity='volume', tool='tape') }}">Volume</a>
+                <a class="dropdown-item" href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='thimble') }}">Transaction</a>
+                <a class="dropdown-item" href="{{ url_for('page_router', graph='heatmap', specificity='heatmap', tool='thimble') }}">Heatmap</a>
+            </div> 
+        </li>
+        <!--#endregion -->
+
+        <!--#region Scissor-->
+        <li class="nav-item dropdown dropup">
+            <a class="nav-link dropdown-toggle" href="#" id="Scissor" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Scissor
+            </a>
+            <div class="dropdown-menu" aria-labelledby="Scissor">
+                <a class="dropdown-item" href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='scissor') }}">Scatter</a>
+                <a class="dropdown-item" href="{{ url_for('page_router', graph='bar', specificity='volume', tool='tape') }}">Volume</a>
+                <a class="dropdown-item" href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='scissor') }}">Transaction</a>
+                <a class="dropdown-item" href="{{ url_for('page_router', graph='heatmap', specificity='heatmap', tool='scissor') }}">Heatmap</a>
+            </div> 
+        </li>
+        <!--#endregion -->
+
+        <!--#region Tape-->
+        <li class="nav-item dropdown dropup">
+            <a class="nav-link dropdown-toggle" href="#" id="Tape" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Tape
+            </a>
+            <div class="dropdown-menu" aria-labelledby="Tape">
+                <a class="dropdown-item" href="{{ url_for('page_router', graph='scatter', specificity='basic', tool='tape') }}">Scatter</a>
+                <a class="dropdown-item" href="{{ url_for('page_router', graph='bar', specificity='volume', tool='tape') }}">Volume</a>
+                <a class="dropdown-item" href="{{ url_for('page_router', graph='bar', specificity='count_transactions', tool='tape') }}">Transaction</a>
+                <a class="dropdown-item" href="{{ url_for('page_router', graph='heatmap', specificity='heatmap', tool='tape') }}">Heatmap</a>
+            </div>  
+        </li>
+        <!--#endregion -->
+
+        </ul>
+    </div>
+</nav>
+{% endblock %}
