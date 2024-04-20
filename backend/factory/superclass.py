@@ -15,15 +15,15 @@ class Graph_Factory(ABC):
         #Note import statement needs to be inside this function to avoid circular imports
         import backend.factory.subclass as subclass
 
-        if specificity == "basic":
+        if Graph_Name == "basic":
             return subclass.Basic_Scatter_Graph(Graph_Name, Tool)
-        elif specificity == "count_transactions":
+        elif Graph_Name == "count_transactions":
             return subclass.Count_Bar_Graph(Graph_Name, Tool)
-        elif specificity == "volume":
+        elif Graph_Name == "volume":
             return subclass.Volume_Bar_Graph(Graph_Name, Tool)
-        elif specificity == "heatmap":
+        elif Graph_Name == "heatmap":
             return subclass.Heatmap_Graph(Graph_Name, Tool)
-        elif specificity == "sunburst":
+        elif Graph_Name == "sunburst":
             return subclass.Sunburst_Graph(Graph_Name, Tool)
 
     @abstractmethod
