@@ -12,7 +12,7 @@ def page_router(graph, specificity, tool):
     return page.Render_Graph(graph, specificity, tool)
 
 @app.route('/graph/<string:Graph_Name>/<string:Tool>')
-def page_router(Graph_Name, Tool):
+def Route_Graph(Graph_Name, Tool):
     return page.Render_Graph(Graph_Name, Tool)
 
 
