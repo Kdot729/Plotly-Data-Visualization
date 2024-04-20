@@ -2,6 +2,7 @@ import backend.general_functions as general_functions
 from datetime import date
 import backend.event as event
 from abc import ABC, abstractmethod
+from flask import render_template
 
 class Graph_Factory(ABC):
 
@@ -41,10 +42,9 @@ class Graph_Factory(ABC):
     def create_plotly(self, graph_type):
         pass
 
-    @abstractmethod
     def initialize_template(self):
-        pass
-    
+        return render_template(template_name_or_list=self.filepath, graphJSON=self.graphJSON)
+
     @abstractmethod
     def hardcode_column_dictionary(self):
         pass

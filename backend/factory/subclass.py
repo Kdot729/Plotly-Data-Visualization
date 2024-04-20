@@ -36,13 +36,6 @@ class Count_Bar_Graph(Graph_Factory):
     def create_plotly(self):
         self.plotly_graph = count_graph.create_count_transactions_graph(self.DataFrame, self.columns_name["Inequality Column"])
 
-    def initialize_template(self):
-        return render_template(template_name_or_list = self.filepath,
-                            graphJSON=self.graphJSON, 
-                            address_list=self.address_list,
-                            inequality_dictionary=self.inequality_dictionary,
-                            badges = self.badges)
-
 class Volume_Bar_Graph(Graph_Factory):
     
     def __init__(self, graph, specificity, tool):
@@ -76,10 +69,6 @@ class Volume_Bar_Graph(Graph_Factory):
     def create_plotly(self):
         pass
         self.plotly_graph = volumne_graph.create_volume_graph(self.DataFrame)
-
-    def initialize_template(self):
-        return render_template(template_name_or_list = self.filepath,
-                            graphJSON=self.graphJSON)
 
     #! Overriding superclass method
     def create_badges(self):
@@ -118,14 +107,6 @@ class Basic_Scatter_Graph(Graph_Factory):
     def create_plotly(self):
         self.plotly_graph = scatter_graph.create_scatter_graph(self.DataFrame, self.columns_name["Address Column"])
 
-    def initialize_template(self):
-        return render_template(template_name_or_list = self.filepath,
-                            graphJSON=self.graphJSON, 
-                            address_list=self.address_list,
-                            inequality_dictionary=self.inequality_dictionary,
-                            date_dictionary=self.date_dictionary,
-                            badges = self.badges)
-
 class Heatmap_Graph(Graph_Factory):
     
     def __init__(self, graph, specificity, tool):
@@ -152,10 +133,6 @@ class Heatmap_Graph(Graph_Factory):
 
     def create_plotly(self):
         self.plotly_graph = heatmap_graph.create_heatmap(self.axes_dictionary)
-
-    def initialize_template(self):
-        return render_template(template_name_or_list = self.filepath,
-                            graphJSON=self.graphJSON)
 
     #Note Overriding superclass method
     def create_badges(self):
@@ -195,10 +172,6 @@ class Sunburst_Graph(Graph_Factory):
 
     def create_plotly(self):
         self.plotly_graph = sunburst_graph.create_sunburst(self.DataFrame)
-
-    def initialize_template(self):
-        return render_template(template_name_or_list = self.filepath,
-                            graphJSON=self.graphJSON)
 
     #Note Overriding superclass method
     def create_badges(self):
