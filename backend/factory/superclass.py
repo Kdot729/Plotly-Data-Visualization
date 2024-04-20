@@ -28,7 +28,7 @@ class Graph_Factory(ABC):
             return subclass.Sunburst_Graph(graph, specificity, tool)
 
     @abstractmethod
-    def create_plotly(self, graph_type):
+    def Create_Plotly(self):
         pass
 
     def initialize_template(self):
