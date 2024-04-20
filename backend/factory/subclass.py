@@ -3,7 +3,7 @@ import backend.dataframe.count as count_dataframe
 from backend.factory.superclass import Graph_Factory
 import backend.bar.count.graph as count_graph
 import backend.scatter.graph as scatter_graph
-import backend.bar.volume.dataframe as volumne_dataframe, backend.bar.volume.graph as volumne_graph
+import backend.dataframe.volume as volumne_dataframe, backend.bar.volume.graph as volumne_graph
 import backend.heatmap.dataframe as heatmap_dataframe, backend.heatmap.graph as heatmap_graph
 import backend.sunburst.dataframe as sunburst_dataframe, backend.sunburst.graph as sunburst_graph
 class Count_Bar_Graph(Graph_Factory):
