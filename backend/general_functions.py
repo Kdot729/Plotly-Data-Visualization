@@ -13,8 +13,8 @@ panda.set_option('display.max_colwidth', None)
 
 def create_basic_DataFrame(Tool):   
 
-    #Note Need to use "lower()" function because csv file are lowercased                     
-    return panda.read_csv(f"csv\\updated_{Tool.lower()}_transactions.csv",
+    #Note Because we're using Docker which is on Linux, use "/" in file path                    
+    return panda.read_csv(f"csv/updated_{Tool}_transactions.csv",
                                         names=('Date', 'Hash', 'ETH', 'Seller', 'Buyer')
                           )        
 
