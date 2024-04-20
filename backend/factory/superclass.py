@@ -17,15 +17,15 @@ class Graph_Factory(ABC):
 
         match Graph_Name:
             case "scatter":
-                return subclass.Basic_Scatter_Graph(Graph_Name, Tool)
+                return subclass.Scatter(Graph_Name, Tool)
             case "transaction":
-                return subclass.Count_Bar_Graph(Graph_Name, Tool)
+                return subclass.Transaction(Graph_Name, Tool)
             case "volume":
-                return subclass.Volume_Bar_Graph(Graph_Name, Tool)
+                return subclass.Volume(Graph_Name, Tool)
             case "heatmap":
-                return subclass.Heatmap_Graph(Graph_Name, Tool)
+                return subclass.Heatmap(Graph_Name, Tool)
             case "sunburst":
-                return subclass.Sunburst_Graph(Graph_Name, Tool)
+                return subclass.Sunburst(Graph_Name, Tool)
 
     @abstractmethod
     def Create_Plotly(self):

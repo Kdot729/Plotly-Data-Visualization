@@ -5,7 +5,7 @@ import backend.graph.scatter as scatter_graph
 import backend.dataframe.volume as Volume_Dataframe, backend.graph.volume as Volume_Graph
 import backend.dataframe.heatmap as heatmap_dataframe, backend.graph.heatmap as heatmap_graph
 import backend.dataframe.sunburst as sunburst_dataframe, backend.graph.sunburst as sunburst_graph
-class Count_Bar_Graph(Graph_Factory):
+class Transaction(Graph_Factory):
     
     def __init__(self, Graph_Name, Tool):
         super().__init__(Graph_Name, Tool)
@@ -17,7 +17,7 @@ class Count_Bar_Graph(Graph_Factory):
     def Create_Plotly(self):
         self.plotly_graph = Transaction_Plotly.Create_Transaction_Graph(self.DataFrame, self.columns_name["Inequality Column"])
 
-class Volume_Bar_Graph(Graph_Factory):
+class Volume(Graph_Factory):
     
     def __init__(self, Graph_Name, Tool):
         super().__init__(Graph_Name, Tool)
@@ -29,7 +29,7 @@ class Volume_Bar_Graph(Graph_Factory):
     def Create_Plotly(self):
         self.plotly_graph = Volume_Graph.Create_Volume_Graph(self.DataFrame)
 
-class Basic_Scatter_Graph(Graph_Factory):
+class Scatter(Graph_Factory):
 
     def __init__(self, Graph_Name, Tool):
         super().__init__(Graph_Name, Tool)
@@ -40,7 +40,7 @@ class Basic_Scatter_Graph(Graph_Factory):
     def Create_Plotly(self):
         self.plotly_graph = scatter_graph.create_scatter_graph(self.DataFrame)
 
-class Heatmap_Graph(Graph_Factory):
+class Heatmap(Graph_Factory):
     
     def __init__(self, Graph_Name, Tool):
         super().__init__(Graph_Name, Tool)
@@ -52,7 +52,7 @@ class Heatmap_Graph(Graph_Factory):
     def Create_Plotly(self):
         self.plotly_graph = heatmap_graph.create_heatmap(self.axes_dictionary)
 
-class Sunburst_Graph(Graph_Factory):
+class Sunburst(Graph_Factory):
     
     def __init__(self, Graph_Name, Tool):
         super().__init__(Graph_Name, Tool)
