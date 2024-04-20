@@ -41,9 +41,6 @@ class Graph_Factory(ABC):
 
     def create_DataFrame(self):
         return general_functions.create_basic_DataFrame(self.tool)
-
-    def sort_DataFrame(self, dictionary):
-        self.DataFrame = event.sort_new_DataFrame(dictionary, self.DataFrame, self.columns_name)
     
     def convert_JSON(self):
         self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder) 
