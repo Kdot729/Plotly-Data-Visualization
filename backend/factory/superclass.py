@@ -1,5 +1,4 @@
-import json, plotly
-import backend.general_functions as general_functions
+import json, plotly, pandas as panda
 from abc import ABC, abstractmethod
 from flask import render_template
 
@@ -40,7 +39,7 @@ class Graph_Factory(ABC):
         return render_template(template_name_or_list=self.filepath, graphJSON=self.graphJSON)
 
     def create_DataFrame(self):
-        return general_functions.create_basic_DataFrame(self.tool)
+        return panda.read_csv(f"csv/updated_{self.tool}_transactions.csv", names=('Date', 'Hash', 'ETH', 'Seller', 'Buyer')) 
     
     def convert_JSON(self):
         self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder) 
