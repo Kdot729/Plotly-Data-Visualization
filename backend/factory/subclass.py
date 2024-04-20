@@ -1,5 +1,5 @@
 
-import backend.bar.count.dataframe as count_dataframe
+import backend.dataframe.count as count_dataframe
 from backend.factory.superclass import Graph_Factory
 import backend.bar.count.graph as count_graph
 import backend.scatter.graph as scatter_graph
