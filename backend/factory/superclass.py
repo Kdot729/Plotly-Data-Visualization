@@ -32,7 +32,7 @@ class Graph_Factory(ABC):
         pass
 
     def initialize_template(self):
-        return render_template(template_name_or_list="graph.html", graphJSON=self.graphJSON)
+        return render_template(template_name_or_list="graph.html", graphJSON=self.graphJSON, tool=self.tool)
 
     def create_DataFrame(self):
         return panda.read_csv(f"csv/updated_{self.tool}_transactions.csv", names=('Date', 'Hash', 'ETH', 'Seller', 'Buyer')) 
