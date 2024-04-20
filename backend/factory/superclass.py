@@ -10,21 +10,21 @@ class Graph_Factory(ABC):
         
     #Note This will chose which graph object to instantiate 
     @staticmethod
-    def build_graph(graph, specificity, tool):
+    def build_graph(Graph_Name, Tool):
         
         #Note import statement needs to be inside this function to avoid circular imports
         import backend.factory.subclass as subclass
 
         if specificity == "basic":
-            return subclass.Basic_Scatter_Graph(graph, specificity, tool)
+            return subclass.Basic_Scatter_Graph(Graph_Name, Tool)
         elif specificity == "count_transactions":
-            return subclass.Count_Bar_Graph(graph, specificity, tool)
+            return subclass.Count_Bar_Graph(Graph_Name, Tool)
         elif specificity == "volume":
-            return subclass.Volume_Bar_Graph(graph, specificity, tool)
+            return subclass.Volume_Bar_Graph(Graph_Name, Tool)
         elif specificity == "heatmap":
-            return subclass.Heatmap_Graph(graph, specificity, tool)
+            return subclass.Heatmap_Graph(Graph_Name, Tool)
         elif specificity == "sunburst":
-            return subclass.Sunburst_Graph(graph, specificity, tool)
+            return subclass.Sunburst_Graph(Graph_Name, Tool)
 
     @abstractmethod
     def Create_Plotly(self):

@@ -8,8 +8,8 @@ import backend.heatmap.dataframe as heatmap_dataframe, backend.heatmap.graph as 
 import backend.sunburst.dataframe as sunburst_dataframe, backend.sunburst.graph as sunburst_graph
 class Count_Bar_Graph(Graph_Factory):
     
-    def __init__(self, graph, specificity, tool):
-        super().__init__(graph, specificity, tool)
+    def __init__(self, Graph_Name, Tool):
+        super().__init__(Graph_Name, Tool)
 
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
@@ -20,8 +20,8 @@ class Count_Bar_Graph(Graph_Factory):
 
 class Volume_Bar_Graph(Graph_Factory):
     
-    def __init__(self, graph, specificity, tool):
-        super().__init__(graph, specificity, tool)
+    def __init__(self, Graph_Name, Tool):
+        super().__init__(Graph_Name, Tool)
 
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
@@ -32,8 +32,8 @@ class Volume_Bar_Graph(Graph_Factory):
 
 class Basic_Scatter_Graph(Graph_Factory):
 
-    def __init__(self, graph, specificity, tool):
-        super().__init__(graph, specificity, tool)
+    def __init__(self, Graph_Name, Tool):
+        super().__init__(Graph_Name, Tool)
         
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
@@ -43,8 +43,8 @@ class Basic_Scatter_Graph(Graph_Factory):
 
 class Heatmap_Graph(Graph_Factory):
     
-    def __init__(self, graph, specificity, tool):
-        super().__init__(graph, specificity, tool)
+    def __init__(self, Graph_Name, Tool):
+        super().__init__(Graph_Name, Tool)
 
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
@@ -55,8 +55,8 @@ class Heatmap_Graph(Graph_Factory):
 
 class Sunburst_Graph(Graph_Factory):
     
-    def __init__(self, graph, specificity, tool):
-        super().__init__(graph, specificity, tool)
+    def __init__(self, Graph_Name, Tool):
+        super().__init__(Graph_Name, Tool)
 
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
