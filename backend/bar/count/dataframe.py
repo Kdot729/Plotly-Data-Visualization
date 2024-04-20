@@ -28,18 +28,8 @@ def create_count_transactions_bar_DataFrame(DataFrame):
         aggregation_functions = {'Address': 'first', 'Sell': 'sum', 'Buy': 'sum', "Total": "sum"}
         result = result.groupby('Address', as_index=False).aggregate(aggregation_functions).reindex(columns=result.columns)
 
-
         return result
-         
-def filter_columns_DataFrame(specificity, DataFrame, type_column_name):
-        if specificity == "basic":
-                DataFrame = DataFrame.filter(["Date", "Hash", "ETH", type_column_name])
-                DataFrame = DataFrame[(DataFrame[list(DataFrame.columns)] != 0).all(axis=1)]
-        elif specificity == "count transactions":
-                if type_column_name != "Total":
-                        DataFrame = DataFrame.filter(["Address", type_column_name])
-                        DataFrame = DataFrame[(DataFrame[list(DataFrame.columns)] != 0).all(axis=1)]
-        return DataFrame
+
 
 
 
