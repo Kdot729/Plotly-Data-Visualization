@@ -3,7 +3,7 @@ import backend.dataframe.count as count_dataframe
 from backend.factory.superclass import Graph_Factory
 import backend.bar.count.graph as count_graph
 import backend.scatter.graph as scatter_graph
-import backend.dataframe.volume as volumne_dataframe, backend.bar.volume.graph as volumne_graph
+import backend.dataframe.volume as Volume_Dataframe, backend.bar.volume.graph as Volume_Graph
 import backend.heatmap.dataframe as heatmap_dataframe, backend.heatmap.graph as heatmap_graph
 import backend.sunburst.dataframe as sunburst_dataframe, backend.sunburst.graph as sunburst_graph
 class Count_Bar_Graph(Graph_Factory):
@@ -25,10 +25,10 @@ class Volume_Bar_Graph(Graph_Factory):
 
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
-        self.DataFrame = volumne_dataframe.create_volume_DataFrame(self.DataFrame)
+        self.DataFrame = Volume_Dataframe.create_volume_DataFrame(self.DataFrame)
 
     def Create_Plotly(self):
-        self.plotly_graph = volumne_graph.create_volume_graph(self.DataFrame)
+        self.plotly_graph = Volume_Graph.create_volume_graph(self.DataFrame)
 
 class Basic_Scatter_Graph(Graph_Factory):
 
