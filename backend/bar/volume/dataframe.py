@@ -3,11 +3,8 @@ import datetime
 
 def create_volume_DataFrame(DataFrame):
 
-        #! Might be a problem later
-        #Note Ignoring the warning. Maybe solve later
-        panda.set_option('mode.chained_assignment', None)   
-        for i in range(0, len(DataFrame)):
-                DataFrame["Date"].iloc[i] = DataFrame["Date"].iloc[i][:10]      
+        #Note Removing the timestamp from "Date"
+        DataFrame["Date"] = DataFrame["Date"].str[:10]   
 
         #Note Group by "Date" then sum their "ETH"
         DataFrame = DataFrame.groupby("Date").sum('ETH')
