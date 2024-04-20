@@ -15,7 +15,8 @@ def update_page_router():
     frontend_dictionary = dict(request.args)
     return page.page_rerender(frontend_dictionary)
 
-
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0")
 
 
 
