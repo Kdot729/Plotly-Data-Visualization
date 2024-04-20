@@ -4,10 +4,9 @@ from flask import render_template
 
 class Graph_Factory(ABC):
 
-    def __init__(self, graph, specificity, tool):
-        self.graph = graph
-        self.specificity = specificity
-        self.tool = tool
+    def __init__(self, Graph_Name, Tool):
+        self.Graph_Name = Graph_Name
+        self.Tool = Tool
         
     #Note This will chose which graph object to instantiate 
     @staticmethod
@@ -32,10 +31,10 @@ class Graph_Factory(ABC):
         pass
 
     def initialize_template(self):
-        return render_template(template_name_or_list="graph.html", graphJSON=self.graphJSON, tool=self.tool)
+        return render_template(template_name_or_list="graph.html", graphJSON=self.graphJSON, tool=self.Tool)
 
     def create_DataFrame(self):
-        return panda.read_csv(f"csv/updated_{self.tool}_transactions.csv", names=('Date', 'Hash', 'ETH', 'Seller', 'Buyer')) 
+        return panda.read_csv(f"csv/updated_{self.Tool}_transactions.csv", names=('Date', 'Hash', 'ETH', 'Seller', 'Buyer')) 
     
     def Convert_Plotly_to_JSON(self):
         self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder) 
