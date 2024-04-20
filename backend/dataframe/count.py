@@ -5,7 +5,7 @@ panda.set_option('display.max_columns', None)
 panda.set_option('display.width', None)
 panda.set_option('display.max_colwidth', None)
 
-def Create_Transaction_DataFrame(DataFrame):      
+def Create_Transaction_Dataframe(DataFrame):      
         seller_count = DataFrame["Seller"].value_counts()
         buyer_count =  DataFrame["Buyer"].value_counts()
 

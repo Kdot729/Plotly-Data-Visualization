@@ -1,6 +1,6 @@
 import plotly.express as plotly
 
-def create_volume_graph(DataFrame):
+def Create_Volume_Graph(DataFrame):
 
     #Note Need to convert "Month Year" to a list to pass into "category_orders" because the y-axis is bugged. For some reason "February 2022" doesn't appear after "January 2022"
     #Note Reverse the list so the start of trading is at the bottom

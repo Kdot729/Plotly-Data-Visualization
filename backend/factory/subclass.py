@@ -13,7 +13,7 @@ class Count_Bar_Graph(Graph_Factory):
 
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
-        self.DataFrame = count_dataframe.Create_Transaction_DataFrame(self.DataFrame)
+        self.DataFrame = count_dataframe.Create_Transaction_Dataframe(self.DataFrame)
 
     def Create_Plotly(self):
         self.plotly_graph = count_graph.Create_Transaction_Graph(self.DataFrame, self.columns_name["Inequality Column"])
@@ -25,10 +25,10 @@ class Volume_Bar_Graph(Graph_Factory):
 
     def create_DataFrame(self):
         self.DataFrame = super().create_DataFrame()
-        self.DataFrame = Volume_Dataframe.create_volume_DataFrame(self.DataFrame)
+        self.DataFrame = Volume_Dataframe.Create_Volume_Dataframe(self.DataFrame)
 
     def Create_Plotly(self):
-        self.plotly_graph = Volume_Graph.create_volume_graph(self.DataFrame)
+        self.plotly_graph = Volume_Graph.Create_Volume_Graph(self.DataFrame)
 
 class Basic_Scatter_Graph(Graph_Factory):
 
