@@ -2,7 +2,7 @@ import plotly.express as plotlyX
 
 #FIXME Figure out how to fix bar chart later
 #TODO Maybe convert this to a horitzontal graph
-def create_count_transactions_graph(DataFrame, type):
+def Create_Transaction_Graph(DataFrame, type):
         if type == "Total":
                 y_axis = ["Sell", "Buy"]
                 color = {'Sell': 'red','Buy': 'green'}

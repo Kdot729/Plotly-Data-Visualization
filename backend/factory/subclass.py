@@ -16,7 +16,7 @@ class Count_Bar_Graph(Graph_Factory):
         self.DataFrame = count_dataframe.Create_Transaction_DataFrame(self.DataFrame)
 
     def Create_Plotly(self):
-        self.plotly_graph = count_graph.create_count_transactions_graph(self.DataFrame, self.columns_name["Inequality Column"])
+        self.plotly_graph = count_graph.Create_Transaction_Graph(self.DataFrame, self.columns_name["Inequality Column"])
 
 class Volume_Bar_Graph(Graph_Factory):
     
