@@ -1,39 +1,7 @@
 {% extends "base.html" %}
 
-{% block scripts %}
-<script src="/js/main.js" type="module"></script>
-{% endblock %}
-
-
-
-
-
-    
-
-
-
 {% block content %}
-
-<title>Scatter</title>
-
-
-
-<div class="icon-grid">
-{% include "dropdowns/start_date.html" %}
-{% include "dropdowns/end_date.html" %}
-{% include "dropdowns/type_address.html" %}
-{% include "dropdowns/address.html" %}
-{% include "dropdowns/less_than.html" %}
-{% include "dropdowns/greater_than.html" %}
-{% include "dropdowns/external_website.html" %}
-{% include "dropdowns/reset.html" %}
-</div>
-
-
-{% include "badges.html" %}
-{% include "question_mark.html" %}
-{% include "graph/base_graph.html" %}
-
+    {% include "graph/base_graph.html" %}
 {% endblock %}
 
 

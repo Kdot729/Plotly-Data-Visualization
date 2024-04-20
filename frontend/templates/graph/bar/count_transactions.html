@@ -1,28 +1,6 @@
 {% extends "base.html" %}
-{% block scripts %}
-<script src="/js/main.js" type="module"></script>
-
-{% endblock %}
 
 {% block content %}
-
-
-    <div class="icon-grid">
-        {% include "dropdowns/type_transaction.html" %}
-        {% include "dropdowns/address.html" %}
-        {% include "dropdowns/less_than.html" %}
-        {% include "dropdowns/greater_than.html" %}
-        {% include "dropdowns/external_website.html" %}
-        {% include "dropdowns/reset.html" %}    
-
-    </div>
-    {% include "badges.html" %}
-    {% include "question_mark.html" %}
-
     {% include "graph/base_graph.html" %}
-
-
-
-
 {% endblock %}
 
