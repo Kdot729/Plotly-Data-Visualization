@@ -9,8 +9,7 @@ def Home():
 
 @app.route('/graph/<string:graph>/<string:specificity>/<string:tool>')
 def page_router(graph, specificity, tool):
-    print(graph, specificity, tool)
-    return page.initial_page_render(graph, specificity, tool)
+    return page.Render_Graph(graph, specificity, tool)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
