@@ -27,7 +27,7 @@ def create_heatmap_DataFrame(DataFrame):
                 weekday_number_list.append(day_of_week_number)
                 month_number_list.append(month_number)
                 year_list.append(year)
-                year_and_month_list.append(f"{month_number}-{year}" )
+                year_and_month_list.append(f"{year}-{month_number}")
 
         DataFrame.insert(2, "Year", year_list, True)
         DataFrame.insert(3, "Month Number", month_number_list, True)
