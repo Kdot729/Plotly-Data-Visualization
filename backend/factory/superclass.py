@@ -80,6 +80,13 @@ class Graph_Factory(ABC):
             self.Year_List.append(Four_Digit_Year)
             self.Year_and_Numbered_Month_List.append(f"{Four_Digit_Year}-{Numbered_Month}")
 
+    #Note Only heatmap and sunburst use this function. Volume will override this function
+    def Insert_Date_Lists_into_Dataframe(self):
+        self.Dataframe.insert(2, "Year", self.Year_List, True)
+        self.Dataframe.insert(3, "Month Number", self.Numbered_Month_List, True)
+        self.Dataframe.insert(4, "Weekday Number", self.Numbered_Day_of_Week_List, True)
+        self.Dataframe.insert(5, "Month Year", self.Year_and_Numbered_Month_List, True)
+    
     def Convert_Plotly_to_JSON(self):
         self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder) 
 
