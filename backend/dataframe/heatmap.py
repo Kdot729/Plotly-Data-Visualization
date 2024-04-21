@@ -7,11 +7,10 @@ def create_heatmap_DataFrame(DataFrame):
         month_number_list = []
         year_list = []
         year_and_month_list = []
-        for i in range(0, len(DataFrame)):
-                split_date = DataFrame["Date"][i][:10]
-
+        for Current_Date in DataFrame["Date"].tolist():
+                print(Current_Date)
                 #Note Get full weekday name 
-                day_of_week_number = datetime.datetime.strptime(split_date, '%Y-%m-%d').strftime('%w')
+                day_of_week_number = datetime.datetime.strptime(Current_Date, '%Y-%m-%d').strftime('%w')
 
                 #Note day_of_week_number is actually a string so were checking a string
                 #Note Sunday is default "0" so we make it a "7"
@@ -19,10 +18,10 @@ def create_heatmap_DataFrame(DataFrame):
                         day_of_week_number = "7"
 
                 #Note Get abbreviated month name
-                month_number = datetime.datetime.strptime(split_date, '%Y-%m-%d').strftime('%m')
+                month_number = datetime.datetime.strptime(Current_Date, '%Y-%m-%d').strftime('%m')
 
                 #Note Get full year
-                year = datetime.datetime.strptime(split_date, '%Y-%m-%d').strftime('%Y')
+                year = datetime.datetime.strptime(Current_Date, '%Y-%m-%d').strftime('%Y')
 
                 weekday_number_list.append(day_of_week_number)
                 month_number_list.append(month_number)
