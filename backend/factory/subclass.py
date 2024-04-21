@@ -11,7 +11,7 @@ class Transaction(Graph_Factory):
         super().__init__(Graph_Name, Tool)
 
     def create_DataFrame(self):
-        self.Dataframe = super().create_DataFrame()
+        super().create_DataFrame()
         self.Dataframe = Transaction_Dataframe.Create_Transaction_Dataframe(self.Dataframe)
 
     def Create_Plotly(self):
@@ -23,7 +23,7 @@ class Volume(Graph_Factory):
         super().__init__(Graph_Name, Tool)
 
     def create_DataFrame(self):
-        self.Dataframe = super().create_DataFrame()
+        super().create_DataFrame()
         self.Truncate_Timestamp()
         self.Sum_Grouped_ETH()
         self.Reset_Dataframe_Index()
@@ -44,7 +44,7 @@ class Scatter(Graph_Factory):
         super().__init__(Graph_Name, Tool)
         
     def create_DataFrame(self):
-        self.Dataframe = super().create_DataFrame()
+        super().create_DataFrame()
 
     def Create_Plotly(self):
         self.plotly_graph = scatter_graph.create_scatter_graph(self.Dataframe)
@@ -55,7 +55,7 @@ class Heatmap(Graph_Factory):
         super().__init__(Graph_Name, Tool)
 
     def create_DataFrame(self):
-        self.Dataframe = super().create_DataFrame()
+        super().create_DataFrame()
         self.Truncate_Timestamp()
         self.Sum_Grouped_ETH()
         self.Reset_Dataframe_Index()
@@ -72,7 +72,7 @@ class Sunburst(Graph_Factory):
         super().__init__(Graph_Name, Tool)
 
     def create_DataFrame(self):
-        self.Dataframe = super().create_DataFrame()
+        super().create_DataFrame()
         self.Truncate_Timestamp()
         self.Sum_Grouped_ETH()
         self.Reset_Dataframe_Index()
