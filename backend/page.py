@@ -7,4 +7,4 @@ def Render_Graph(Graph_Name, Tool):
     graph.create_DataFrame()
     graph.Create_Plotly()
     graph.Convert_Plotly_to_JSON()
-    return graph.initialize_template()
+    return graph.Render_Graph()

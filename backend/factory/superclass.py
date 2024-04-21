@@ -31,7 +31,7 @@ class Graph_Factory(ABC):
     def Create_Plotly(self):
         pass
 
-    def initialize_template(self):
+    def Render_Graph(self):
         return render_template(template_name_or_list="graph.html", graphJSON=self.graphJSON, tool=self.Tool)
 
     def create_DataFrame(self):
