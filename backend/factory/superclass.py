@@ -1,6 +1,7 @@
-import json, plotly, pandas as panda, datetime
+import json, plotly, pandas as panda
 from abc import ABC, abstractmethod
 from flask import render_template
+from datetime import datetime
 
 class Graph_Factory(ABC):
 
@@ -36,6 +37,9 @@ class Graph_Factory(ABC):
 
     def create_DataFrame(self):
         return panda.read_csv(f"csv/updated_{self.Tool}_transactions.csv", names=('Date', 'Hash', 'ETH', 'Seller', 'Buyer')) 
+    
+    def Strftime(self, Date, Format_Date):
+        return datetime.strptime(Date, '%Y-%m-%d').strftime(Format_Date)
     
     def Truncate_Timestamp(self):
         #Note Removing the timestamp from "Date"
