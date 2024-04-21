@@ -36,7 +36,7 @@ class Graph_Factory(ABC):
         return render_template(template_name_or_list="graph.html", graphJSON=self.graphJSON, tool=self.Tool)
 
     def create_DataFrame(self):
-        return panda.read_csv(f"csv/updated_{self.Tool}_transactions.csv", names=('Date', 'Hash', 'ETH', 'Seller', 'Buyer')) 
+        self.Dataframe = panda.read_csv(f"csv/updated_{self.Tool}_transactions.csv", names=('Date', 'Hash', 'ETH', 'Seller', 'Buyer')) 
     
     def Strftime(self, Date, Format_Date):
         return datetime.strptime(Date, '%Y-%m-%d').strftime(Format_Date)
