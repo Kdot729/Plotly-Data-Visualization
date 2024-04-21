@@ -61,17 +61,17 @@ class Graph_Factory(ABC):
         for Current_Date in self.Dataframe["Date"].tolist():
 
             #Note Get day of week day as an number (0-6). 0 being Sunday. 6 being Saturday
-            Numbered_Day_of_Week = datetime.datetime.strptime(Current_Date, '%Y-%m-%d').strftime('%w')
+            Numbered_Day_of_Week = self.Strftime(Current_Date, '%w')
 
             #Note Numbered_Day_of_Week is a string
             if Numbered_Day_of_Week == "0":
                     Numbered_Day_of_Week = "7"
 
             #Note Get zero padded month
-            Numbered_Month = datetime.datetime.strptime(Current_Date, '%Y-%m-%d').strftime('%m')
+            Numbered_Month = self.Strftime(Current_Date, '%m')
 
             #Note Get year with century as a decimal number
-            Four_Digit_Year = datetime.datetime.strptime(Current_Date, '%Y-%m-%d').strftime('%Y')
+            Four_Digit_Year = self.Strftime(Current_Date, '%Y')
 
             Numbered_Day_of_Week_List.append(Numbered_Day_of_Week)
             Numbered_Month_List.append(Numbered_Month)
