@@ -3,9 +3,6 @@ import datetime
 
 def Create_Volume_Dataframe(DataFrame):
 
-        #Note Make "Date" a column
-        DataFrame = DataFrame.reset_index(level=0)
-
         day_of_week_name_list = []
         year_and_month_list = []
 

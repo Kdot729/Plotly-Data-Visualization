@@ -3,9 +3,6 @@ import datetime
 
 def create_sunburst_DataFrame(DataFrame):
 
-    #Note Make "Date" a column
-    DataFrame = DataFrame.reset_index(level=0)
-
     weekday_number_list = []
     month_number_list = []
     year_list = []
