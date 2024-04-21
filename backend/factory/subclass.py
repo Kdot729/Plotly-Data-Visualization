@@ -27,7 +27,13 @@ class Volume(Graph_Factory):
         self.Truncate_Timestamp()
         self.Sum_Grouped_ETH()
         self.Reset_Dataframe_Index()
+        self.Seperate_Date_Into_Lists("%A", "%b", "%Y")
+        self.Insert_Date_Lists_into_Dataframe()
         self.Dataframe = Volume_Dataframe.Create_Volume_Dataframe(self.Dataframe)
+
+    def Insert_Date_Lists_into_Dataframe(self):
+        self.Dataframe.insert(2, "Day", self.Formatted_Day_List, True)
+        self.Dataframe.insert(3, "Month Year", self.Formatted_Year_and_Month_List, True)
 
     def Create_Plotly(self):
         self.plotly_graph = Volume_Graph.Create_Volume_Graph(self.Dataframe)
