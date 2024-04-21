@@ -45,6 +45,10 @@ class Graph_Factory(ABC):
         #Note Group by "Date" then sum their "ETH"
         self.Dataframe = self.Dataframe.groupby("Date").sum('ETH')
 
+    def Reset_Dataframe_Index(self):
+        #Note Make "Date" a column
+        self.Dataframe = self.Dataframe.reset_index(level=0)
+
 
     def Convert_Plotly_to_JSON(self):
         self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder) 
