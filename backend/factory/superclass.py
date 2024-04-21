@@ -39,7 +39,12 @@ class Graph_Factory(ABC):
     
     def Truncate_Timestamp(self):
         #Note Removing the timestamp from "Date"
-        self.Dataframe["Date"] = self.Dataframe["Date"].str[:10]     
+        self.Dataframe["Date"] = self.Dataframe["Date"].str[:10]
+
+    def Sum_Grouped_ETH(self):
+        #Note Group by "Date" then sum their "ETH"
+        self.Dataframe = self.Dataframe.groupby("Date").sum('ETH')
+
 
     def Convert_Plotly_to_JSON(self):
         self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder) 
