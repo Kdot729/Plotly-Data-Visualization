@@ -1,4 +1,4 @@
-import json, plotly, pandas as panda
+import json, plotly, pandas as panda, datetime
 from abc import ABC, abstractmethod
 from flask import render_template
 
@@ -49,6 +49,30 @@ class Graph_Factory(ABC):
         #Note Make "Date" a column
         self.Dataframe = self.Dataframe.reset_index(level=0)
 
+    def Seperate_Date_Into_Lists(self):
+        Numbered_Day_of_Week_List = []
+        Numbered_Month_List = []
+        Year_List = []
+        Year_and_Numbered_Month_List = []
+        for Current_Date in self.Dataframe["Date"].tolist():
+
+                #Note Get day of week day as an number (0-6). 0 being Sunday. 6 being Saturday
+                Numbered_Day_of_Week = datetime.datetime.strptime(Current_Date, '%Y-%m-%d').strftime('%w')
+
+                #Note Numbered_Day_of_Week is a string
+                if Numbered_Day_of_Week == "0":
+                        Numbered_Day_of_Week = "7"
+
+                #Note Get zero padded month
+                Numbered_Month = datetime.datetime.strptime(Current_Date, '%Y-%m-%d').strftime('%m')
+
+                #Note Get year with century as a decimal number
+                Four_Digit_Year = datetime.datetime.strptime(Current_Date, '%Y-%m-%d').strftime('%Y')
+
+                Numbered_Day_of_Week_List.append(Numbered_Day_of_Week)
+                Numbered_Month_List.append(Numbered_Month)
+                Year_List.append(Four_Digit_Year)
+                Year_and_Numbered_Month_List.append(f"{Four_Digit_Year}-{Numbered_Month}")
 
     def Convert_Plotly_to_JSON(self):
         self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder) 
