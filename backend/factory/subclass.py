@@ -25,6 +25,7 @@ class Volume(Graph_Factory):
     def create_DataFrame(self):
         self.Dataframe = super().create_DataFrame()
         self.Truncate_Timestamp()
+        self.Sum_Grouped_ETH()
         self.Dataframe = Volume_Dataframe.Create_Volume_Dataframe(self.Dataframe)
 
     def Create_Plotly(self):
@@ -49,6 +50,7 @@ class Heatmap(Graph_Factory):
     def create_DataFrame(self):
         self.Dataframe = super().create_DataFrame()
         self.Truncate_Timestamp()
+        self.Sum_Grouped_ETH()
         self.axes_dictionary = heatmap_dataframe.create_heatmap_DataFrame(self.Dataframe)
 
     def Create_Plotly(self):
@@ -62,6 +64,7 @@ class Sunburst(Graph_Factory):
     def create_DataFrame(self):
         self.Dataframe = super().create_DataFrame()
         self.Truncate_Timestamp()
+        self.Sum_Grouped_ETH()
         self.Dataframe = sunburst_dataframe.create_sunburst_DataFrame(self.Dataframe)
 
     def Create_Plotly(self):
