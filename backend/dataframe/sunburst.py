@@ -3,9 +3,6 @@ import datetime
 
 def create_sunburst_DataFrame(DataFrame):
 
-    #Note Group by "Date" then sum their "ETH"
-    DataFrame = DataFrame.groupby("Date").sum('ETH')
-
     #Note Make "Date" a column
     DataFrame = DataFrame.reset_index(level=0)
 
