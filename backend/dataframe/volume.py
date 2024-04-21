@@ -3,9 +3,6 @@ import datetime
 
 def Create_Volume_Dataframe(DataFrame):
 
-        #Note Removing the timestamp from "Date"
-        DataFrame["Date"] = DataFrame["Date"].str[:10]   
-
         #Note Group by "Date" then sum their "ETH"
         DataFrame = DataFrame.groupby("Date").sum('ETH')
 
