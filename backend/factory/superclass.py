@@ -8,9 +8,9 @@ class Graph_Factory(ABC):
         self.Graph_Name = Graph_Name
         self.Tool = Tool
         
-    #Note This will chose which graph object to instantiate 
+    #Note Choose which graph object to instantiate 
     @staticmethod
-    def build_graph(Graph_Name, Tool):
+    def Choose_Graph(Graph_Name, Tool):
         
         #Note import statement needs to be inside this function to avoid circular imports
         import backend.factory.subclass as subclass
