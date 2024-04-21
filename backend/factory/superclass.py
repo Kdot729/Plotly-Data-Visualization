@@ -54,10 +54,12 @@ class Graph_Factory(ABC):
         self.Dataframe = self.Dataframe.reset_index(level=0)
 
     def Seperate_Date_Into_Lists(self):
-        Numbered_Day_of_Week_List = []
-        Numbered_Month_List = []
-        Year_List = []
-        Year_and_Numbered_Month_List = []
+
+        self.Numbered_Day_of_Week_List = []
+        self.Numbered_Month_List = []
+        self.Year_List = []
+        self.Year_and_Numbered_Month_List = []
+
         for Current_Date in self.Dataframe["Date"].tolist():
 
             #Note Get day of week day as an number (0-6). 0 being Sunday. 6 being Saturday
@@ -73,10 +75,10 @@ class Graph_Factory(ABC):
             #Note Get year with century as a decimal number
             Four_Digit_Year = self.Strftime(Current_Date, '%Y')
 
-            Numbered_Day_of_Week_List.append(Numbered_Day_of_Week)
-            Numbered_Month_List.append(Numbered_Month)
-            Year_List.append(Four_Digit_Year)
-            Year_and_Numbered_Month_List.append(f"{Four_Digit_Year}-{Numbered_Month}")
+            self.Numbered_Day_of_Week_List.append(Numbered_Day_of_Week)
+            self.Numbered_Month_List.append(Numbered_Month)
+            self.Year_List.append(Four_Digit_Year)
+            self.Year_and_Numbered_Month_List.append(f"{Four_Digit_Year}-{Numbered_Month}")
 
     def Convert_Plotly_to_JSON(self):
         self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder) 
