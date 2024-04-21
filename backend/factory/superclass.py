@@ -37,6 +37,10 @@ class Graph_Factory(ABC):
     def create_DataFrame(self):
         return panda.read_csv(f"csv/updated_{self.Tool}_transactions.csv", names=('Date', 'Hash', 'ETH', 'Seller', 'Buyer')) 
     
+    def Truncate_Timestamp(self):
+        #Note Removing the timestamp from "Date"
+        self.Dataframe["Date"] = self.Dataframe["Date"].str[:10]     
+
     def Convert_Plotly_to_JSON(self):
         self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder) 
 
