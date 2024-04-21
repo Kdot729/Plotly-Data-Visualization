@@ -55,37 +55,37 @@ class Graph_Factory(ABC):
 
     def Seperate_Date_Into_Lists(self, Day_Format, Month_Format, Year_Format):
 
-        self.Numbered_Day_of_Week_List = []
-        self.Numbered_Month_List = []
-        self.Year_List = []
-        self.Year_and_Numbered_Month_List = []
+        self.Formatted_Day_List = []
+        self.Formatted_Month_List = []
+        self.Formatted_Year_List = []
+        self.Formatted_Year_and_Month_List = []
 
         for Current_Date in self.Dataframe["Date"].tolist():
 
             #Note Get day of week day as an number (0-6). 0 being Sunday. 6 being Saturday
-            Numbered_Day_of_Week = self.Strftime(Current_Date, Day_Format)
+            Day = self.Strftime(Current_Date, Day_Format)
 
-            #Note Numbered_Day_of_Week is a string
-            if Numbered_Day_of_Week == "0":
-                    Numbered_Day_of_Week = "7"
+            #Note Day is a string
+            if Day == "0":
+                    Day = "7"
 
             #Note Get zero padded month
-            Numbered_Month = self.Strftime(Current_Date, Month_Format)
+            Month = self.Strftime(Current_Date, Month_Format)
 
             #Note Get year with century as a decimal number
-            Four_Digit_Year = self.Strftime(Current_Date, Year_Format)
+            Year = self.Strftime(Current_Date, Year_Format)
 
-            self.Numbered_Day_of_Week_List.append(Numbered_Day_of_Week)
-            self.Numbered_Month_List.append(Numbered_Month)
-            self.Year_List.append(Four_Digit_Year)
-            self.Year_and_Numbered_Month_List.append(f"{Four_Digit_Year}-{Numbered_Month}")
+            self.Formatted_Day_List.append(Day)
+            self.Formatted_Month_List.append(Month)
+            self.Formatted_Year_List.append(Year)
+            self.Formatted_Year_and_Month_List.append(f"{Year}-{Month}")
 
     #Note Only heatmap and sunburst use this function. Volume will override this function
     def Insert_Date_Lists_into_Dataframe(self):
-        self.Dataframe.insert(2, "Year", self.Year_List, True)
-        self.Dataframe.insert(3, "Month Number", self.Numbered_Month_List, True)
-        self.Dataframe.insert(4, "Weekday Number", self.Numbered_Day_of_Week_List, True)
-        self.Dataframe.insert(5, "Month Year", self.Year_and_Numbered_Month_List, True)
+        self.Dataframe.insert(2, "Year", self.Formatted_Year_List, True)
+        self.Dataframe.insert(3, "Month Number", self.Formatted_Month_List, True)
+        self.Dataframe.insert(4, "Weekday Number", self.Formatted_Day_List, True)
+        self.Dataframe.insert(5, "Month Year", self.Formatted_Year_and_Month_List, True)
     
     def Convert_Plotly_to_JSON(self):
         self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder) 
