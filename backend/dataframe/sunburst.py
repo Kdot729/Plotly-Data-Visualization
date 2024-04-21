@@ -3,36 +3,6 @@ import datetime
 
 def create_sunburst_DataFrame(DataFrame):
 
-    weekday_number_list = []
-    month_number_list = []
-    year_list = []
-    year_and_month_list = []
-    for Current_Date in DataFrame["Date"].tolist():
-
-            #Note Get full weekday name 
-            day_of_week_number = datetime.datetime.strptime(Current_Date, '%Y-%m-%d').strftime('%w')
-
-            #Note day_of_week_number is actually a string so were checking a string
-            #Note Sunday is default "0" so we make it a "7"
-            if day_of_week_number == "0":
-                    day_of_week_number = "7"
-
-            #Note Get abbreviated month name
-            month_number = datetime.datetime.strptime(Current_Date, '%Y-%m-%d').strftime('%m')
-
-            #Note Get full year
-            year = datetime.datetime.strptime(Current_Date, '%Y-%m-%d').strftime('%Y')
-
-            weekday_number_list.append(day_of_week_number)
-            month_number_list.append(month_number)
-            year_list.append(year)
-            year_and_month_list.append(f"{year}-{month_number}" )
-
-    DataFrame.insert(2, "Year", year_list, True)
-    DataFrame.insert(3, "Month Number", month_number_list, True)
-    DataFrame.insert(4, "Weekday Number", weekday_number_list, True)
-    DataFrame.insert(5, "Month Year", year_and_month_list, True)
-
     DataFrame_year = DataFrame.groupby("Year").sum("ETH").reset_index()
 
     #Note Group by "Month Year", then sum "ETH", then reset index
