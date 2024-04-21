@@ -53,7 +53,7 @@ class Heatmap(Graph_Factory):
         self.Truncate_Timestamp()
         self.Sum_Grouped_ETH()
         self.Reset_Dataframe_Index()
-        self.Seperate_Date_Into_Lists()
+        self.Seperate_Date_Into_Lists("%w", "%m", "%Y")
         self.Insert_Date_Lists_into_Dataframe()
         self.axes_dictionary = heatmap_dataframe.create_heatmap_DataFrame(self.Dataframe)
 
@@ -70,7 +70,7 @@ class Sunburst(Graph_Factory):
         self.Truncate_Timestamp()
         self.Sum_Grouped_ETH()
         self.Reset_Dataframe_Index()
-        self.Seperate_Date_Into_Lists()
+        self.Seperate_Date_Into_Lists("%w", "%m", "%Y")
         self.Insert_Date_Lists_into_Dataframe()
         self.Dataframe = sunburst_dataframe.create_sunburst_DataFrame(self.Dataframe)
 
