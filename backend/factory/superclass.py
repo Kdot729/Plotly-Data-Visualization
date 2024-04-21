@@ -53,7 +53,7 @@ class Graph_Factory(ABC):
         #Note Make "Date" a column
         self.Dataframe = self.Dataframe.reset_index(level=0)
 
-    def Seperate_Date_Into_Lists(self):
+    def Seperate_Date_Into_Lists(self, Day_Format, Month_Format, Year_Format):
 
         self.Numbered_Day_of_Week_List = []
         self.Numbered_Month_List = []
@@ -63,17 +63,17 @@ class Graph_Factory(ABC):
         for Current_Date in self.Dataframe["Date"].tolist():
 
             #Note Get day of week day as an number (0-6). 0 being Sunday. 6 being Saturday
-            Numbered_Day_of_Week = self.Strftime(Current_Date, '%w')
+            Numbered_Day_of_Week = self.Strftime(Current_Date, Day_Format)
 
             #Note Numbered_Day_of_Week is a string
             if Numbered_Day_of_Week == "0":
                     Numbered_Day_of_Week = "7"
 
             #Note Get zero padded month
-            Numbered_Month = self.Strftime(Current_Date, '%m')
+            Numbered_Month = self.Strftime(Current_Date, Month_Format)
 
             #Note Get year with century as a decimal number
-            Four_Digit_Year = self.Strftime(Current_Date, '%Y')
+            Four_Digit_Year = self.Strftime(Current_Date, Year_Format)
 
             self.Numbered_Day_of_Week_List.append(Numbered_Day_of_Week)
             self.Numbered_Month_List.append(Numbered_Month)
