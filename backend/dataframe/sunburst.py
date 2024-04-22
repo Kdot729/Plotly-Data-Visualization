@@ -34,8 +34,6 @@ def create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, Dataframe):
 
     override_text = []
 
-    substring_checker = "0"
-
     for ID_Value in Graph_Dataframe['id']:
 
         #Note If len 4 then it's the year
@@ -48,12 +46,8 @@ def create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, Dataframe):
             value = month
 
         elif len(ID_Value) == 10:
-            nth_day = datetime.datetime.strptime(ID_Value, '%Y-%m-%d').strftime('%d')
-            #Note Check to see if "0" is in the string
-            if substring_checker in nth_day:
-                    #Note Remove the zero from the string
-                    nth_day = nth_day.replace('0', '')
-            value = f"{nth_day}th "
+            nth_day = datetime.datetime.strptime(ID_Value, '%Y-%m-%d').strftime('%-d')
+            value = f"{nth_day}th"
 
         override_text.append(value)
 
