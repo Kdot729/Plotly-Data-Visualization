@@ -87,6 +87,9 @@ class Graph_Factory(ABC):
         self.Dataframe.insert(4, "Weekday Number", self.Formatted_Day_List, True)
         self.Dataframe.insert(5, "Month Year", self.Formatted_Year_and_Month_List, True)
     
+    def Group_By_and_Sum(self, Group_By_Columns, Boolean_Sort=True):
+        self.Dataframe.groupby(Group_By_Columns, sort=Boolean_Sort).sum('ETH').reset_index()
+
     def Convert_Plotly_to_JSON(self):
         self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder) 
 
