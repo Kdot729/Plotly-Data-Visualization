@@ -2,7 +2,7 @@
 import backend.dataframe.transaction as Transaction_Dataframe, backend.graph.transaction as Transaction_Plotly
 from backend.factory.superclass import Graph_Factory
 import backend.graph.scatter as scatter_graph
-import backend.dataframe.volume as Volume_Dataframe, backend.graph.volume as Volume_Graph
+import backend.graph.volume as Volume_Graph
 import backend.dataframe.heatmap as heatmap_dataframe, backend.graph.heatmap as heatmap_graph
 import backend.dataframe.sunburst as sunburst_dataframe, backend.graph.sunburst as sunburst_graph
 class Transaction(Graph_Factory):
@@ -30,7 +30,6 @@ class Volume(Graph_Factory):
         self.Seperate_Date_Into_Lists("%A", "%b", "%Y")
         self.Insert_Date_Lists_into_Dataframe()
         self.Group_By_and_Sum(["Day", "Month Year"], False)
-        self.Dataframe = Volume_Dataframe.Create_Volume_Dataframe(self.Dataframe)
 
     def Insert_Date_Lists_into_Dataframe(self):
         self.Dataframe.insert(2, "Day", self.Formatted_Day_List, True)
