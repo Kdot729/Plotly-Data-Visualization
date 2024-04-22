@@ -36,22 +36,22 @@ def create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, Dataframe):
 
     substring_checker = "0"
 
-    for index in Graph_Dataframe['id']:
+    for ID_Value in Graph_Dataframe['id']:
 
         #Note If len 4 then it's the year
-        if index == "Total":
+        if ID_Value == "Total":
             value == "Total"
-        elif len(index) == 4:
-            value = index
+        elif len(ID_Value) == 4:
+            value = ID_Value
 
 
         #Note If len 7 then it's the year and month
-        elif len(index) == 7:
-            month = datetime.datetime.strptime(index, '%Y-%m').strftime('%b')
+        elif len(ID_Value) == 7:
+            month = datetime.datetime.strptime(ID_Value, '%Y-%m').strftime('%b')
             value = month
 
-        elif len(index) == 10:
-            nth_day = datetime.datetime.strptime(index, '%Y-%m-%d').strftime('%d')
+        elif len(ID_Value) == 10:
+            nth_day = datetime.datetime.strptime(ID_Value, '%Y-%m-%d').strftime('%d')
             #Note Check to see if "0" is in the string
             if substring_checker in nth_day:
                     #Note Remove the zero from the string
