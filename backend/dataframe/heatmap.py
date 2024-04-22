@@ -2,16 +2,8 @@ import pandas as panda
 
 def create_heatmap_DataFrame(DataFrame):
 
-        #Note Sort false will preserve the order which is acendening to the current date
-        DataFrame = DataFrame.groupby(["Year", "Month Number", "Weekday Number", "Month Year"], sort=False).sum('ETH')
-
-        #Note Make the index as columns
-        DataFrame = DataFrame.reset_index()
-
         #Note Get the list of "Month Year" to use to reorder DataFrame columns
         columns_list = DataFrame["Month Year"].drop_duplicates().tolist()
-
-
 
         DataFrame = panda.pivot_table(DataFrame, 
                                         values='ETH', 
