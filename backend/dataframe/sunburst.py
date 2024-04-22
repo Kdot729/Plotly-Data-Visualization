@@ -39,11 +39,8 @@ def create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, Dataframe):
     for ID_Value in Graph_Dataframe['id']:
 
         #Note If len 4 then it's the year
-        if ID_Value == "Total":
-            value == "Total"
-        elif len(ID_Value) == 4:
+        if len(ID_Value) == 4:
             value = ID_Value
-
 
         #Note If len 7 then it's the year and month
         elif len(ID_Value) == 7:
