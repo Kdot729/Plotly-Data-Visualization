@@ -29,6 +29,7 @@ class Volume(Graph_Factory):
         self.Reset_Dataframe_Index()
         self.Seperate_Date_Into_Lists("%A", "%b", "%Y")
         self.Insert_Date_Lists_into_Dataframe()
+        self.Group_By_and_Sum(["Day", "Month Year"], False)
         self.Dataframe = Volume_Dataframe.Create_Volume_Dataframe(self.Dataframe)
 
     def Insert_Date_Lists_into_Dataframe(self):
@@ -61,6 +62,7 @@ class Heatmap(Graph_Factory):
         self.Reset_Dataframe_Index()
         self.Seperate_Date_Into_Lists("%w", "%m", "%Y")
         self.Insert_Date_Lists_into_Dataframe()
+        self.Group_By_and_Sum(["Year", "Month Number", "Weekday Number", "Month Year"], False)
         self.axes_dictionary = heatmap_dataframe.create_heatmap_DataFrame(self.Dataframe)
 
     def Create_Plotly(self):
