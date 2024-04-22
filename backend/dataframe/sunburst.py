@@ -1,37 +1,24 @@
 import pandas as panda
 import datetime
 
-def create_sunburst_DataFrame(DataFrame):
-
-    DataFrame_year = DataFrame.groupby("Year").sum("ETH").reset_index()
-
-    #Note Group by "Month Year", then sum "ETH", then reset index
-    DataFrame_month_year = DataFrame.groupby("Month Year").sum("ETH").reset_index()
+def create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, Dataframe):
 
     graph_DataFrame = panda.DataFrame(columns=['id', 'parent', 'value'])
 
-    for index, row in DataFrame_year.iterrows():
-        # print(row["ETH"])
+    for index, row in Year_Dataframe.iterrows():
         graph_DataFrame.loc[len(graph_DataFrame.index)] = [row["Year"], "Total" ,row["ETH"]]
 
-
-
-    for index, row in DataFrame_month_year.iterrows():
+    for index, row in Month_Year_Dataframe.iterrows():
         graph_DataFrame.loc[len(graph_DataFrame.index)] = [row["Month Year"], row["Month Year"][:4] ,row["ETH"]]
 
-
-    for index, row in DataFrame.iterrows():
+    for index, row in Dataframe.iterrows():
         graph_DataFrame.loc[len(graph_DataFrame.index)] = [row["Date"], row["Date"][:7] ,row["ETH"]]
-
-
-    # print(graph_DataFrame['id'])
 
     override_text = []
 
     substring_checker = "0"
 
     for index in graph_DataFrame['id']:
-
 
             #Note If len 4 then it's the year
             if index == "Total":
