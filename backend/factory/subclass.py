@@ -65,7 +65,7 @@ class Heatmap(Graph_Factory):
         self.axes_dictionary = heatmap_dataframe.create_heatmap_DataFrame(self.Dataframe)
 
     def Create_Plotly(self):
-        self.plotly_graph = heatmap_graph.create_heatmap(self.axes_dictionary)
+        self.plotly_graph = heatmap_graph.Create_Heatmap_Graph(self.axes_dictionary)
 
 class Sunburst(Graph_Factory):
     
