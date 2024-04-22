@@ -5,6 +5,13 @@ def create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, Dataframe):
 
     Graph_Dataframe = panda.DataFrame(columns=["ID", "Parent", "Value", "Text"])
 
+    #Note Doesn't matter which dataframe we sum
+    Sum = Year_Dataframe["ETH"].sum()
+
+    #Note This render the center of the sunburst
+    #Important The ID (2nd index) has to be an empty string
+    Graph_Dataframe.loc[0] = ["total", "", Sum, "Total"]
+
     Dataframe_Array =   [
                             {"Dataframe": Year_Dataframe, "Column": "Year"},
                             {"Dataframe": Month_Year_Dataframe, "Column": "Month Year"},
@@ -22,7 +29,7 @@ def create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, Dataframe):
 
             if Dataframe_Column == "Year":
 
-                Insert_Row = [Value, "Total", ETH_Value, Value]
+                Insert_Row = [Value, 'total', ETH_Value, Value]
 
             elif Dataframe_Column == "Month Year":
 
