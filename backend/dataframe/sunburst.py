@@ -4,9 +4,6 @@ import datetime
 
 def Insert_Into_Row(Graph_Dataframe, Looped_Dataframe, Replaced_Value):
 
-    # Graph_Dataframe = panda.DataFrame(columns=['id', 'parent', 'value'])
-    # Dataframe_Index = len(Graph_Dataframe.index)
-
     for index, row in Looped_Dataframe.iterrows():
         ETH_Column = row["ETH"]
 
@@ -25,18 +22,7 @@ def Insert_Into_Row(Graph_Dataframe, Looped_Dataframe, Replaced_Value):
 def create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, Dataframe):
 
     Graph_Dataframe = panda.DataFrame(columns=['id', 'parent', 'value'])
-    Dataframe_Index = len(Graph_Dataframe.index)
 
-    # for index, row in Year_Dataframe.iterrows():
-    #     Graph_Dataframe.loc[len(Graph_Dataframe.index)] = [row["Year"], "Total", row["ETH"]]
-
-    # for index, row in Month_Year_Dataframe.iterrows():
-    #     Graph_Dataframe.loc[len(Graph_Dataframe.index)] = [row["Month Year"], row["Month Year"][:4], row["ETH"]]
-
-    # for index, row in Dataframe.iterrows():
-    #     Graph_Dataframe.loc[len(Graph_Dataframe.index)] = [row["Date"], row["Date"][:7], row["ETH"]]
-
-    # print(graph_DataFrame.head())
     Graph_Dataframe = Insert_Into_Row(Graph_Dataframe, Year_Dataframe, "Year")
     Graph_Dataframe = Insert_Into_Row(Graph_Dataframe, Month_Year_Dataframe, "Month Year")
     Graph_Dataframe = Insert_Into_Row(Graph_Dataframe, Dataframe, "Date")
