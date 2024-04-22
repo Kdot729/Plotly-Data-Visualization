@@ -1,7 +1,7 @@
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-def create_sunburst(DataFrame):
+def Create_Sunburst_Graph(DataFrame):
 
     figure = make_subplots(1, 2, specs=[[{"type": "domain"}, {"type": "domain"}]])
 

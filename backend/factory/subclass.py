@@ -84,4 +84,4 @@ class Sunburst(Graph_Factory):
         self.Dataframe = sunburst_dataframe.create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, self.Dataframe)
 
     def Create_Plotly(self):
-        self.plotly_graph = sunburst_graph.create_sunburst(self.Dataframe)
+        self.plotly_graph = sunburst_graph.Create_Sunburst_Graph(self.Dataframe)
