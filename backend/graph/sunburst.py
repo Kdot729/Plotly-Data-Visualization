@@ -6,9 +6,9 @@ def Create_Sunburst_Graph(DataFrame):
     figure = make_subplots(1, 2, specs=[[{"type": "domain"}, {"type": "domain"}]])
 
     figure.add_trace(go.Sunburst(
-        labels=DataFrame['id'],
-        parents=DataFrame['parent'],
-        values=DataFrame['value'],
+        labels=DataFrame["ID"],
+        parents=DataFrame["Parent"],
+        values=DataFrame["Value"],
         branchvalues='total',
 
         insidetextorientation="radial",

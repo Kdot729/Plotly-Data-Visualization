@@ -3,7 +3,7 @@ from datetime import datetime
 
 def create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, Dataframe):
 
-    Graph_Dataframe = panda.DataFrame(columns=['id', 'parent', 'value', "Text"])
+    Graph_Dataframe = panda.DataFrame(columns=["ID", "Parent", "Value", "Text"])
 
     Dataframe_Array =   [
                             {"Dataframe": Year_Dataframe, "Column": "Year"},
