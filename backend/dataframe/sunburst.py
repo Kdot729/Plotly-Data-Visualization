@@ -1,24 +1,6 @@
 import pandas as panda
 import datetime
 
-
-def Insert_Into_Row(Graph_Dataframe, Looped_Dataframe, Dataframe_Column):
-
-    for index, row in Looped_Dataframe.iterrows():
-        ETH_Column = row["ETH"]
-
-        if Dataframe_Column == "Year":
-            Replace_Row = [row[Dataframe_Column], "Total", ETH_Column]
-        elif Dataframe_Column == "Month Year":
-            Replace_Row = [row[Dataframe_Column], row[Dataframe_Column][:4], ETH_Column]
-        elif Dataframe_Column == "Date":
-            Replace_Row = [row[Dataframe_Column], row[Dataframe_Column][:7], ETH_Column]
-
-        Dataframe_Index = len(Graph_Dataframe.index)
-        Graph_Dataframe.loc[Dataframe_Index] = Replace_Row
-    
-    return Graph_Dataframe
-
 def create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, Dataframe):
 
     Graph_Dataframe = panda.DataFrame(columns=['id', 'parent', 'value'])
