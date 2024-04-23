@@ -8,6 +8,11 @@ def create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, Dataframe):
     Date_Column = "Date"
     ETH_Column = "ETH"
 
+    Lowercase_Total = "total"
+
+    Column_Key = "Column"
+    Dataframe_Key = "Dataframe"
+
     Graph_Dataframe = panda.DataFrame(columns=["ID", "Parent", "Value", "Text"])
 
     #Note Doesn't matter which dataframe we sum
@@ -15,26 +20,26 @@ def create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, Dataframe):
 
     #Note This render the center of the sunburst
     #Important The ID (2nd index) has to be an empty string
-    Graph_Dataframe.loc[0] = ["total", "", Sum, "Total"]
+    Graph_Dataframe.loc[0] = [Lowercase_Total, "", Sum, Lowercase_Total.upper()]
 
     Dataframe_Array =   [
-                            {"Dataframe": Year_Dataframe, "Column": Year_Column},
-                            {"Dataframe": Month_Year_Dataframe, "Column": Month_Year_Column},
-                            {"Dataframe": Dataframe, "Column": Date_Column}
+                            {Dataframe_Key: Year_Dataframe, Column_Key: Year_Column},
+                            {Dataframe_Key: Month_Year_Dataframe, Column_Key: Month_Year_Column},
+                            {Dataframe_Key: Dataframe, Column_Key: Date_Column}
                         ]
 
     for Dictionary in Dataframe_Array:
 
-        Dataframe_Column = Dictionary["Column"]
+        Dataframe_Column = Dictionary[Column_Key]
 
-        for Index, Row in Dictionary["Dataframe"].iterrows():
+        for Index, Row in Dictionary[Dataframe_Key].iterrows():
 
             ETH_Value = Row[ETH_Column]
             Value = Row[Dataframe_Column]
 
             if Dataframe_Column == Year_Column:
 
-                Insert_Row = [Value, 'total', ETH_Value, Value]
+                Insert_Row = [Value, Lowercase_Total, ETH_Value, Value]
 
             elif Dataframe_Column == Month_Year_Column:
 
