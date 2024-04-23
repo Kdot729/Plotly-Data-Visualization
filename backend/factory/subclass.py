@@ -31,21 +31,21 @@ class Volume(Graph_Factory):
         self.Reset_Dataframe_Index()
         self.Seperate_Date_Into_Lists("%A", "%b", "%Y")
         self.Insert_Date_Lists_into_Dataframe()
-        self.Dataframe = self.Group_By_and_Sum([self.Day_Column, self.Month_Year], False)
+        self.Dataframe = self.Group_By_and_Sum([self.Day_Column, self.Month_Year_Column], False)
 
     def Insert_Date_Lists_into_Dataframe(self):
         self.Dataframe.insert(2, self.Day_Column, self.Formatted_Day_List, True)
-        self.Dataframe.insert(3, self.Month_Year, self.Formatted_Year_and_Month_List, True)
+        self.Dataframe.insert(3, self.Month_Year_Column, self.Formatted_Year_and_Month_List, True)
 
     def Create_Plotly(self):
 
         #Note Need to convert "Month Year" to a list to pass into "category_orders" because the y-axis is bugged. For some reason "February 2022" doesn't appear after "January 2022"
         #Note Reverse the list so the start of trading is at the bottom
-        y_axis = (self.Dataframe[self.Month_Year].tolist())[::-1]
+        y_axis = (self.Dataframe[self.Month_Year_Column].tolist())[::-1]
 
         self.plotly_graph = plotlyX.bar(self.Dataframe, 
                         x=self.ETH_Column, 
-                        y=self.Month_Year, 
+                        y=self.Month_Year_Column, 
                         color=self.Day_Column, 
                         orientation='h',
                         category_orders={
@@ -53,7 +53,7 @@ class Volume(Graph_Factory):
                                 self.Day_Column: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
 
                                 #Note This is to fix the y-axis because "February" is bugged
-                                self.Month_Year: y_axis
+                                self.Month_Year_Column: y_axis
                                 })
 
         #Note Create title for graph and center it
@@ -99,7 +99,7 @@ class Heatmap(Graph_Factory):
         self.Reset_Dataframe_Index()
         self.Seperate_Date_Into_Lists("%w", "%m", "%Y")
         self.Insert_Date_Lists_into_Dataframe()
-        self.Dataframe = self.Group_By_and_Sum([self.Year_Column, self.Month_Number, self.Weekday_Number, self.Month_Year], False)
+        self.Dataframe = self.Group_By_and_Sum([self.Year_Column, self.Month_Number_Column, self.Weekday_Number_Column, self.Month_Year_Column], False)
         self.axes_dictionary = heatmap_dataframe.create_heatmap_DataFrame(self.Dataframe)
 
     def Create_Plotly(self):
@@ -118,7 +118,7 @@ class Sunburst(Graph_Factory):
         self.Seperate_Date_Into_Lists("%w", "%m", "%Y")
         self.Insert_Date_Lists_into_Dataframe()
         Year_Dataframe = self.Group_By_and_Sum(self.Year_Column)
-        Month_Year_Dataframe = self.Group_By_and_Sum(self.Month_Year)
+        Month_Year_Dataframe = self.Group_By_and_Sum(self.Month_Year_Column)
         self.Dataframe = sunburst_dataframe.create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, self.Dataframe)
 
     def Create_Plotly(self):
