@@ -5,6 +5,7 @@ import backend.graph.scatter as scatter_graph
 import backend.graph.volume as Volume_Graph
 import backend.dataframe.heatmap as heatmap_dataframe, backend.graph.heatmap as heatmap_graph
 import backend.dataframe.sunburst as sunburst_dataframe, backend.graph.sunburst as sunburst_graph
+import plotly.express as plotlyX
 class Transaction(Graph_Factory):
     
     def __init__(self, Graph_Name, Tool):
@@ -36,7 +37,43 @@ class Volume(Graph_Factory):
         self.Dataframe.insert(3, self.Month_Year, self.Formatted_Year_and_Month_List, True)
 
     def Create_Plotly(self):
-        self.plotly_graph = Volume_Graph.Create_Volume_Graph(self.Dataframe)
+
+        #Note Need to convert "Month Year" to a list to pass into "category_orders" because the y-axis is bugged. For some reason "February 2022" doesn't appear after "January 2022"
+        #Note Reverse the list so the start of trading is at the bottom
+        y_axis = (self.Dataframe[self.Month_Year].tolist())[::-1]
+
+        self.plotly_graph = plotlyX.bar(self.Dataframe, 
+                        x=self.ETH_Column, 
+                        y=self.Month_Year, 
+                        color='Day', 
+                        orientation='h',
+                        category_orders={
+                                #Note Reorder the horizontal bars so "Monday" is first and "Sunday" is last
+                                "Day": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+
+                                #Note This is to fix the y-axis because "February" is bugged
+                                self.Month_Year: y_axis
+                                })
+
+        #Note Create title for graph and center it
+        self.plotly_graph.update_layout(title_text="Volume", title_x=0.5)
+
+        self.plotly_graph.update_layout(legend={
+                        #Note Change position of legend to be inside the graph
+                        "yanchor": "top",
+                        "y": 1,
+                        "xanchor":"right",
+                        "x": 1,
+
+                        #Note Styling the legend box
+                        "bgcolor": "#e5ecf6",
+                        "bordercolor": "black",
+                        "borderwidth": 1
+                        })
+        self.plotly_graph.update_layout(width=1580, 
+                            height=750)
+
+        self.plotly_graph
 
 class Scatter(Graph_Factory):
 
