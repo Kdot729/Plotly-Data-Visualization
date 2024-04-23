@@ -23,6 +23,7 @@ class Graph_Factory(ABC):
         #Note import statement needs to be inside this function to avoid circular imports
         import backend.factory.subclass as subclass
         import backend.factory.sunburst as sunburst
+        import backend.factory.volume as volume
 
         match Graph_Name:
             case "scatter":
@@ -30,7 +31,7 @@ class Graph_Factory(ABC):
             case "transaction":
                 return subclass.Transaction(Graph_Name, Tool)
             case "volume":
-                return subclass.Volume(Graph_Name, Tool)
+                return volume.Volume(Graph_Name, Tool)
             case "heatmap":
                 return subclass.Heatmap(Graph_Name, Tool)
             case "sunburst":
