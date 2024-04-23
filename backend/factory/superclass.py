@@ -22,6 +22,7 @@ class Graph_Factory(ABC):
         
         #Note import statement needs to be inside this function to avoid circular imports
         import backend.factory.subclass as subclass
+        import backend.factory.sunburst as sunburst
 
         match Graph_Name:
             case "scatter":
@@ -33,7 +34,7 @@ class Graph_Factory(ABC):
             case "heatmap":
                 return subclass.Heatmap(Graph_Name, Tool)
             case "sunburst":
-                return subclass.Sunburst(Graph_Name, Tool)
+                return sunburst.Sunburst(Graph_Name, Tool)
 
     @abstractmethod
     def Create_Plotly(self):
