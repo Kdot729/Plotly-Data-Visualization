@@ -1,8 +1,5 @@
 import plotly.graph_objects as plotGO
 
-#Note y_axis is the weekday as a number
-weekday_names_list =["Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday"]
-
 def Create_Heatmap_Graph(axes):
 
     figure = plotGO.Figure(
