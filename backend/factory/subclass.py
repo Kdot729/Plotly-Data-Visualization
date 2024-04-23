@@ -19,6 +19,8 @@ class Transaction(Graph_Factory):
 
 class Volume(Graph_Factory):
     
+    Day_Column = "Day"
+
     def __init__(self, Graph_Name, Tool):
         super().__init__(Graph_Name, Tool)
 
@@ -29,10 +31,10 @@ class Volume(Graph_Factory):
         self.Reset_Dataframe_Index()
         self.Seperate_Date_Into_Lists("%A", "%b", "%Y")
         self.Insert_Date_Lists_into_Dataframe()
-        self.Dataframe = self.Group_By_and_Sum(["Day", self.Month_Year], False)
+        self.Dataframe = self.Group_By_and_Sum([self.Day_Column, self.Month_Year], False)
 
     def Insert_Date_Lists_into_Dataframe(self):
-        self.Dataframe.insert(2, "Day", self.Formatted_Day_List, True)
+        self.Dataframe.insert(2, self.Day_Column, self.Formatted_Day_List, True)
         self.Dataframe.insert(3, self.Month_Year, self.Formatted_Year_and_Month_List, True)
 
     def Create_Plotly(self):
@@ -44,11 +46,11 @@ class Volume(Graph_Factory):
         self.plotly_graph = plotlyX.bar(self.Dataframe, 
                         x=self.ETH_Column, 
                         y=self.Month_Year, 
-                        color='Day', 
+                        color=self.Day_Column, 
                         orientation='h',
                         category_orders={
                                 #Note Reorder the horizontal bars so "Monday" is first and "Sunday" is last
-                                "Day": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                                self.Day_Column: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
 
                                 #Note This is to fix the y-axis because "February" is bugged
                                 self.Month_Year: y_axis
