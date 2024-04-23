@@ -6,6 +6,7 @@ from datetime import datetime
 class Graph_Factory(ABC):
 
     Date_Column = "Date"
+    ETH_Column = "ETH"
 
     def __init__(self, Graph_Name, Tool):
         self.Graph_Name = Graph_Name
@@ -38,7 +39,7 @@ class Graph_Factory(ABC):
         return render_template(template_name_or_list="graph.html", graphJSON=self.graphJSON, tool=self.Tool)
 
     def create_DataFrame(self):
-        self.Dataframe = panda.read_csv(f"csv/updated_{self.Tool}_transactions.csv", names=(self.Date_Column, 'Hash', 'ETH', 'Seller', 'Buyer')) 
+        self.Dataframe = panda.read_csv(f"csv/updated_{self.Tool}_transactions.csv", names=(self.Date_Column, 'Hash', self.ETH_Column, 'Seller', 'Buyer')) 
     
     def Strftime(self, Date, Format_Date):
         return datetime.strptime(Date, '%Y-%m-%d').strftime(Format_Date)
@@ -49,7 +50,7 @@ class Graph_Factory(ABC):
 
     def Sum_Grouped_ETH(self):
         #Note Group by self.Date_Column then sum their "ETH"
-        self.Dataframe = self.Dataframe.groupby(self.Date_Column).sum('ETH')
+        self.Dataframe = self.Dataframe.groupby(self.Date_Column).sum(self.ETH_Column)
 
     def Reset_Dataframe_Index(self):
         #Note Make self.Date_Column a column
@@ -90,7 +91,7 @@ class Graph_Factory(ABC):
         self.Dataframe.insert(5, "Month Year", self.Formatted_Year_and_Month_List, True)
     
     def Group_By_and_Sum(self, Group_By_Columns, Boolean_Sort=True):
-        return self.Dataframe.groupby(Group_By_Columns, sort=Boolean_Sort).sum('ETH').reset_index()
+        return self.Dataframe.groupby(Group_By_Columns, sort=Boolean_Sort).sum(self.ETH_Column).reset_index()
 
     def Convert_Plotly_to_JSON(self):
         self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder) 
