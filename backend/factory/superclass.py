@@ -7,6 +7,10 @@ class Graph_Factory(ABC):
 
     Date_Column = "Date"
     ETH_Column = "ETH"
+    Year_Column = "Year"
+    Month_Number = "Month Number"
+    Weekday_Number = "Weekday Number"
+    Month_Year = "Month Year"
 
     def __init__(self, Graph_Name, Tool):
         self.Graph_Name = Graph_Name
@@ -85,10 +89,10 @@ class Graph_Factory(ABC):
 
     #Note Only heatmap and sunburst use this function. Volume will override this function
     def Insert_Date_Lists_into_Dataframe(self):
-        self.Dataframe.insert(2, "Year", self.Formatted_Year_List, True)
-        self.Dataframe.insert(3, "Month Number", self.Formatted_Month_List, True)
-        self.Dataframe.insert(4, "Weekday Number", self.Formatted_Day_List, True)
-        self.Dataframe.insert(5, "Month Year", self.Formatted_Year_and_Month_List, True)
+        self.Dataframe.insert(2, self.Year_Column, self.Formatted_Year_List, True)
+        self.Dataframe.insert(3, self.Month_Number, self.Formatted_Month_List, True)
+        self.Dataframe.insert(4, self.Weekday_Number, self.Formatted_Day_List, True)
+        self.Dataframe.insert(5, self.Month_Year, self.Formatted_Year_and_Month_List, True)
     
     def Group_By_and_Sum(self, Group_By_Columns, Boolean_Sort=True):
         return self.Dataframe.groupby(Group_By_Columns, sort=Boolean_Sort).sum(self.ETH_Column).reset_index()

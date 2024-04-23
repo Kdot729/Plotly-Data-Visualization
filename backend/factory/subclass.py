@@ -29,11 +29,11 @@ class Volume(Graph_Factory):
         self.Reset_Dataframe_Index()
         self.Seperate_Date_Into_Lists("%A", "%b", "%Y")
         self.Insert_Date_Lists_into_Dataframe()
-        self.Dataframe = self.Group_By_and_Sum(["Day", "Month Year"], False)
+        self.Dataframe = self.Group_By_and_Sum(["Day", self.Month_Year], False)
 
     def Insert_Date_Lists_into_Dataframe(self):
         self.Dataframe.insert(2, "Day", self.Formatted_Day_List, True)
-        self.Dataframe.insert(3, "Month Year", self.Formatted_Year_and_Month_List, True)
+        self.Dataframe.insert(3, self.Month_Year, self.Formatted_Year_and_Month_List, True)
 
     def Create_Plotly(self):
         self.plotly_graph = Volume_Graph.Create_Volume_Graph(self.Dataframe)
@@ -61,7 +61,7 @@ class Heatmap(Graph_Factory):
         self.Reset_Dataframe_Index()
         self.Seperate_Date_Into_Lists("%w", "%m", "%Y")
         self.Insert_Date_Lists_into_Dataframe()
-        self.Dataframe = self.Group_By_and_Sum(["Year", "Month Number", "Weekday Number", "Month Year"], False)
+        self.Dataframe = self.Group_By_and_Sum([self.Year_Column, self.Month_Number, self.Weekday_Number, self.Month_Year], False)
         self.axes_dictionary = heatmap_dataframe.create_heatmap_DataFrame(self.Dataframe)
 
     def Create_Plotly(self):
@@ -79,8 +79,8 @@ class Sunburst(Graph_Factory):
         self.Reset_Dataframe_Index()
         self.Seperate_Date_Into_Lists("%w", "%m", "%Y")
         self.Insert_Date_Lists_into_Dataframe()
-        Year_Dataframe = self.Group_By_and_Sum("Year")
-        Month_Year_Dataframe = self.Group_By_and_Sum("Month Year")
+        Year_Dataframe = self.Group_By_and_Sum(self.Year_Column)
+        Month_Year_Dataframe = self.Group_By_and_Sum(self.Month_Year)
         self.Dataframe = sunburst_dataframe.create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, self.Dataframe)
 
     def Create_Plotly(self):
