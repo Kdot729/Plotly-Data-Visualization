@@ -3,19 +3,24 @@ from datetime import datetime
 
 def create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, Dataframe):
 
+    Year_Column = "Year"
+    Month_Year_Column = "Month Year"
+    Date_Column = "Date"
+    ETH_Column = "ETH"
+
     Graph_Dataframe = panda.DataFrame(columns=["ID", "Parent", "Value", "Text"])
 
     #Note Doesn't matter which dataframe we sum
-    Sum = Year_Dataframe["ETH"].sum()
+    Sum = Year_Dataframe[ETH_Column].sum()
 
     #Note This render the center of the sunburst
     #Important The ID (2nd index) has to be an empty string
     Graph_Dataframe.loc[0] = ["total", "", Sum, "Total"]
 
     Dataframe_Array =   [
-                            {"Dataframe": Year_Dataframe, "Column": "Year"},
-                            {"Dataframe": Month_Year_Dataframe, "Column": "Month Year"},
-                            {"Dataframe": Dataframe, "Column": "Date"}
+                            {"Dataframe": Year_Dataframe, "Column": Year_Column},
+                            {"Dataframe": Month_Year_Dataframe, "Column": Month_Year_Column},
+                            {"Dataframe": Dataframe, "Column": Date_Column}
                         ]
 
     for Dictionary in Dataframe_Array:
@@ -24,20 +29,20 @@ def create_sunburst_DataFrame(Year_Dataframe, Month_Year_Dataframe, Dataframe):
 
         for Index, Row in Dictionary["Dataframe"].iterrows():
 
-            ETH_Value = Row["ETH"]
+            ETH_Value = Row[ETH_Column]
             Value = Row[Dataframe_Column]
 
-            if Dataframe_Column == "Year":
+            if Dataframe_Column == Year_Column:
 
                 Insert_Row = [Value, 'total', ETH_Value, Value]
 
-            elif Dataframe_Column == "Month Year":
+            elif Dataframe_Column == Month_Year_Column:
 
                 Abbreviated_Month = datetime.strptime(Value, '%Y-%m').strftime('%b')
                 #Note Slicing "Month Year" value
                 Insert_Row = [Value, Value[:4], ETH_Value, Abbreviated_Month]
 
-            elif Dataframe_Column == "Date":    
+            elif Dataframe_Column == Date_Column:    
 
                 Non_Zero_Padded_Day = datetime.strptime(Value, '%Y-%m-%d').strftime('%-d')
                 Nth_Day = f"{Non_Zero_Padded_Day}th"
