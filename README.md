@@ -1,2 +1,9 @@
-# 10KTF Website
-Changing the way the website work. Simplifying the way the dropdown work
+# Plotly Data Visualization
+
+# Table of Contents
+- How to run
+    - Without Docker
+    - With Docker
+
+# How to run
+
