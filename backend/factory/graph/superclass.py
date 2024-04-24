@@ -20,7 +20,7 @@ class Graph_Factory(ABC):
     def Choose_Graph(Graph_Name, Tool):
         
         #Note import statement needs to be inside this function to avoid circular imports
-        import backend.factory.graph.subclass as subclass
+        import backend.factory.graph.transaction as transaction
         import backend.factory.graph.sunburst as sunburst
         import backend.factory.graph.scatter as scatter
         import backend.factory.graph.volume as volume
@@ -30,7 +30,7 @@ class Graph_Factory(ABC):
             case "scatter":
                 return scatter.Scatter(Tool)
             case "transaction":
-                return subclass.Transaction(Tool)
+                return transaction.Transaction(Tool)
             case "volume":
                 return volume.Volume(Tool)
             case "heatmap":
