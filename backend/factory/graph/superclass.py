@@ -26,6 +26,7 @@ class Graph_Factory(ABC):
         import backend.factory.graph.volume as volume
         import backend.factory.graph.heatmap as heatmap
         import backend.factory.dataframe.scatter as Scatter_Dataframe
+        import backend.factory.dataframe.heatmap as Heatmap_Dataframe
 
         match Graph_Name:
             case "scatter":
@@ -35,7 +36,7 @@ class Graph_Factory(ABC):
             case "volume":
                 return volume.Volume(Tool)
             case "heatmap":
-                return heatmap.Heatmap(Tool)
+                return heatmap.Heatmap(Tool, Heatmap_Dataframe.Heatmap(Tool))
             case "sunburst":
                 return sunburst.Sunburst(Tool)
 
