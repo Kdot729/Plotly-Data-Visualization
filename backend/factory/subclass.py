@@ -1,6 +1,6 @@
 
 import backend.dataframe.transaction as Transaction_Dataframe, backend.graph.transaction as Transaction_Plotly
-from backend.factory.superclass import Graph_Factory
+from backend.factory.graph.superclass import Graph_Factory
 import backend.graph.scatter as scatter_graph
 class Transaction(Graph_Factory):
     

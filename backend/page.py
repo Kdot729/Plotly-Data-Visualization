@@ -1,4 +1,4 @@
-from backend.factory.superclass import Graph_Factory
+from backend.factory.graph.superclass import Graph_Factory
 
 def Render_Graph(Graph_Name, Tool):
     

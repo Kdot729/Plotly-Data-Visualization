@@ -1,4 +1,4 @@
-from backend.factory.superclass import Graph_Factory
+from backend.factory.graph.superclass import Graph_Factory
 import backend.dataframe.heatmap as heatmap_dataframe, backend.graph.heatmap as heatmap_graph
 
 class Heatmap(Graph_Factory):

@@ -1,5 +1,5 @@
 import plotly.express as plotlyX
-from backend.factory.superclass import Graph_Factory
+from backend.factory.graph.superclass import Graph_Factory
 
 class Volume(Graph_Factory):
     
