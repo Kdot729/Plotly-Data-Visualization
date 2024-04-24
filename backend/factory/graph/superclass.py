@@ -20,7 +20,7 @@ class Graph_Factory(ABC):
     def Choose_Graph(Graph_Name, Tool):
         
         #Note import statement needs to be inside this function to avoid circular imports
-        import backend.factory.subclass as subclass
+        import backend.factory.graph.subclass as subclass
         import backend.factory.sunburst as sunburst
         import backend.factory.volume as volume
         import backend.factory.graph.heatmap as heatmap
