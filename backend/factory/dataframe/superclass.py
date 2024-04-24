@@ -13,6 +13,7 @@ class Dataframe(ABC):
 
     def __init__(self, Tool):
         self.Tool = Tool
+        self.Create_Dataframe()
 
     @property
     def Dataframe(self): 
