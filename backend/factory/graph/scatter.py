@@ -4,9 +4,7 @@ import plotly.express as plotlyX
 class Scatter(Graph_Factory):
 
     def __init__(self, Tool, Dataframe_Object):
-        super().__init__(Tool)
-        self.Dataframe_Object = Dataframe_Object
-
+        super().__init__(Tool, Dataframe_Object)
     def Create_Plotly(self):
             
         self.plotly_graph = plotlyX.scatter(self.Dataframe_Object.Dataframe,
