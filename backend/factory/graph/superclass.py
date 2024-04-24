@@ -23,7 +23,7 @@ class Graph_Factory(ABC):
         import backend.factory.subclass as subclass
         import backend.factory.sunburst as sunburst
         import backend.factory.volume as volume
-        import backend.factory.heatmap as heatmap
+        import backend.factory.graph.heatmap as heatmap
         import backend.factory.dataframe.scatter as Scatter_Dataframe
 
         match Graph_Name:
