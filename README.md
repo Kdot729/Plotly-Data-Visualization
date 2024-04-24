@@ -1,9 +1,13 @@
 # Plotly Data Visualization
 
 # Table of Contents
+- Project Description
 - How to run
     - Without Docker
     - With Docker
+
+# Project Description
+Program uses Plotly to create data visualizations for NFTs from 10KTF
 
 # How to run
 ## Without Docker
