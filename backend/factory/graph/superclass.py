@@ -22,7 +22,7 @@ class Graph_Factory(ABC):
         #Note import statement needs to be inside this function to avoid circular imports
         import backend.factory.graph.subclass as subclass
         import backend.factory.graph.sunburst as sunburst
-        import backend.factory.volume as volume
+        import backend.factory.graph.volume as volume
         import backend.factory.graph.heatmap as heatmap
         import backend.factory.dataframe.scatter as Scatter_Dataframe
 
