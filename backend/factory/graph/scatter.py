@@ -10,8 +10,8 @@ class Scatter(Graph_Factory):
     def Create_Plotly(self):
             
         self.plotly_graph = plotlyX.scatter(self.Dataframe_Object.Dataframe,
-                            x ='Date',
-                            y='ETH',
+                            x =self.Dataframe_Object.Date_Column,
+                            y=self.Dataframe_Object.ETH_Column,
                             # text=Type,
                             # color_discrete_sequence=f"rgb(0,0,{viridis(1)})",
                             hover_data=['Hash'],
