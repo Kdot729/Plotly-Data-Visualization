@@ -30,7 +30,7 @@ class Graph_Factory(ABC):
         match Graph_Name:
             case "scatter":
                 Scatter_Dataframe = SD.Scatter(Tool)
-                return scatter.Scatter(Tool, Scatter_Dataframe.Dataframe)
+                return scatter.Scatter(Tool, Scatter_Dataframe)
             case "transaction":
                 return transaction.Transaction(Tool)
             case "volume":
