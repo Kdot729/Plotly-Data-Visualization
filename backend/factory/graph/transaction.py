@@ -1,5 +1,5 @@
 
-import backend.dataframe.transaction as Transaction_Dataframe, backend.graph.transaction as Transaction_Plotly
+import backend.factory.dataframe.transaction as Transaction_Dataframe, backend.graph.transaction as Transaction_Plotly
 from backend.factory.graph.superclass import Graph_Factory
 class Transaction(Graph_Factory):
     
