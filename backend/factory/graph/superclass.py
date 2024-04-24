@@ -12,8 +12,9 @@ class Graph_Factory(ABC):
     Weekday_Number_Column = "Weekday Number"
     Month_Year_Column = "Month Year"
 
-    def __init__(self, Tool):
+    def __init__(self, Tool, Dataframe_Object=None):
         self.Tool = Tool
+        self.Dataframe_Object = Dataframe_Object
         
     #Note Choose which graph object to instantiate 
     @staticmethod
