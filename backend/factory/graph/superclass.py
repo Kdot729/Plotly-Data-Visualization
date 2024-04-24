@@ -28,6 +28,7 @@ class Graph_Factory(ABC):
         import backend.factory.graph.heatmap as heatmap
         import backend.factory.dataframe.scatter as Scatter_Dataframe
         import backend.factory.dataframe.heatmap as Heatmap_Dataframe
+        import backend.factory.dataframe.sunburst as Sunburst_Dataframe
 
         match Graph_Name:
             case "scatter":
@@ -39,7 +40,7 @@ class Graph_Factory(ABC):
             case "heatmap":
                 return heatmap.Heatmap(Tool, Heatmap_Dataframe.Heatmap(Tool))
             case "sunburst":
-                return sunburst.Sunburst(Tool)
+                return sunburst.Sunburst(Tool, Sunburst_Dataframe.Sunburst(Tool))
 
     @abstractmethod
     def Create_Plotly(self):
