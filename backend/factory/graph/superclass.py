@@ -12,8 +12,7 @@ class Graph_Factory(ABC):
     Weekday_Number_Column = "Weekday Number"
     Month_Year_Column = "Month Year"
 
-    def __init__(self, Graph_Name, Tool):
-        self.Graph_Name = Graph_Name
+    def __init__(self, Tool):
         self.Tool = Tool
         
     #Note Choose which graph object to instantiate 
@@ -25,18 +24,19 @@ class Graph_Factory(ABC):
         import backend.factory.sunburst as sunburst
         import backend.factory.volume as volume
         import backend.factory.heatmap as heatmap
+        import backend.factory.dataframe.scatter as Scatter_Dataframe
 
         match Graph_Name:
             case "scatter":
-                return subclass.Scatter(Graph_Name, Tool)
+                return subclass.Scatter(Tool)
             case "transaction":
-                return subclass.Transaction(Graph_Name, Tool)
+                return subclass.Transaction(Tool)
             case "volume":
-                return volume.Volume(Graph_Name, Tool)
+                return volume.Volume(Tool)
             case "heatmap":
-                return heatmap.Heatmap(Graph_Name, Tool)
+                return heatmap.Heatmap(Tool)
             case "sunburst":
-                return sunburst.Sunburst(Graph_Name, Tool)
+                return sunburst.Sunburst(Tool)
 
     @abstractmethod
     def Create_Plotly(self):

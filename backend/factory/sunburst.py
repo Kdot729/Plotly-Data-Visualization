@@ -3,8 +3,8 @@ import backend.dataframe.sunburst as sunburst_dataframe, backend.graph.sunburst 
 
 class Sunburst(Graph_Factory):
     
-    def __init__(self, Graph_Name, Tool):
-        super().__init__(Graph_Name, Tool)
+    def __init__(self, Tool):
+        super().__init__(Tool)
 
     def create_DataFrame(self):
         super().create_DataFrame()

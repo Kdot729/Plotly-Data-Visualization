@@ -4,8 +4,8 @@ from backend.factory.graph.superclass import Graph_Factory
 import backend.graph.scatter as scatter_graph
 class Transaction(Graph_Factory):
     
-    def __init__(self, Graph_Name, Tool):
-        super().__init__(Graph_Name, Tool)
+    def __init__(self, Tool):
+        super().__init__(Tool)
 
     def create_DataFrame(self):
         super().create_DataFrame()
@@ -17,8 +17,8 @@ class Transaction(Graph_Factory):
 
 class Scatter(Graph_Factory):
 
-    def __init__(self, Graph_Name, Tool):
-        super().__init__(Graph_Name, Tool)
+    def __init__(self, Tool):
+        super().__init__(Tool)
         
     def create_DataFrame(self):
         super().create_DataFrame()
