@@ -3,8 +3,9 @@ import backend.graph.scatter as scatter_graph
 
 class Scatter(Graph_Factory):
 
-    def __init__(self, Tool):
+    def __init__(self, Tool, Dataframe):
         super().__init__(Tool)
+        self.Dataframe = Dataframe
         
     def create_DataFrame(self):
         super().create_DataFrame()
