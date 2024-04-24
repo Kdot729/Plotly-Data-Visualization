@@ -1,5 +1,5 @@
 from backend.factory.graph.superclass import Graph_Factory
-import backend.dataframe.sunburst as sunburst_dataframe, backend.graph.sunburst as sunburst_graph
+import backend.graph.sunburst as sunburst_graph
 
 class Sunburst(Graph_Factory):
     
