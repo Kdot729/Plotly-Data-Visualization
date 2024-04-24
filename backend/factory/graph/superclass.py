@@ -25,12 +25,11 @@ class Graph_Factory(ABC):
         import backend.factory.graph.scatter as scatter
         import backend.factory.graph.volume as volume
         import backend.factory.graph.heatmap as heatmap
-        import backend.factory.dataframe.scatter as SD
+        import backend.factory.dataframe.scatter as Scatter_Dataframe
 
         match Graph_Name:
             case "scatter":
-                Scatter_Dataframe = SD.Scatter(Tool)
-                return scatter.Scatter(Tool, Scatter_Dataframe)
+                return scatter.Scatter(Tool, Scatter_Dataframe.Scatter(Tool))
             case "transaction":
                 return transaction.Transaction(Tool)
             case "volume":
