@@ -22,13 +22,13 @@ class Graph_Factory(ABC):
         #Note import statement needs to be inside this function to avoid circular imports
         import backend.factory.graph.subclass as subclass
         import backend.factory.graph.sunburst as sunburst
+        import backend.factory.graph.scatter as scatter
         import backend.factory.graph.volume as volume
         import backend.factory.graph.heatmap as heatmap
-        import backend.factory.dataframe.scatter as Scatter_Dataframe
 
         match Graph_Name:
             case "scatter":
-                return subclass.Scatter(Tool)
+                return scatter.Scatter(Tool)
             case "transaction":
                 return subclass.Transaction(Tool)
             case "volume":
