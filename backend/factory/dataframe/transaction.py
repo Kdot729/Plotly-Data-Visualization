@@ -1,34 +1,36 @@
+from backend.factory.dataframe.superclass import Dataframe
 import pandas as panda
+class Transaction(Dataframe):
 
-panda.set_option('display.max_rows', None)
-panda.set_option('display.max_columns', None)
-panda.set_option('display.width', None)
-panda.set_option('display.max_colwidth', None)
+    def __init__(self, Tool):
+        super().__init__(Tool)
+        self.Finish_Dataframe()
 
-def Create_Transaction_Dataframe(DataFrame):      
-        seller_count = DataFrame["Seller"].value_counts()
-        buyer_count =  DataFrame["Buyer"].value_counts()
+    def Finish_Dataframe(self):
+        Address_Column = "Address"
+        Buys_Column = "Buys"
+        Sells_Column = "Sells"
 
-        #Note Convert series to DataFrame
-        seller_count = seller_count.to_frame()
-        buyer_count = buyer_count.to_frame()
+        #Note Count their transaction in their corresponding columns
+        Count_Sells = self.Dataframe["Seller"].value_counts()
+        Count_Buys =  self.Dataframe["Buyer"].value_counts()
 
-        #Note Convert the index to a column called Address
-        seller_count = seller_count.reset_index(level=0)
-        buyer_count = buyer_count.reset_index(level=0)
+        #Note Make so the index is also a column which is the address
+        Seller_Dataframe = Count_Sells.to_frame().reset_index(level=0)
+        Buyer_Dataframe = Count_Buys.to_frame().reset_index(level=0)
 
-        #Note combine both DataFrame and fill the NaN values with 0
-        result = (panda.concat([seller_count, buyer_count])).fillna(0)
+        #Note Renaming columns
+        Seller_Dataframe.columns = [Address_Column, Sells_Column]
+        Buyer_Dataframe.columns = [Address_Column, Buys_Column]
 
-        #Note Rename the columns
-        result.columns = ["Address", "Sell", "Buy"] 
-        result.eval('Total = Sell + Buy', inplace=True)
+        #Note Combine both Dataframe and fill the NaN values with 0
+        self._Dataframe = panda.merge(Seller_Dataframe, Buyer_Dataframe, on=Address_Column, how='outer').fillna(0)
 
-        #Note Group by address and sum the other columns
-        aggregation_functions = {'Address': 'first', 'Sell': 'sum', 'Buy': 'sum', "Total": "sum"}
-        result = result.groupby('Address', as_index=False).aggregate(aggregation_functions).reindex(columns=result.columns)
+        #Note Get the total transactions an address has done
+        self._Dataframe['Transaction Count'] = self._Dataframe[Sells_Column] + self._Dataframe[Buys_Column]
 
-        return result
+        #Note Shorten the string so the x-axis looks better
+        self._Dataframe[Address_Column] = self._Dataframe[Address_Column].str.slice(0,8)
 
 
 
