@@ -21,7 +21,7 @@ class Heatmap(Graph_Factory):
                     colorscale='algae',
 
                     #Note Changes on hover text. <br> makes it go to next line, don't space after <br>
-                    hovertemplate='Month-Year: %{x}<br>Weekday: %{y}<br>Volume: %{z} ETH<extra></extra>',
+                    hovertemplate='Month-Year: %{x}<br>Day of Week: %{y}<br>Volume: %{z} ETH<extra></extra>',
 
                     #Note colorbar is the legend
                     colorbar={"title": "Volume"}
@@ -31,14 +31,13 @@ class Heatmap(Graph_Factory):
         self.Plotly_Graph.update_yaxes(autorange="reversed")
 
         self.Plotly_Graph.update_layout(
-                        title="Volume by Month",
+                        title="Monthly Volume",
                         title_x=0.5,
                         xaxis_title="Month-Year",
-                        yaxis_title="Weekday",
+                        yaxis_title="Day of Week",
 
                         #Note Get rid or margin to enlargen graph
                         margin=dict(l=0, r=0, t=25, b=0)
                         )
 
-        self.Plotly_Graph.update_layout(width=1580, 
-                            height=700)
+        self.Plotly_Graph.update_layout(width=1580, height=700)
