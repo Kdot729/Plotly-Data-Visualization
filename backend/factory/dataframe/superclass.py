@@ -73,3 +73,9 @@ class Dataframe(ABC):
     
     def Group_By_and_Sum(self, Group_By_Columns, Boolean_Sort=True):
         return self._Dataframe.groupby(Group_By_Columns, sort=Boolean_Sort).sum(self.ETH_Column).reset_index()
+    
+    def Set_Pandas_Options(self):
+        panda.set_option('display.max_rows', None)
+        panda.set_option('display.max_columns', None)
+        panda.set_option('display.width', None)
+        panda.set_option('display.max_colwidth', None)
