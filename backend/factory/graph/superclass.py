@@ -36,7 +36,7 @@ class Graph_Factory(ABC):
             case "scatter":
                 return scatter.Scatter(Tool, Scatter_Dataframe.Scatter(Tool))
             case "transaction":
-                return transaction.Transaction(Tool, Transaction_Dataframe(Tool))
+                return transaction.Transaction(Tool, Transaction_Dataframe.Transaction(Tool))
             case "volume":
                 return volume.Volume(Tool, Volume_Dataframe.Volume(Tool))
             case "heatmap":
