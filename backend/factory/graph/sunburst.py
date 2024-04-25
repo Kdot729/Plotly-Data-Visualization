@@ -8,9 +8,9 @@ class Sunburst(Graph_Factory):
 
     def Create_Plotly(self):
 
-        self.plotly_graph = make_subplots(1, 2, specs=[[{"type": "domain"}, {"type": "domain"}]])
+        self.Plotly_Graph = make_subplots(1, 2, specs=[[{"type": "domain"}, {"type": "domain"}]])
 
-        self.plotly_graph.add_trace(plotGO.Sunburst(
+        self.Plotly_Graph.add_trace(plotGO.Sunburst(
             labels=self.Dataframe_Object.Dataframe["ID"],
             parents=self.Dataframe_Object.Dataframe["Parent"],
             values=self.Dataframe_Object.Dataframe["Value"],
@@ -22,7 +22,7 @@ class Sunburst(Graph_Factory):
             name='',
             # level=''
             ), 1, 1)
-        self.plotly_graph.update_layout(title="Volume", 
+        self.Plotly_Graph.update_layout(title="Volume", 
                             title_x=0.2, 
                             width=1580, 
                             height=750)

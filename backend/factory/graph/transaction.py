@@ -11,4 +11,4 @@ class Transaction(Graph_Factory):
         self.Dataframe = Transaction_Dataframe.Create_Transaction_Dataframe(self.Dataframe)
 
     def Create_Plotly(self):
-        self.plotly_graph = Transaction_Plotly.Create_Transaction_Graph(self.Dataframe, self.columns_name["Inequality Column"])
+        self.Plotly_Graph = Transaction_Plotly.Create_Transaction_Graph(self.Dataframe, self.columns_name["Inequality Column"])

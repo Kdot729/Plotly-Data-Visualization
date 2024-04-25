@@ -12,7 +12,7 @@ class Volume(Graph_Factory):
         #Note Reverse the list so the start of trading is at the bottom
         y_axis = (self.Dataframe_Object._Dataframe[self.Dataframe_Object.Month_Year_Column].tolist())[::-1]
 
-        self.plotly_graph = plotlyX.bar(self.Dataframe_Object._Dataframe, 
+        self.Plotly_Graph = plotlyX.bar(self.Dataframe_Object._Dataframe, 
                         x=self.Dataframe_Object.ETH_Column, 
                         y=self.Dataframe_Object.Month_Year_Column, 
                         color=self.Dataframe_Object.Day_Column, 
@@ -26,9 +26,9 @@ class Volume(Graph_Factory):
                                 })
 
         #Note Create title for graph and center it
-        self.plotly_graph.update_layout(title_text="Volume", title_x=0.5)
+        self.Plotly_Graph.update_layout(title_text="Volume", title_x=0.5)
 
-        self.plotly_graph.update_layout(legend={
+        self.Plotly_Graph.update_layout(legend={
                         #Note Change position of legend to be inside the graph
                         "yanchor": "top",
                         "y": 1,
@@ -40,7 +40,7 @@ class Volume(Graph_Factory):
                         "bordercolor": "black",
                         "borderwidth": 1
                         })
-        self.plotly_graph.update_layout(width=1580, 
+        self.Plotly_Graph.update_layout(width=1580, 
                             height=750)
 
-        self.plotly_graph
+        self.Plotly_Graph

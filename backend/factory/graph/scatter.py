@@ -7,7 +7,7 @@ class Scatter(Graph_Factory):
         super().__init__(Tool, Dataframe_Object)
     def Create_Plotly(self):
             
-        self.plotly_graph = plotlyX.scatter(self.Dataframe_Object.Dataframe,
+        self.Plotly_Graph = plotlyX.scatter(self.Dataframe_Object.Dataframe,
                             x =self.Dataframe_Object.Date_Column,
                             y=self.Dataframe_Object.ETH_Column,
                             # text=Type,
@@ -30,4 +30,4 @@ class Scatter(Graph_Factory):
         #     figure.update_traces(marker=dict(
         #     color='red'))
 
-        self.plotly_graph.update_layout(title_x=0.5)
+        self.Plotly_Graph.update_layout(title_x=0.5)

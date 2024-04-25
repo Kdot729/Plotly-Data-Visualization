@@ -7,7 +7,7 @@ class Heatmap(Graph_Factory):
 
     def Create_Plotly(self):
 
-        self.plotly_graph = plotGO.Figure(
+        self.Plotly_Graph = plotGO.Figure(
         data=plotGO.Heatmap(
                 #Note The z-axis is the volume
                 z=self.Dataframe_Object.axes_dictionary["z"],
@@ -33,9 +33,9 @@ class Heatmap(Graph_Factory):
                 ))
 
         #Note Reverse data. Make Monday's data appear at the top of graph and Sunday's data at the bottom
-        self.plotly_graph.update_yaxes(autorange="reversed")
+        self.Plotly_Graph.update_yaxes(autorange="reversed")
 
-        self.plotly_graph.update_layout(
+        self.Plotly_Graph.update_layout(
                         title="Volume by Month",
                         title_x=0.5,
                         xaxis_title="Month-Year",
@@ -45,5 +45,5 @@ class Heatmap(Graph_Factory):
                         margin=dict(l=0, r=0, t=25, b=0)
                         )
 
-        self.plotly_graph.update_layout(width=1580, 
+        self.Plotly_Graph.update_layout(width=1580, 
                             height=700)

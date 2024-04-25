@@ -48,7 +48,7 @@ class Graph_Factory(ABC):
         pass
 
     def Convert_Plotly_to_JSON(self):
-        self.graphJSON = json.dumps(obj=self.plotly_graph, cls=plotly.utils.PlotlyJSONEncoder)
+        self.graphJSON = json.dumps(obj=self.Plotly_Graph, cls=plotly.utils.PlotlyJSONEncoder)
 
     def Render_Graph(self):
         return render_template(template_name_or_list="graph.html", graphJSON=self.graphJSON, tool=self.Tool)
