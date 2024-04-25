@@ -20,7 +20,7 @@ class Sunburst(Dataframe):
 
     def Create_Sunburst_Dataframe(self):
 
-        Lowercase_Total = "total"
+        Total_Column = "Total"
         Column_Key = "Column"
         Dataframe_Key = "Dataframe"
 
@@ -31,7 +31,7 @@ class Sunburst(Dataframe):
 
         #Note This render the center of the sunburst
         #Important The ID (2nd index) has to be an empty string
-        Graph_Dataframe.loc[0] = [Lowercase_Total, "", Sum, Lowercase_Total.upper()]
+        Graph_Dataframe.loc[0] = [Total_Column.lower(), "", Sum, Total_Column]
 
         Dataframe_Array =   [
                                 {Dataframe_Key: self.Year_Dataframe, Column_Key: self.Year_Column},
@@ -50,7 +50,7 @@ class Sunburst(Dataframe):
 
                 if Dataframe_Column == self.Year_Column:
 
-                    Insert_Row = [Value, Lowercase_Total, ETH_Value, Value]
+                    Insert_Row = [Value, Total_Column.lower(), ETH_Value, Value]
 
                 elif Dataframe_Column == self.Month_Year_Column:
 
