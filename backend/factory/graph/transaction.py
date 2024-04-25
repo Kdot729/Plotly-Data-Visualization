@@ -3,8 +3,8 @@ import backend.factory.dataframe.transaction as Transaction_Dataframe, backend.g
 from backend.factory.graph.superclass import Graph_Factory
 class Transaction(Graph_Factory):
     
-    def __init__(self, Tool):
-        super().__init__(Tool)
+    def __init__(self, Tool, Dataframe_Object):
+        super().__init__(Tool, Dataframe_Object)
 
     def Create_Plotly(self):
         self.Plotly_Graph = Transaction_Plotly.Create_Transaction_Graph(self.Dataframe, self.columns_name["Inequality Column"])
