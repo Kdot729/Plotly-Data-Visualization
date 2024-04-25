@@ -13,18 +13,20 @@ class Sunburst(Graph_Factory):
         #Note Unpacking array
         ID_Column, Parent_Column, Value_Column, Text_Column = self.Dataframe_Object.Dataframe.columns
 
-        self.Plotly_Graph.add_trace(plotGO.Sunburst(
-            labels=self.Dataframe_Object.Dataframe[ID_Column],
-            parents=self.Dataframe_Object.Dataframe[Parent_Column],
-            values=self.Dataframe_Object.Dataframe[Value_Column],
-            branchvalues='total',
+        self.Plotly_Graph.add_trace(
+                plotGO.Sunburst(
+                                    labels=self.Dataframe_Object.Dataframe[ID_Column],
+                                    parents=self.Dataframe_Object.Dataframe[Parent_Column],
+                                    values=self.Dataframe_Object.Dataframe[Value_Column],
+                                    branchvalues='total',
 
-            insidetextorientation="radial",
-            # textinfo="label",
-            texttemplate=self.Dataframe_Object.Dataframe[Text_Column],
-            name='',
-            # level=''
-            ), 1, 1)
+                                    insidetextorientation="radial",
+                                    # textinfo="label",
+                                    texttemplate=self.Dataframe_Object.Dataframe[Text_Column],
+                                    name='',
+                                    # level=''
+                                ), 
+                                1, 1)
         
         self.Plotly_Graph.update_layout(title="Volume", title_x=0.2, 
                             width=self.Graph_Width, height=self.Graph_Height)
