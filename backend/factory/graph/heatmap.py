@@ -20,16 +20,11 @@ class Heatmap(Graph_Factory):
 
                 colorscale='algae',
 
-                #! For some reason texttemplate won't work on website but works when on local
-                #Note Put the volume amount inside the each box
-                texttemplate="%{z} ETH",
-
                 #Note Changes on hover text. <br> makes it go to next line, don't space after <br>
                 hovertemplate='Month-Year: %{x}<br>Weekday: %{y}<br>Volume: %{z} ETH<extra></extra>',
 
                 #Note colorbar is the legend
                 colorbar={"title": "Volume"}
-
                 ))
 
         #Note Reverse data. Make Monday's data appear at the top of graph and Sunday's data at the bottom
