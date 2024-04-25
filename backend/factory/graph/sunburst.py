@@ -10,15 +10,18 @@ class Sunburst(Graph_Factory):
 
         self.Plotly_Graph = make_subplots(1, 2, specs=[[{"type": "domain"}, {"type": "domain"}]])
 
+        #Note Unpacking array
+        ID_Column, Parent_Column, Value_Column, Text_Column = self.Dataframe_Object.Dataframe.columns
+
         self.Plotly_Graph.add_trace(plotGO.Sunburst(
-            labels=self.Dataframe_Object.Dataframe["ID"],
-            parents=self.Dataframe_Object.Dataframe["Parent"],
-            values=self.Dataframe_Object.Dataframe["Value"],
+            labels=self.Dataframe_Object.Dataframe[ID_Column],
+            parents=self.Dataframe_Object.Dataframe[Parent_Column],
+            values=self.Dataframe_Object.Dataframe[Value_Column],
             branchvalues='total',
 
             insidetextorientation="radial",
             # textinfo="label",
-            texttemplate=self.Dataframe_Object.Dataframe["Text"],
+            texttemplate=self.Dataframe_Object.Dataframe[Text_Column],
             name='',
             # level=''
             ), 1, 1)
