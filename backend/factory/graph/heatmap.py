@@ -31,13 +31,13 @@ class Heatmap(Graph_Factory):
         self.Plotly_Graph.update_yaxes(autorange="reversed")
 
         self.Plotly_Graph.update_layout(
-                        title="Monthly Volume",
-                        title_x=0.5,
-                        xaxis_title="Month-Year",
-                        yaxis_title="Day of Week",
+                                            title="Monthly Volume",
+                                            title_x=0.5,
+                                            xaxis_title="Month-Year",
+                                            yaxis_title="Day of Week",
 
-                        #Note Get rid or margin to enlargen graph
-                        margin=dict(l=0, r=0, t=25, b=0)
-                        )
+                                            width=self.Graph_Width, height=self.Graph_Height,
 
-        self.Plotly_Graph.update_layout(width=1580, height=700)
+                                            #Note Get rid of margin to give more room for graph
+                                            margin=dict(l=0, r=0, t=25, b=0)
+                                        )
