@@ -11,6 +11,8 @@ class Graph_Factory(ABC):
     Month_Number_Column = "Month Number"
     Weekday_Number_Column = "Weekday Number"
     Month_Year_Column = "Month Year"
+    Graph_Width = 1580
+    Graph_Height = 750
 
     def __init__(self, Tool, Dataframe_Object=None):
         self.Tool = Tool
