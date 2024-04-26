@@ -61,4 +61,9 @@ python -m flask --debug run
 ~~~ 
 
 ## With Docker
-
+- Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- Make sure Docker Desktop is running
+- Build the image and run the container
+~~~
+docker-compose up --build
+~~~
