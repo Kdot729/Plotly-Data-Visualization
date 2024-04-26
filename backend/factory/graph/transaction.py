@@ -8,11 +8,15 @@ class Transaction(Graph_Factory):
 
     def Create_Plotly(self):
 
-        self.Plotly_Graph = plotlyX.bar(
-                                        self.Dataframe_Object._Dataframe, 
-                                        x="Address", 
-                                        y="Transaction Count",
-                                        title="Transactions Per Address"
-                                        )
+        Address_Column, Transction_Column, Count_Column = self.Dataframe_Object.Dataframe.columns
+
+        #Note Using long format to create stacked bars
+        self.Plotly_Graph = plotlyX.bar(self.Dataframe_Object._Dataframe, x=Address_Column, y=Count_Column, color=Transction_Column, 
+                                        title="Sold/Bought",
+                                        barmode="stack", text_auto=True, 
+                                        
+                                        #Note Red is for "Sold", green is for "bought"
+                                        color_discrete_sequence=["#d71a09", "#2ddc0e"])
+        
         self.Plotly_Graph.update_layout(title_x=0.5)
         self.Plotly_Graph.update_xaxes(tickfont_size=7)
