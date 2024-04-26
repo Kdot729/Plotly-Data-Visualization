@@ -23,6 +23,8 @@ class Sunburst(Graph_Factory):
                                     insidetextorientation="radial",
                                     # textinfo="label",
                                     texttemplate=self.Dataframe_Object.Dataframe[Text_Column],
+                                    
+                                    #Note name removes the extra box to the side when you hover
                                     name='',
                                     # level=''
                                 ), 
