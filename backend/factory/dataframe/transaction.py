@@ -7,31 +7,31 @@ class Transaction(Dataframe):
         self.Finish_Dataframe()
 
     def Finish_Dataframe(self):
+
         Address_Column = "Address"
-        Buys_Column = "Buys"
-        Sells_Column = "Sells"
+        Bought_Column = "Bought"
+        Sold_Column = "Sold"
 
         #Note Count their transaction in their corresponding columns
-        Count_Sells = self.Dataframe["Seller"].value_counts()
-        Count_Buys =  self.Dataframe["Buyer"].value_counts()
+        Count_Sold = self.Dataframe["Seller"].value_counts()
+        Count_Bought =  self.Dataframe["Buyer"].value_counts()
 
         #Note Make so the index is also a column which is the address
-        Seller_Dataframe = Count_Sells.to_frame().reset_index(level=0)
-        Buyer_Dataframe = Count_Buys.to_frame().reset_index(level=0)
+        Seller_Dataframe = Count_Sold.to_frame().reset_index(level=0)
+        Buyer_Dataframe = Count_Bought.to_frame().reset_index(level=0)
 
         #Note Renaming columns
-        Seller_Dataframe.columns = [Address_Column, Sells_Column]
-        Buyer_Dataframe.columns = [Address_Column, Buys_Column]
+        Seller_Dataframe.columns = [Address_Column, Sold_Column]
+        Buyer_Dataframe.columns = [Address_Column, Bought_Column]
 
-        #Note Combine both Dataframe and fill the NaN values with 0
-        self._Dataframe = panda.merge(Seller_Dataframe, Buyer_Dataframe, on=Address_Column, how='outer').fillna(0)
+        #Note Join both dataframe on index "Address". Fill NaN values with 0
+        self._Dataframe = Seller_Dataframe.set_index(Address_Column).join(Buyer_Dataframe.set_index(Address_Column)).reset_index(level=0).fillna(0)
 
-        #Note Get the total transactions an address has done
-        self._Dataframe['Transaction Count'] = self._Dataframe[Sells_Column] + self._Dataframe[Buys_Column]
+        #Note Convert data from wide format to long format
+        self._Dataframe = panda.melt(self._Dataframe, id_vars=[Address_Column], value_vars=[Sold_Column, Bought_Column])
 
-        #Note Shorten the string so the x-axis looks better
-        self._Dataframe[Address_Column] = self._Dataframe[Address_Column].str.slice(0,8)
-
+        #Note Rename columns
+        self._Dataframe.columns = [Address_Column, "Transaction", "Count"]
 
 
 
