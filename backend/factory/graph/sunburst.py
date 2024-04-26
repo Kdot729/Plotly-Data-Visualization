@@ -24,6 +24,8 @@ class Sunburst(Graph_Factory):
                                     # textinfo="label",
                                     texttemplate=self.Dataframe_Object.Dataframe[Text_Column],
                                     
+                                    hovertemplate='<b>%{label}</b><br> Volume: %{value} ETH',
+
                                     #Note name removes the extra box to the side when you hover
                                     name='',
                                     # level=''
