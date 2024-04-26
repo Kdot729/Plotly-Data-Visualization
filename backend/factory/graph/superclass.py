@@ -1,7 +1,6 @@
-import json, plotly, pandas as panda
+import json, plotly
 from abc import ABC, abstractmethod
 from flask import render_template
-from datetime import datetime
 
 class Graph_Factory(ABC):
 
