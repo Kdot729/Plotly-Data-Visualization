@@ -8,7 +8,7 @@ class Sunburst(Graph_Factory):
 
     def Create_Plotly(self):
 
-        self.Plotly_Graph = make_subplots(1, 2, specs=[[{"type": "domain"}, {"type": "domain"}]])
+        self.Plotly_Graph = make_subplots(specs=[[{"type": "domain"}]])
 
         #Note Unpacking array
         ID_Column, Parent_Column, Value_Column, Text_Column = self.Dataframe_Object.Dataframe.columns
@@ -29,8 +29,7 @@ class Sunburst(Graph_Factory):
                                     #Note name removes the extra box to the side when you hover
                                     name='',
                                     # level=''
-                                ), 
-                                1, 1)
+                                ))
         
         self.Plotly_Graph.update_layout(title="Volume", title_x=0.2, 
                             width=self.Graph_Width, height=self.Graph_Height)
