@@ -31,5 +31,5 @@ class Sunburst(Graph_Factory):
                                     # level=''
                                 ))
         
-        self.Plotly_Graph.update_layout(title="Volume", title_x=0.2, 
+        self.Plotly_Graph.update_layout(title="Volume", title_x=0.5, 
                             width=self.Graph_Width, height=self.Graph_Height)
