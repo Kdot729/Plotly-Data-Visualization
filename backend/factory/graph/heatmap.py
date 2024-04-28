@@ -8,17 +8,17 @@ class Heatmap(Graph_Factory):
     def Create_Plotly(self):
 
         Heatmap = plotGO.Heatmap(
-                                #Note The z-axis is the volume
-                                z=self.Dataframe_Object.axes_dictionary["z"],
-
                                 #Note X-axis is the month-year
                                 x=self.Dataframe_Object.axes_dictionary["x"],
 
                                 #Note Y-axis is the day of the week
                                 y=self.Dataframe_Object.axes_dictionary["y"],
 
-                                colorscale='algae',
+                                #Note The z-axis is the volume
+                                z=self.Dataframe_Object.axes_dictionary["z"],
 
+                                colorscale='PuBu',
+                                
                                 #Note Changes on hover text. <br> makes it go to next line, don't space after <br>
                                 hovertemplate='Month-Year: %{x}<br>Day of Week: %{y}<br>Volume: %{z} ETH<extra></extra>',
 
