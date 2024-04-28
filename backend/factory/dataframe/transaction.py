@@ -30,6 +30,9 @@ class Transaction(Dataframe):
         #Note Convert data from wide format to long format
         self._Dataframe = panda.melt(self._Dataframe, id_vars=[Address_Column], value_vars=[Sold_Column, Bought_Column])
 
+        #Note Slicing the address strings because they're too long
+        self._Dataframe[Address_Column] = self._Dataframe[Address_Column].str[:8]
+
         #Note Rename columns
         self._Dataframe.columns = [Address_Column, "Transaction", "Count"]
 
