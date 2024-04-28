@@ -9,7 +9,7 @@ class Sunburst(Dataframe):
         self.Finish_Dataframe()
 
     def Finish_Dataframe(self):
-        self.Call_Multiple_Functions_for_Dataframe("%w", "%m", "%Y")
+        self.Call_Multiple_Functions_for_Dataframe()
         self.Year_Dataframe = self.Group_By_and_Sum(self.Year_Column)
         self.Month_Year_Dataframe = self.Group_By_and_Sum(self.Month_Year_Column)
         self._Dataframe = self.Create_Sunburst_Dataframe()
