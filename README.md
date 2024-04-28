@@ -4,7 +4,9 @@
 - Project Description
 - Installation
     - Without Docker
-    - With Docker
+        - [Mac/Linux](#L26)
+        - [Windows](#L47)
+    - [With Docker](#L68)
 
 ---
 
