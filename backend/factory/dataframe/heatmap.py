@@ -37,13 +37,7 @@ class Heatmap(Dataframe):
         #Note y_axis is the weekday as a number
         Days_of_Week =["Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday"]
 
-        Z_Axis = []
+        #Note Put each row into a 2D array
+        Monthly_Day_of_Week_Volume = self._Dataframe.values.tolist()
 
-        for index, Row in self._Dataframe.iterrows():
-                #Note Get all the values of a row and convert it to a list
-                Monthly_Day_of_Week_Volume = Row.values.tolist()
-
-                #Note Put the Monthly_Day_of_Week_Volume into Z_Axis to make a 2D array
-                Z_Axis.append(Monthly_Day_of_Week_Volume)
-
-        return {"x": List_of_Month_Years, "y": Days_of_Week, "z": Z_Axis}
+        return {"x": List_of_Month_Years, "y": Days_of_Week, "z": Monthly_Day_of_Week_Volume}
