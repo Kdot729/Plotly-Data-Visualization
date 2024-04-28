@@ -35,7 +35,7 @@ class Heatmap(Graph_Factory):
 
         self.Plotly_Graph.update_layout(
                                             title=Title,
-                                            title_x=0.5,
+                                            title_x=self.Center_X_Title,
                                             xaxis_title="Month-Year",
                                             yaxis_title="Day of Week",
 

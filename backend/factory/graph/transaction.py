@@ -18,5 +18,5 @@ class Transaction(Graph_Factory):
                                         #Note Red is for "Sold", green is for "bought"
                                         color_discrete_sequence=["#d71a09", "#2ddc0e"])
         
-        self.Plotly_Graph.update_layout(title_x=0.5)
+        self.Plotly_Graph.update_layout(title_x=self.Center_X_Title)
         self.Plotly_Graph.update_xaxes(tickfont_size=7)

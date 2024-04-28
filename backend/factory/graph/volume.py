@@ -25,11 +25,11 @@ class Volume(Graph_Factory):
                                                             self.Dataframe_Object.Month_Year_Column: y_axis
                                                         }
                                         )
-
+        
         self.Plotly_Graph.update_layout(width=self.Graph_Width, height=self.Graph_Height,
                                         
                                         #Note Create title for graph and center it
-                                        title_text="Volume", title_x=0.5,
+                                        title_text="Volume", title_x=self.Center_X_Title,
                                         
                                         legend={
                                                     #Note Change position of legend to be inside the graph

@@ -12,6 +12,7 @@ class Graph_Factory(ABC):
     Month_Year_Column = "Month Year"
     Graph_Width = 1580
     Graph_Height = 750
+    Center_X_Title = 0.5
 
     def __init__(self, Tool, Dataframe_Object=None):
         self.Tool = Tool

@@ -30,4 +30,4 @@ class Scatter(Graph_Factory):
         #     figure.update_traces(marker=dict(
         #     color='red'))
 
-        self.Plotly_Graph.update_layout(title_x=0.5)
+        self.Plotly_Graph.update_layout(title_x=self.Center_X_Title)

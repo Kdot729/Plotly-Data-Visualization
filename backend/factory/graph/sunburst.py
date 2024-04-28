@@ -27,5 +27,5 @@ class Sunburst(Graph_Factory):
         
         self.Plotly_Graph = plotGO.Figure(Sunburst)
 
-        self.Plotly_Graph.update_layout(title="Volume", title_x=0.5, 
+        self.Plotly_Graph.update_layout(title="Volume", title_x=self.Center_X_Title, 
                             width=self.Graph_Width, height=self.Graph_Height)
