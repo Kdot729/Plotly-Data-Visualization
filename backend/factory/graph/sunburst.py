@@ -8,8 +8,6 @@ class Sunburst(Graph_Factory):
 
     def Create_Plotly(self):
 
-        self.Plotly_Graph = make_subplots(specs=[[{"type": "domain"}]])
-
         #Note Unpacking array
         ID_Column, Parent_Column, Value_Column, Text_Column, Color_Column = self.Dataframe_Object.Dataframe.columns
 
@@ -27,7 +25,7 @@ class Sunburst(Graph_Factory):
                                     marker=dict(colors=self.Dataframe_Object.Dataframe[Color_Column])
                                     )
         
-        self.Plotly_Graph.add_trace(Sunburst)
-        
+        self.Plotly_Graph = plotGO.Figure(Sunburst)
+
         self.Plotly_Graph.update_layout(title="Volume", title_x=0.5, 
                             width=self.Graph_Width, height=self.Graph_Height)
