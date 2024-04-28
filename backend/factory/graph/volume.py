@@ -19,7 +19,7 @@ class Volume(Graph_Factory):
                                         orientation='h',
                                         category_orders={
                                                             #Note Reorder the horizontal bars so "Monday" is first and "Sunday" is last
-                                                            self.Dataframe_Object.Day_Column: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                                                            self.Dataframe_Object.Day_Column: self.Dataframe_Object.Days_of_Week,
 
                                                             #Note This is to fix the y-axis because "February" is bugged
                                                             self.Dataframe_Object.Month_Year_Column: y_axis

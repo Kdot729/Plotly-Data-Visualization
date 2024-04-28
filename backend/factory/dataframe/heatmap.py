@@ -30,14 +30,10 @@ class Heatmap(Dataframe):
                                         #Note If day of week doesn't have any volumne then fill it with 0
                                         fill_value=0)
 
-
         #Note Changing the column order so Oct-2021 is first
         self._Dataframe = self._Dataframe[List_of_Month_Years]
-
-        #Note y_axis is the weekday as a number
-        Days_of_Week =["Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday"]
 
         #Note Put each row into a 2D array
         Monthly_Day_of_Week_Volume = self._Dataframe.values.tolist()
 
-        return {"x": List_of_Month_Years, "y": Days_of_Week, "z": Monthly_Day_of_Week_Volume}
+        return {"x": List_of_Month_Years, "y": self.Days_of_Week, "z": Monthly_Day_of_Week_Volume}

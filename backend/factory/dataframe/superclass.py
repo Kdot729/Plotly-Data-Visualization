@@ -10,7 +10,8 @@ class Dataframe(ABC):
     Month_Number_Column = "Month Number"
     Weekday_Number_Column = "Weekday Number"
     Month_Year_Column = "Month Year"
-
+    Days_of_Week =["Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday"]
+    
     def __init__(self, Tool):
         self.Tool = Tool
         self.Create_Dataframe()
