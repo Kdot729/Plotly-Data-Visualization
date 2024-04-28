@@ -13,8 +13,11 @@ Program uses Plotly to create data visualizations for NFT sales from 10KTF
 
 # Installation
 - This program ran on python 3.12.0
-- Using an older version of python might not work because their might be package conflicts
-- Either manually install the packages, download version 3.12.0 or use Docker
+- Using an older version of python might not work because their might be package conflicts with requirements.txt
+- Either download python 3.12.0, use Docker or install the packages without using requirements.txt with
+~~~
+python -m pip install flask pandas plotly
+~~~
 
 ## Without Docker
 
