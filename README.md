@@ -34,7 +34,7 @@ source .venv/bin/activate
 
 - Install packages
 ~~~
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ~~~
 
 - Run flask in debug mode
@@ -55,7 +55,7 @@ python -m venv .venv
 
 - Install packages
 ~~~
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ~~~
 
 - Run flask in debug mode
