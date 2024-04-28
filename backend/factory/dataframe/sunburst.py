@@ -24,14 +24,15 @@ class Sunburst(Dataframe):
         Column_Key = "Column"
         Dataframe_Key = "Dataframe"
 
-        Graph_Dataframe = panda.DataFrame(columns=["ID", "Parent", "Value", "Text"])
+        Graph_Dataframe = panda.DataFrame(columns=["ID", "Parent", "Value", "Text", "Color"])
 
         #Note Doesn't matter which dataframe we sum
         Sum = self.Year_Dataframe[self.ETH_Column].sum()
 
         #Note This render the center of the sunburst
+        #Note Root node is white
         #Important The ID (2nd index) has to be an empty string
-        Graph_Dataframe.loc[0] = [Total_Column.lower(), "", Sum, Total_Column]
+        Graph_Dataframe.loc[0] = [Total_Column.lower(), "", Sum, Total_Column, "#ffffff"]
 
         Dataframe_Array =   [
                                 {Dataframe_Key: self.Year_Dataframe, Column_Key: self.Year_Column},
@@ -57,14 +58,21 @@ class Sunburst(Dataframe):
                     Parent_Value = Value[:4]
                     Text_Value = datetime.strptime(Value, '%Y-%m').strftime('%b')
 
-
                 elif Dataframe_Column == self.Date_Column:    
                     #Note Slicing "Date" value
                     Parent_Value = Value[:7]
                     Non_Zero_Padded_Day = datetime.strptime(Value, '%Y-%m-%d').strftime('%-d')
                     Text_Value = f"{Non_Zero_Padded_Day}th"
 
-                Insert_Row = [Value, Parent_Value, ETH_Value, Text_Value]
+                #Note Adding discrete color for each sector
+                if "2021" in Value:
+                    Discrete_Color = "rgb(42, 244, 234)"
+                elif "2022" in Value:
+                    Discrete_Color = "rgb(208, 34, 231)"
+                elif "2023" in Value:
+                    Discrete_Color = "rgb(230, 37, 146)"
+                
+                Insert_Row = [Value, Parent_Value, ETH_Value, Text_Value, Discrete_Color]
                 Dataframe_Index = len(Graph_Dataframe.index)
                 Graph_Dataframe.loc[Dataframe_Index] = Insert_Row
 
