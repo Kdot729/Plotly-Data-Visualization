@@ -76,6 +76,14 @@ class Dataframe(ABC):
     def Group_By_and_Sum(self, Group_By_Columns, Boolean_Sort=True):
         return self._Dataframe.groupby(Group_By_Columns, sort=Boolean_Sort).sum(self.ETH_Column).reset_index()
     
+
+    def Call_Multiple_Functions_for_Dataframe(self, Day_Format, Month_Format, Year_Format):
+        self.Truncate_Timestamp()
+        self.Sum_Grouped_ETH()
+        self.Reset_Dataframe_Index()
+        self.Seperate_Date_Into_Lists(Day_Format, Month_Format, Year_Format)
+        self.Insert_Date_Lists_into_Dataframe()
+    
     def Set_Pandas_Options(self):
         panda.set_option('display.max_rows', None)
         panda.set_option('display.max_columns', None)
