@@ -7,6 +7,8 @@ class Heatmap(Graph_Factory):
 
     def Create_Plotly(self):
 
+        Title = "Volume"
+
         Heatmap = plotGO.Heatmap(
                                 #Note X-axis is the month-year
                                 x=self.Dataframe_Object.axes_dictionary["x"],
@@ -23,7 +25,7 @@ class Heatmap(Graph_Factory):
                                 hovertemplate='Month-Year: %{x}<br>Day of Week: %{y}<br>Volume: %{z} ETH<extra></extra>',
 
                                 #Note colorbar is the legend
-                                colorbar={"title": "Volume"}
+                                colorbar={"title": Title}
                                 )
         
         self.Plotly_Graph = plotGO.Figure(data=Heatmap)
@@ -32,7 +34,7 @@ class Heatmap(Graph_Factory):
         self.Plotly_Graph.update_yaxes(autorange="reversed")
 
         self.Plotly_Graph.update_layout(
-                                            title="Monthly Volume",
+                                            title=Title,
                                             title_x=0.5,
                                             xaxis_title="Month-Year",
                                             yaxis_title="Day of Week",
