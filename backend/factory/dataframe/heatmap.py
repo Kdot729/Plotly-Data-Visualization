@@ -20,14 +20,14 @@ class Heatmap(Dataframe):
     def Create_Heatmap_Dataframe(self):
 
         #Note Get the list of "Month Year" to use to reorder DataFrame columns
-        columns_list = self._Dataframe["Month Year"].drop_duplicates().tolist()
+        columns_list = self._Dataframe[self.Month_Year_Column].drop_duplicates().tolist()
 
         self._Dataframe = panda.pivot_table(self._Dataframe, 
-                                        values='ETH', 
-                                        index=["Weekday Number"],
-                                        columns=["Month Year"], 
+                                        values=self.ETH_Column, 
+                                        index=self.Weekday_Number_Column,
+                                        columns=self.Month_Year_Column, 
 
-                                        #Note If a weekday didn't have any volumne use a zero
+                                        #Note If day of week doesn't have any volumne then fill it with 0
                                         fill_value=0)
 
 
