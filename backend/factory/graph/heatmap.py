@@ -7,25 +7,26 @@ class Heatmap(Graph_Factory):
 
     def Create_Plotly(self):
 
-        self.Plotly_Graph = plotGO.Figure(
-            data=plotGO.Heatmap(
-                    #Note The z-axis is the volume
-                    z=self.Dataframe_Object.axes_dictionary["z"],
+        Heatmap = plotGO.Heatmap(
+                                #Note The z-axis is the volume
+                                z=self.Dataframe_Object.axes_dictionary["z"],
 
-                    #Note X-axis is the month-year
-                    x=self.Dataframe_Object.axes_dictionary["x"],
+                                #Note X-axis is the month-year
+                                x=self.Dataframe_Object.axes_dictionary["x"],
 
-                    #Note Y-axis is the day of the week
-                    y=self.Dataframe_Object.axes_dictionary["y"],
+                                #Note Y-axis is the day of the week
+                                y=self.Dataframe_Object.axes_dictionary["y"],
 
-                    colorscale='algae',
+                                colorscale='algae',
 
-                    #Note Changes on hover text. <br> makes it go to next line, don't space after <br>
-                    hovertemplate='Month-Year: %{x}<br>Day of Week: %{y}<br>Volume: %{z} ETH<extra></extra>',
+                                #Note Changes on hover text. <br> makes it go to next line, don't space after <br>
+                                hovertemplate='Month-Year: %{x}<br>Day of Week: %{y}<br>Volume: %{z} ETH<extra></extra>',
 
-                    #Note colorbar is the legend
-                    colorbar={"title": "Volume"}
-                    ))
+                                #Note colorbar is the legend
+                                colorbar={"title": "Volume"}
+                                )
+        
+        self.Plotly_Graph = plotGO.Figure(data=Heatmap)
 
         #Note Reverse data. Make Monday's data appear at the top of graph and Sunday's data at the bottom
         self.Plotly_Graph.update_yaxes(autorange="reversed")
