@@ -11,13 +11,13 @@ class Heatmap(Graph_Factory):
 
         Heatmap = plotGO.Heatmap(
                                 #Note X-axis is the month-year
-                                x=self.Dataframe_Object.axes_dictionary["x"],
+                                x=self.Dataframe_Object.Heatmap_Axes["X"],
 
                                 #Note Y-axis is the day of the week
-                                y=self.Dataframe_Object.axes_dictionary["y"],
+                                y=self.Dataframe_Object.Heatmap_Axes["Y"],
 
                                 #Note The z-axis is the volume
-                                z=self.Dataframe_Object.axes_dictionary["z"],
+                                z=self.Dataframe_Object.Heatmap_Axes["Z"],
 
                                 colorscale='PuBu',
                                 

@@ -11,7 +11,7 @@ class Heatmap(Dataframe):
     def Finish_Dataframe(self):
         self.Call_Multiple_Functions_for_Dataframe()
         self._Dataframe = self.Group_By_and_Sum([self.Year_Column, self.Month_Number_Column, self.Weekday_Number_Column, self.Month_Year_Column], False)
-        self.axes_dictionary = self.Create_Heatmap_Dataframe()
+        self.Heatmap_Axes = self.Create_Heatmap_Dataframe()
 
     def Create_Heatmap_Dataframe(self):
 
@@ -32,4 +32,4 @@ class Heatmap(Dataframe):
         #Note Put each row into a 2D array
         Monthly_Day_of_Week_Volume = self._Dataframe.values.tolist()
 
-        return {"x": List_of_Month_Years, "y": self.Days_of_Week, "z": Monthly_Day_of_Week_Volume}
+        return {"X": List_of_Month_Years, "Y": self.Days_of_Week, "Z": Monthly_Day_of_Week_Volume}
