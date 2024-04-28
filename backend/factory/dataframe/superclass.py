@@ -76,8 +76,7 @@ class Dataframe(ABC):
     def Group_By_and_Sum(self, Group_By_Columns, Boolean_Sort=True):
         return self._Dataframe.groupby(Group_By_Columns, sort=Boolean_Sort).sum(self.ETH_Column).reset_index()
     
-
-    def Call_Multiple_Functions_for_Dataframe(self, Day_Format, Month_Format, Year_Format):
+    def Call_Multiple_Functions_for_Dataframe(self, Day_Format="%w", Month_Format="%m", Year_Format="%Y"):
         self.Truncate_Timestamp()
         self.Sum_Grouped_ETH()
         self.Reset_Dataframe_Index()
