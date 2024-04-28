@@ -20,7 +20,7 @@ class Heatmap(Dataframe):
     def Create_Heatmap_Dataframe(self):
 
         #Note Get the list of "Month Year" to use to reorder DataFrame columns
-        columns_list = self._Dataframe[self.Month_Year_Column].drop_duplicates().tolist()
+        List_of_Month_Years = self._Dataframe[self.Month_Year_Column].drop_duplicates().tolist()
 
         self._Dataframe = panda.pivot_table(self._Dataframe, 
                                         values=self.ETH_Column, 
@@ -32,21 +32,18 @@ class Heatmap(Dataframe):
 
 
         #Note Changing the column order so Oct-2021 is first
-        self._Dataframe = self._Dataframe[columns_list]
+        self._Dataframe = self._Dataframe[List_of_Month_Years]
 
         #Note y_axis is the weekday as a number
-        #Delete? This is variable is in the graph.py
-        weekday_names_list =["Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday"]
+        Days_of_Week =["Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday"]
 
+        Z_Axis = []
 
-
-        z_axis = []
-
-        for index, row in self._Dataframe.iterrows():
+        for index, Row in self._Dataframe.iterrows():
                 #Note Get all the values of a row and convert it to a list
-                row_list = row.values.tolist()
+                Monthly_Day_of_Week_Volume = Row.values.tolist()
 
-                #Note Put the row_list into z_axis to make it a 2D array
-                z_axis.append(row_list)
+                #Note Put the Monthly_Day_of_Week_Volume into Z_Axis to make a 2D array
+                Z_Axis.append(Monthly_Day_of_Week_Volume)
 
-        return {"x": columns_list,"y": weekday_names_list, "z":z_axis}
+        return {"x": List_of_Month_Years, "y": Days_of_Week, "z": Z_Axis}
