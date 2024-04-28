@@ -49,22 +49,22 @@ class Sunburst(Dataframe):
                 Value = Row[Dataframe_Column]
 
                 if Dataframe_Column == self.Year_Column:
-
-                    Insert_Row = [Value, Total_Column.lower(), ETH_Value, Value]
+                    Parent_Value = Total_Column.lower()
+                    Text_Value = Value
 
                 elif Dataframe_Column == self.Month_Year_Column:
-
-                    Abbreviated_Month = datetime.strptime(Value, '%Y-%m').strftime('%b')
                     #Note Slicing "Month Year" value
-                    Insert_Row = [Value, Value[:4], ETH_Value, Abbreviated_Month]
+                    Parent_Value = Value[:4]
+                    Text_Value = datetime.strptime(Value, '%Y-%m').strftime('%b')
+
 
                 elif Dataframe_Column == self.Date_Column:    
-
-                    Non_Zero_Padded_Day = datetime.strptime(Value, '%Y-%m-%d').strftime('%-d')
-                    Nth_Day = f"{Non_Zero_Padded_Day}th"
                     #Note Slicing "Date" value
-                    Insert_Row = [Value, Value[:7], ETH_Value, Nth_Day]
+                    Parent_Value = Value[:7]
+                    Non_Zero_Padded_Day = datetime.strptime(Value, '%Y-%m-%d').strftime('%-d')
+                    Text_Value = f"{Non_Zero_Padded_Day}th"
 
+                Insert_Row = [Value, Parent_Value, ETH_Value, Text_Value]
                 Dataframe_Index = len(Graph_Dataframe.index)
                 Graph_Dataframe.loc[Dataframe_Index] = Insert_Row
 
