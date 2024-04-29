@@ -10,13 +10,13 @@ class Heatmap(Graph_Factory):
         Title = "Volume"
 
         Heatmap = plotGO.Heatmap(
-                                #Note X-axis is the month-year
+                                #Note X-axis is month-year
                                 x=self.Dataframe_Object.Heatmap_Axes["X"],
 
-                                #Note Y-axis is the day of the week
+                                #Note Y-axis is day of the week
                                 y=self.Dataframe_Object.Heatmap_Axes["Y"],
 
-                                #Note The z-axis is the volume
+                                #Note Z-axis is volume
                                 z=self.Dataframe_Object.Heatmap_Axes["Z"],
 
                                 colorscale='PuBu',
