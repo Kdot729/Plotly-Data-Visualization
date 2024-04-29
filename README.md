@@ -19,16 +19,6 @@
     </li>
 </ol>
 
-<!-- # Table of Contents
-- Project Description
-- Installation
-    - Without Docker
-        - [Mac/Linux](#L26)
-        - [Windows](#L47)
-    - [With Docker](#L68)
-
---- -->
-
 # Project Description
 Program uses Plotly to create data visualizations for NFT sales from 10KTF
 
